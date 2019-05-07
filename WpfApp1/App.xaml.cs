@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CottonOilFactory.OrderGUI.ViewModel
+namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for App.xaml

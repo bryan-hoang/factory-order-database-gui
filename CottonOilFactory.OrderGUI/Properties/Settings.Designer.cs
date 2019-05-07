@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CottonOilFactory.OrderGUI.UI.Properties {
+namespace CottonOilFactory.OrderGUI.Views.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

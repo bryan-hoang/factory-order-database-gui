@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CottonOilFactory.OrderGUI.UI
+namespace CottonOilFactory.OrderGUI.Views
 {
 
     /// <summary>
@@ -15,8 +15,8 @@ namespace CottonOilFactory.OrderGUI.UI
 
         private void InputTransportationData(object sender, RoutedEventArgs e)
         {
-            var transportDataInputWindow = new TransportDataInputWindow();
-            this.Close();
+            var transportDataInputWindow = new TransportationDataInputView();
+            Close();
             transportDataInputWindow.Show();
         }// end method
 
@@ -27,8 +27,8 @@ namespace CottonOilFactory.OrderGUI.UI
 
         private void InputSalesData(object sender, RoutedEventArgs e)
         {
-            var salesDataInputWindow = new SalesDataInputWindow();
-            this.Close();
+            var salesDataInputWindow = new SalesDataInputView();
+            Close();
             salesDataInputWindow.Show();
         }// end method
 

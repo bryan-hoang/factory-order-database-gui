@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace CottonOilFactory.OrderGUI.Data
+namespace CottonOilFactory.OrderGUI.Models
 {
-    public class SalesData : INotifyPropertyChanged
+    public class SalesDataModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
