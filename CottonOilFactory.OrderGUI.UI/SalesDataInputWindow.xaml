@@ -1,0 +1,77 @@
+﻿<Window x:Class="CottonOilFactory.OrderGUI.UI.SalesDataInputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CottonOilFactory.OrderGUI.UI"
+        mc:Ignorable="d"
+        Title="Sales Data Input" Height="450" Width="800">
+
+    <Grid Margin="10">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="9*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue" Content="Name of product:"/>
+        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">Name of buyer:</Label>
+        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue" Content="Weight per bag (kg):"/>
+        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">Price per bag (Rs):</Label>
+        <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">Number of bags:</Label>
+        <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">Total Cost (Rs):</Label>
+        <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">Payement method:</Label>
+        <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">Date of Sale:</Label>
+
+        <Label x:Name="productNameLabel" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Product Name (Placeholder)"/>
+        <TextBox x:Name="buyerTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Text="{Binding Path=Buyer, Mode=TwoWay}"/>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <RadioButton x:Name="fortyRadioButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">40</RadioButton>
+            <RadioButton x:Name="fiftySevenRadioButton" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">57</RadioButton>
+
+        </Grid>
+        <TextBox x:Name="pricePerBagTextBox" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"/>
+        <TextBox x:Name="numberOfBagsTextBox" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300"/>
+        <Label x:Name="totalCostLabel" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">0.00</Label>
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <RadioButton x:Name="cashRadioButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Cash</RadioButton>
+            <RadioButton x:Name="debitRadioButton" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Debit</RadioButton>
+
+        </Grid>
+        <DatePicker x:Name="dateOfSaleDatePicker" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="8" Grid.Column="1" Content="Insert progress pic/status bar"/>
+
+        <Button x:Name="confirmButton" Grid.Row="9" Grid.Column="2" Click="ConfirmButton_Click">Confirm Sales Data</Button>
+        <Button x:Name="goBackButton" Grid.Row="9" Grid.Column="0" Click="GoBackButton_Click">Go back</Button>
+
+    </Grid>
+
+</Window>
