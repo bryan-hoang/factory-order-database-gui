@@ -1,22 +1,23 @@
 ﻿using System.Windows;
-using CottonOilFactory.OrderGUI.Data;
+using CottonOilFactory.OrderGUI.Models;
+using Microsoft.Win32.SafeHandles;
 
-namespace CottonOilFactory.OrderGUI.UI
+namespace CottonOilFactory.OrderGUI.Views
 {
     /// <summary>
     /// Interaction logic for SalesDataConfirmWindow.xaml
     /// </summary>
-    public partial class SalesDataConfirmWindow : Window
+    public partial class SalesDataConfirmView : Window
     {
 
-        SalesData salesData;
+        SalesDataModel salesDataModel;
 
-        public SalesDataConfirmWindow() => InitializeComponent();
+        public SalesDataConfirmView() => InitializeComponent();
 
-        public SalesDataConfirmWindow(SalesData salesData)
+        public SalesDataConfirmView(SalesDataModel salesDataModel)
         {
             InitializeComponent();
-            this.salesData = salesData;
+            this.salesDataModel = salesDataModel;
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
@@ -26,7 +27,7 @@ namespace CottonOilFactory.OrderGUI.UI
 
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            this.Close();
         }
     }
 }

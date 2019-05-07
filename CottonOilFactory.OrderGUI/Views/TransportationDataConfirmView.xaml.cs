@@ -11,30 +11,30 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using CottonOilFactory.OrderGUI.Data;
+using CottonOilFactory.OrderGUI.Models;
 
-namespace CottonOilFactory.OrderGUI.UI
+namespace CottonOilFactory.OrderGUI.Views
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class TransportDataConfirmWindow : Window
+    public partial class TransportationDataConfirmView : Window
     {
-        private TransportationData transportationData;
+        private TransportationDataModel transportationDataModel;
 
-        public TransportDataConfirmWindow(TransportationData d, string quality)
+        public TransportationDataConfirmView(TransportationDataModel d, string quality)
         {
             InitializeComponent();
             Quality.Text = quality;
-            transportationData = d;
-            this.DataContext = transportationData;
+            transportationDataModel = d;
+            this.DataContext = transportationDataModel;
 
         }// end constructor
 
         // button to go back to make corrections
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var transportDataInputWindow= new TransportDataInputWindow(transportationData, Quality.Text);
+            var transportDataInputWindow= new TransportationDataInputView(transportationDataModel, Quality.Text);
             this.Close();
             transportDataInputWindow.Show();
         }// end method

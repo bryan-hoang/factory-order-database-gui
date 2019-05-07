@@ -1,23 +1,23 @@
 ﻿using System.Windows;
-using CottonOilFactory.OrderGUI.Data;
+using CottonOilFactory.OrderGUI.Models;
 
-namespace CottonOilFactory.OrderGUI.UI
+namespace CottonOilFactory.OrderGUI.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class TransportDataInputWindow : Window
+    public partial class TransportationDataInputView : Window
     {
-        private TransportationData transportationData;
+        private TransportationDataModel transportationDataModel;
 
         /// <summary>
         /// Creates the window for the first time when Transportation UI is selected
         /// </summary>
-        public TransportDataInputWindow()
+        public TransportationDataInputView()
         {
             InitializeComponent();
-            transportationData = new TransportationData { NameofSeller = null, TruckingCompany = null, Weight = null, Price = null, NumberOfBags = null, FreightCharges = null, ShipmentNumber = null, DateOfArrival = null};
-            this.DataContext = transportationData;
+            transportationDataModel = new TransportationDataModel { NameofSeller = null, TruckingCompany = null, Weight = null, Price = null, NumberOfBags = null, FreightCharges = null, ShipmentNumber = null, DateOfArrival = null};
+            this.DataContext = transportationDataModel;
 
         }// end method
 
@@ -26,26 +26,26 @@ namespace CottonOilFactory.OrderGUI.UI
         /// </summary>
         /// <param name="d">Data Binding file</param>
         /// <param name="quality">String to indicates the quality for the radio button</param>
-        public TransportDataInputWindow(TransportationData d, string quality)
+        public TransportationDataInputView(TransportationDataModel d, string quality)
         {
             InitializeComponent();
             if (quality.Equals("Bad"))
             {
                 bbadQuality.IsChecked = true;
-                transportationData = d;
-                this.DataContext = transportationData;
+                transportationDataModel = d;
+                this.DataContext = transportationDataModel;
             }// end if
             else if (quality.Equals("Medium"))
             {
                 mmediumQuality.IsChecked = true;
-                transportationData = d;
-                this.DataContext = transportationData;
+                transportationDataModel = d;
+                this.DataContext = transportationDataModel;
             }// end else if
             else if (quality.Equals("Good"))
             {
                 ggoodQuality.IsChecked = true;
-                transportationData = d;
-                this.DataContext = transportationData;
+                transportationDataModel = d;
+                this.DataContext = transportationDataModel;
             }// end else if
 
         }// end constructor
@@ -59,19 +59,19 @@ namespace CottonOilFactory.OrderGUI.UI
         {
             if(bbadQuality.IsChecked == true)
             {
-                var win1 = new TransportDataConfirmWindow(transportationData, bbadQuality.Content.ToString());
+                var win1 = new TransportationDataConfirmView(transportationDataModel, bbadQuality.Content.ToString());
                 this.Close();
                 win1.ShowDialog();
             }// end if
             else if(mmediumQuality.IsChecked == true)
             {
-                var win1 = new TransportDataConfirmWindow(transportationData, mmediumQuality.Content.ToString());
+                var win1 = new TransportationDataConfirmView(transportationDataModel, mmediumQuality.Content.ToString());
                 this.Close();
                 win1.ShowDialog();
             }// end else if
             else if(ggoodQuality.IsChecked == true)
             {
-                var win1 = new TransportDataConfirmWindow(transportationData, ggoodQuality.Content.ToString());
+                var win1 = new TransportationDataConfirmView(transportationDataModel, ggoodQuality.Content.ToString());
                 this.Close();
                 win1.ShowDialog();
             }// end else if

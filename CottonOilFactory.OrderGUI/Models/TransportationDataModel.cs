@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 
-namespace CottonOilFactory.OrderGUI.Data
+namespace CottonOilFactory.OrderGUI.Models
 {
-    public class TransportationData : INotifyPropertyChanged
+    public class TransportationDataModel : INotifyPropertyChanged
     {
         private string nameOfSeller;
         private string truckingCompany;

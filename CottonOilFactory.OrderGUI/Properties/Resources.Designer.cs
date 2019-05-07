@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CottonOilFactory.OrderGUI.UI.Properties {
+namespace CottonOilFactory.OrderGUI.Views.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CottonOilFactory.OrderGUI.UI.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CottonOilFactory.OrderGUI.UI.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CottonOilFactory.OrderGUI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
