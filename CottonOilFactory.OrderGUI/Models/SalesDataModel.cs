@@ -4,7 +4,6 @@ namespace CottonOilFactory.OrderGUI.Models
 {
     public class SalesDataModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public const string ProductName = "Product Name (Placeholder)";
 
@@ -12,13 +11,21 @@ namespace CottonOilFactory.OrderGUI.Models
         private int numberOfBags;
         private decimal totalCost;
 
+        /// <inheritdoc />
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string Buyer { get; set; }
 
-        public string PricePerBag {
+        public string PricePerBag
+        {
             get => pricePerBag.ToString();
+
             set
             {
-                if (decimal.TryParse(value, out decimal price) && price >= 0)  pricePerBag = price;
+                if (decimal.TryParse(value, out decimal price) && price >= 0)
+                {
+                    pricePerBag = price;
+                }
             }
         }
 
@@ -27,7 +34,10 @@ namespace CottonOilFactory.OrderGUI.Models
             get => numberOfBags.ToString();
             set
             {
-                if (int.TryParse(value, out int numBags) && numBags >= 0) numberOfBags = numBags;
+                if (int.TryParse(value, out int numBags) && numBags >= 0)
+                {
+                    numberOfBags = numBags;
+                }
             }
         }
 

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Transportation Data Confirmation"
-        Height="500"
-        Width="800">
+        Height="400"
+        Width="700">
 
-    <Grid>
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-            <ColumnDefinition Width="4*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="30*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+            <ColumnDefinition Width="20*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -71,11 +71,12 @@
                Grid.Row="7"
                HorizontalAlignment="Right"
                VerticalAlignment="Center">Shipment Number:</Label>
-        <Label Foreground="Blue"
-               Grid.Column="0"
+        <Label Content="Date of Arrival (y-m-d):"
                Grid.Row="8"
+               Grid.Column="0"
+               Foreground="Blue"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Date of Arrival:</Label>
+               VerticalAlignment="Center" />
         <Label Foreground="Blue"
                Grid.Column="0"
                Grid.Row="9"
@@ -86,60 +87,60 @@
                HorizontalAlignment="Center"
                VerticalAlignment="Center">Insert Picture:</Label>
 
-        <TextBlock Name="sellerName"
+        <TextBlock Text="{Binding Path= Seller, Mode=OneWay}"
                    Grid.Column="1"
                    Grid.Row="0"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Left"
-                   Text="{Binding Path= NameofSeller, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="truckingCompanyName"
+                   HorizontalAlignment="Left" />
+        <TextBlock Name="TruckingCompanyName"
                    Grid.Column="1"
                    Grid.Row="1"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=TruckingCompany, Mode=TwoWay}"></TextBlock>
+                   Text="{Binding Path=TruckingCompany, Mode=OneWay}"></TextBlock>
         <TextBlock Name="Quality"
-                   Grid.Row="2"
                    Grid.Column="1"
+                   Grid.Row="2"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Left" />
-        <TextBlock Name="weight"
+                   HorizontalAlignment="Left"
+                   Text="{Binding Path= Quality, Mode=OneWay}"></TextBlock>
+        <TextBlock Name="Weight"
                    Grid.Column="1"
                    Grid.Row="3"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=Weight, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="price"
+                   Text="{Binding Path=Weight, Mode=OneWay}"></TextBlock>
+        <TextBlock Name="Price"
                    Grid.Column="1"
                    Grid.Row="4"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=Price, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="numberOfBags"
+                   Text="{Binding Path=Price, Mode=OneWay}"></TextBlock>
+        <TextBlock Name="NumberOfBags"
                    Grid.Column="1"
                    Grid.Row="5"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=NumberofBags, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="freightCharges"
+                   Text="{Binding Path=NumberOfBags, Mode=OneWay}"></TextBlock>
+        <TextBlock Name="FreightCharges"
                    Grid.Column="1"
                    Grid.Row="6"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=FreightCharges, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="shipmentNumber"
+                   Text="{Binding Path=FreightCharges, Mode=OneWay}"></TextBlock>
+        <TextBlock Name="ShipmentNumber"
                    Grid.Column="1"
                    Grid.Row="7"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=ShipmentNumber, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="dateOfArrival"
+                   Text="{Binding Path=ShipmentNumber, Mode=OneWay}"></TextBlock>
+        <TextBlock Name="DateOfArrival"
                    Grid.Column="1"
                    Grid.Row="8"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=DateofArrival, Mode=TwoWay}"></TextBlock>
-        <TextBlock Name="totalCost"
+                   Text="{Binding Path=DateOfArrival, Mode=OneWay, StringFormat=yyyy-MM-dd}"></TextBlock>
+        <TextBlock Name="TotalCost"
                    Grid.Column="1"
                    Grid.Row="9"
                    VerticalAlignment="Center"
@@ -148,11 +149,11 @@
 
         <Button Grid.Column="0"
                 Grid.Row="11"
-                Click="Button_Click"
+                Click="GoBackToTransportationDataInputWindow"
                 IsEnabled="True">Go Back</Button>
         <Button Grid.Column="2"
                 Grid.Row="11"
-                Click="Button_Click_1"
+                Click="SqlWindow"
                 IsEnabled="True">Insert into DataSet</Button>
 
     </Grid>
