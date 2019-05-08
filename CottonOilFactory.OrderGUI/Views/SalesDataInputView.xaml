@@ -100,13 +100,15 @@
                          Grid.Column="0"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Center"
-                         Margin="0,0,20,0" />
+                         Margin="0,0,20,0"
+                         Click="{Binding Path=IsFortyKilograms, Mode=TwoWay }" />
             <RadioButton x:Name="FiftySevenRadioButton"
                          Content="57"
                          Grid.Column="1"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Center"
-                         Margin="20,0,0,0" />
+                         Margin="20,0,0,0"
+                         Click="{Binding Path=IsFiftySevenKilograms, Mode=TwoWay}" />
         </Grid>
         <TextBox x:Name="PricePerBagTextBox"
                  Grid.Row="3"
@@ -137,13 +139,15 @@
                          Grid.Column="0"
                          HorizontalAlignment="Right"
                          VerticalAlignment="Center"
-                         Margin="0,0,20,0" />
+                         Margin="0,0,20,0" 
+                         Click="{Binding Path=IsPayingByCash, Mode=TwoWay}"/>
             <RadioButton x:Name="DebitRadioButton"
                          Content="Debit"
                          Grid.Column="1"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Center"
-                         Margin="20,0,0,0" />
+                         Margin="20,0,0,0" 
+                         Click="{Binding Path=IsPayingByDebit, Mode=TwoWay}"/>
         </Grid>
         <DatePicker x:Name="DateOfSaleDatePicker"
                     Grid.Row="7"

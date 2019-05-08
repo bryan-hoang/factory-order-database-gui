@@ -5,54 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Home Window"
-        Height="450"
+        Height="500"
         Width="800">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="5*" />
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <Label Content="Kahloon Factory DataBase"
-               Grid.Row="0"
-               Grid.Column="1"
-               FontSize="20"
+        <Label FontSize="20"
                Foreground="Blue"
                VerticalAlignment="Bottom"
-               HorizontalAlignment="Center" />
+               HorizontalAlignment="Center"
+               Grid.Column="1">Kahloon Factory DataBase</Label>
 
-        <Button Content="Input Transportation Data"
-                Grid.Row="1"
+        <Button Name="InputTransportationDataButton"
+                Click="InputTransportationData"
                 Grid.Column="1"
-                Margin="25"
-                Click="InputTransportationData" />
+                Grid.Row="2">Input Transportation Data</Button>
 
-        <Button Content="Search Transportation Data"
-                Grid.Row="2"
+        <Button Name="SearchTransportationDataButton"
+                Click="SearchTransportationData"
                 Grid.Column="1"
-                Margin="25"
-                Click="SearchTransportationData" />
+                Grid.Row="4">Search Transportation Data</Button>
 
-        <Button Content="Input Sales Data"
-                Grid.Row="3"
+        <Button Name="InputSalesDataButton"
+                Click="InputSalesData"
                 Grid.Column="1"
-                Margin="25"
-                Click="InputSalesData" />
+                Grid.Row="6">Input Sales Data</Button>
 
-        <Button Content="Search Sales Data"
-                Grid.Row="4"
+        <Button Name="SearchSalesDataButton"
+                Click="SearchSalesData"
                 Grid.Column="1"
-                Margin="25"
-                Click="SearchSalesData" />
+                Grid.Row="8">Search Sales Data</Button>
 
     </Grid>
 </Window>

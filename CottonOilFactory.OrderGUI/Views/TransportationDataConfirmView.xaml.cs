@@ -1,48 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using CottonOilFactory.OrderGUI.Models;
 
 namespace CottonOilFactory.OrderGUI.Views
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
+    /// <inheritdoc cref="Window" />
     public partial class TransportationDataConfirmView : Window
     {
-        private TransportationDataModel transportationDataModel;
+        // field to pass transportationData to transportationData input window
+        private readonly TransportationDataModel transportationData;
 
-        public TransportationDataConfirmView(TransportationDataModel d, string quality)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransportationDataConfirmView"/> class.
+        /// Start up the window screen.
+        /// </summary>
+        /// <param name="transportationDataModel"></param>
+        public TransportationDataConfirmView(TransportationDataModel transportationDataModel)
         {
             InitializeComponent();
-            Quality.Text = quality;
-            transportationDataModel = d;
-            this.DataContext = transportationDataModel;
-
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.transportationData = transportationDataModel;
+            this.DataContext = transportationData;
         }// end constructor
 
-        // button to go back to make corrections
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button to go back to the previous window to make corrections.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GoBackToTransportationDataInputWindow(object sender, RoutedEventArgs e)
         {
-            var transportDataInputWindow= new TransportationDataInputView(transportationDataModel, Quality.Text);
             this.Close();
-            transportDataInputWindow.Show();
         }// end method
 
-        // button to make data sent to transportation object
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Button to make transportationData sent to SQL DataBase.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SqlWindow(object sender, RoutedEventArgs e)
         {
-
+            // will be done with SQL part
         }// end method
 
     }

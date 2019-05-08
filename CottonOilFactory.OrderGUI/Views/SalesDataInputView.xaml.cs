@@ -1,38 +1,38 @@
-﻿using System.Windows;
+﻿
+using System.Windows;
 using CottonOilFactory.OrderGUI.Models;
 
 namespace CottonOilFactory.OrderGUI.Views
 {
 
     /// <summary>
-    /// Interaction logic for Window2.xaml
+    /// Interaction logic for Window2.xaml.
     /// </summary>
     public partial class SalesDataInputView : Window
     {
 
-        private SalesDataModel salesDataModel;
+        private readonly SalesDataModel salesDataModel;
 
+        /// <inheritdoc />
         public SalesDataInputView()
         {
             InitializeComponent();
-            SalesDataModel salesDataModel = new SalesDataModel();
-            this.salesDataModel = salesDataModel;
-            this.DataContext = salesDataModel;
+            salesDataModel = new SalesDataModel();
+            DataContext = salesDataModel;
         }
 
+        /// <inheritdoc />
         public SalesDataInputView(SalesDataModel salesDataModel)
         {
             InitializeComponent();
             this.salesDataModel = salesDataModel;
-            this.DataContext = salesDataModel;
+            DataContext = salesDataModel;
         }
-
-
 
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = new MainWindow();
-            this.Close();
+            Close();
             mainWindow.Show();
         }
 

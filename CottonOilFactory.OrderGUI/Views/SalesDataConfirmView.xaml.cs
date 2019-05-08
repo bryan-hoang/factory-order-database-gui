@@ -1,19 +1,25 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using CottonOilFactory.OrderGUI.Models;
-using Microsoft.Win32.SafeHandles;
 
 namespace CottonOilFactory.OrderGUI.Views
 {
     /// <summary>
-    /// Interaction logic for SalesDataConfirmWindow.xaml
+    /// Interaction logic for SalesDataConfirmWindow.xaml.
     /// </summary>
     public partial class SalesDataConfirmView : Window
     {
+        private readonly SalesDataModel salesDataModel;
 
-        SalesDataModel salesDataModel;
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SalesDataConfirmView"/> class.
+        /// </summary>
         public SalesDataConfirmView() => InitializeComponent();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SalesDataConfirmView"/> class.
+        /// </summary>
+        /// <param name="salesDataModel"></param>
         public SalesDataConfirmView(SalesDataModel salesDataModel)
         {
             InitializeComponent();
@@ -22,12 +28,12 @@ namespace CottonOilFactory.OrderGUI.Views
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

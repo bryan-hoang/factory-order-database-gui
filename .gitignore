@@ -339,5 +339,14 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-#ReSharper
+# ReSharper
 *.DotSettings
+
+# StyleCop.Analyzers
+packages.config
+stylecop.json
+
+# Rulesets
+*.ruleset
+
+App.xaml.cs
