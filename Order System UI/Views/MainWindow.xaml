@@ -1,21 +1,19 @@
-﻿<Window x:Class="Order_System_UI.HomeWindow"
+﻿<Window x:Class="Order_System_UI.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Order_System_UI"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="500" Width="800">
+        Title="Home Window"
+        Height="500"
+        Width="800">
     <Grid>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
-            
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -26,18 +24,33 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            
         </Grid.RowDefinitions>
 
-        <Label FontSize="20" Foreground="Blue"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Column="1">Kahloon Factory DataBase</Label>
+        <Label FontSize="20"
+               Foreground="Blue"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Center"
+               Grid.Column="1">Kahloon Factory DataBase</Label>
 
-        <Button Name="inputTransportationData" Click="InputTranportationData" Grid.Column="1" Grid.Row="2">Input Transportation Data</Button>
+        <Button Name="InputTransportationDataButton"
+                Click="InputTransportationData"
+                Grid.Column="1"
+                Grid.Row="2">Input Transportation Data</Button>
 
-        <Button Name="searchTransportationData" Click="SearchTransportationData" Grid.Column="1" Grid.Row="4">Search Transpoartation Data</Button>
+        <Button Name="SearchTransportationDataButton"
+                Click="SearchTransportationData"
+                Grid.Column="1"
+                Grid.Row="4">Search Transportation Data</Button>
 
-        <Button Name="inputSalesData" Click="InputSalesData" Grid.Column="1" Grid.Row="6">Input Sales Data</Button>
+        <Button Name="InputSalesDataButton"
+                Click="InputSalesData"
+                Grid.Column="1"
+                Grid.Row="6">Input Sales Data</Button>
 
-        <Button Name="searchSalesData" Click="SearchSalesData" Grid.Column="1" Grid.Row="8">Search Sales Data</Button>
+        <Button Name="SearchSalesDataButton"
+                Click="SearchSalesData"
+                Grid.Column="1"
+                Grid.Row="8">Search Sales Data</Button>
 
     </Grid>
 </Window>

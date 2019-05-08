@@ -1,57 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
-namespace Order_System_UI
+namespace Order_System_UI.Views
 {
-
-
-    public partial class HomeWindow : Window
+    /// <inheritdoc cref="Window" />
+    public partial class MainWindow : Window
     {
         /// <summary>
-        /// Start up the Home Window
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// Start up the Home Window.
         /// </summary>
-        public HomeWindow()
+        public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         /// <summary>
-        /// go to input transportation data
+        /// go to input transportation data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void InputTranportationData(object sender, RoutedEventArgs e)
+        private void InputTransportationData(object sender, RoutedEventArgs e)
         {
-            MainWindow win0 = new MainWindow();
+            var transportationDataInputView = new TransportationDataInputView();
             this.Close();
-            win0.Show();
+            transportationDataInputView.Show();
         }
 
         /// <summary>
-        /// go to search transportation data
+        /// go to search transportation data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SearchTransportationData(object sender, RoutedEventArgs e)
         {
-            TransportationSearchData tr = new TransportationSearchData();
+            var transportationDataSearchView = new TransportationDataSearchView();
             this.Close();
-            tr.Show();
+            transportationDataSearchView.Show();
         }
 
         /// <summary>
-        /// Go to input sales data
+        /// Go to input sales data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -61,7 +50,7 @@ namespace Order_System_UI
         }
 
         /// <summary>
-        /// Go to search sales data
+        /// Go to search sales data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -69,7 +58,6 @@ namespace Order_System_UI
         {
             // N/A
         }
-
 
     }
 }
