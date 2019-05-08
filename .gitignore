@@ -348,5 +348,3 @@ stylecop.json
 
 # Rulesets
 *.ruleset
-
-App.xaml.cs
