@@ -71,18 +71,18 @@
                HorizontalAlignment="Center"
                FontSize="16">Data Table</Label>
 
-        <DataGrid Grid.Row="4" Name="DataTable" AutoGenerateColumns="False" ItemsSource="{Binding Path=DataTable}" >
+        <DataGrid Grid.Row="4" Name="DataTable" AutoGenerateColumns="False" SelectedItem="{Binding Path=TableStatus, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=DataTable, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Seller Name" Binding="{Binding Name_of_Seller}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Truck Company" Binding="{Binding Truck_Company}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Quality" Binding="{Binding Quality}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Weight" Binding="{Binding Weight}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Number of Bags" Binding="{Binding Number_of_Bags}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Freight Charges" Binding="{Binding Freight_Charges}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Shipment Number" Binding="{Binding Shipment_Number}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Date of Arrival" Binding="{Binding Date_of_Arrival}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Total Cost" Binding="{Binding Total_Cost}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Seller Name" Binding="{Binding Name_of_Seller, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Truck Company" Binding="{Binding Truck_Company, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Quality" Binding="{Binding Quality, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Weight" Binding="{Binding Weight, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Number of Bags" Binding="{Binding Number_of_Bags, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Freight Charges" Binding="{Binding Freight_Charges, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Shipment Number" Binding="{Binding Shipment_Number, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date of Arrival" Binding="{Binding Date_of_Arrival, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Total Cost" Binding="{Binding Total_Cost, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -115,14 +115,20 @@
                 Height="30"
                 Click="GoBackHome">Go Back</Button>
 
-        <TextBlock
-                Grid.Row="8"
+        <TextBlock Grid.Row="8"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Text="{Binding Path=TextStatus, Mode=OneWay}"
+                Text="{Binding Path=TextStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 ></TextBlock>
 
-
-
+        <Button Grid.Row="9"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Width="100"
+                Height="30"
+                IsEnabled="{Binding Path=DeleteStatus, Mode=OneWay}"
+                Click="Button_Click"
+                >Delete</Button>
+        
     </Grid>
 </Window>

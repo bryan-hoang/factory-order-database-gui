@@ -17,6 +17,8 @@ namespace Order_System_UI.Models
         private string sellerName;
         private string dateofArrival;
         private string netCosts;
+        private bool tableStatus;
+        public TransportationDataLog1 del;
 
         /// <summary>
         /// Searches the truck company name in the database.
@@ -26,6 +28,8 @@ namespace Order_System_UI.Models
             get => truckCompanyName;
             set
             {
+                if (!string.IsNullOrWhiteSpace(value))
+                    tableStatus = false;
                 truckCompanyName = value;
                 OnPropertyChanged("TruckCompanyName");
                 OnPropertyChanged("DataTable");
@@ -37,9 +41,16 @@ namespace Order_System_UI.Models
         /// </summary>
         public string SellerName
         {
-            get => sellerName;
+            get
+            {
+                OnPropertyChanged(nameof(DataTable));
+                return sellerName;
+            }
+
             set
             {
+                if (!string.IsNullOrWhiteSpace(value))
+                    tableStatus = false;
                 sellerName = value;
                 OnPropertyChanged("SellerName");
                 OnPropertyChanged("DataTable");
@@ -61,6 +72,8 @@ namespace Order_System_UI.Models
 
             set
             {
+                if (!string.IsNullOrWhiteSpace(value))
+                    tableStatus = false;
                 dateofArrival = value;
                 OnPropertyChanged("DateofArrival");
                 OnPropertyChanged("DataTable");
@@ -75,8 +88,13 @@ namespace Order_System_UI.Models
             get => netCosts;
             set
             {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    tableStatus = false;
+                }
                 netCosts = value;
                 OnPropertyChanged("NetCosts");
+                OnPropertyChanged("DeleteStatus");
                 OnPropertyChanged("ButtonStatus");
                 OnPropertyChanged("TextStatus");
             }
@@ -111,6 +129,32 @@ namespace Order_System_UI.Models
         }
 
         /// <summary>
+        /// Sets a value indicating whether a row has been selected.
+        /// </summary>
+        public object TableStatus
+        {
+            set
+            {
+                if (value == null)
+                {
+                    OnPropertyChanged("DeleteStatus");
+                    return;
+                }// end if
+                //del = value;
+                tableStatus = true;
+                OnPropertyChanged("DeleteStatus");
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the button should be enabled.
+        /// </summary>
+        public bool DeleteStatus
+        {
+            get => tableStatus;
+        }
+
+        /// <summary>
         /// Gets the data from the database into a list being data binded to the data grid also manipluating searches.
         /// </summary>
         public List<TransportationDataLog1> DataTable
@@ -122,11 +166,20 @@ namespace Order_System_UI.Models
                 List<TransportationDataLog1> tableData = new List<TransportationDataLog1>();
                 var list = datacontext.TransportationDataLog1s;
 
+                if (del != null)
+                {
+                    TransportationDataLog1 tt = (Order_System_UI.TransportationDataLog1)del;
+                    datacontext.TransportationDataLog1s.Attach(tt);
+                    datacontext.TransportationDataLog1s.DeleteOnSubmit(tt);
+                    datacontext.SubmitChanges();
+                }// end if
+
                 if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(truckCompanyName) && string.IsNullOrWhiteSpace(DateofArrival))
                 {
                     foreach (TransportationDataLog1 c in list)
                     {
-                        tableData.Add(c);
+                        if (c != del)
+                            tableData.Add(c);
                     }
                     return tableData;
                 }// end if

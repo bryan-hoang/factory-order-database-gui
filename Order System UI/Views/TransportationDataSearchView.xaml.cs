@@ -1,7 +1,9 @@
 ﻿using System.Windows;
+using Order_System_UI.Models;
 using System.Collections.Generic;
 using Order_System_UI.Models;
 using System.Configuration;
+using System;
 
 namespace Order_System_UI.Views
 {
@@ -74,6 +76,26 @@ namespace Order_System_UI.Views
             MessageBox.Show("Yearly Cost Summary" + "\n" + "Total weight: " + weightTotal + "\n" + "Total price: " + priceTotal
                 + "\n" + "Total Number of Bags: " + numberofbagsTotal + "\n" + "Total Freight Charges: " + freightChargesTotal
                 + "\n" + "Total Costs: " + costsTotal);
+        }// end method
+
+        /// <summary>
+        /// Deletes a piece of data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TransportationSearchModel s1 = new TransportationSearchModel();
+
+            try
+            {
+                s1.del = (Order_System_UI.TransportationDataLog1)DataTable.SelectedItem;
+                object oo = s1.DataTable;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Do not delete this empty row");
+            }// end try-catch
         }// end method
     }// end class
 }// end namespace
