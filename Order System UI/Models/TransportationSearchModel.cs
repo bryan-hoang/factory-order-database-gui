@@ -9,7 +9,7 @@ namespace Order_System_UI.Models
 {
     public class TransportationSearchModel : EventClass
     {
-        // declare LINQ attribute
+        // declare LINQ attribute for LINQ operations
         private TransportLinkDataContext datacontext;
 
         // declare private fields
@@ -18,6 +18,9 @@ namespace Order_System_UI.Models
         private string dateofArrival;
         private string netCosts;
 
+        /// <summary>
+        /// Searches the truck company name in the database.
+        /// </summary>
         public string TruckCompanyName
         {
             get => truckCompanyName;
@@ -29,6 +32,9 @@ namespace Order_System_UI.Models
             }
         }
 
+        /// <summary>
+        /// Searches the seller name in the database.
+        /// </summary>
         public string SellerName
         {
             get => sellerName;
@@ -40,6 +46,9 @@ namespace Order_System_UI.Models
             }
         }
 
+        /// <summary>
+        /// Searches the date of arrival in the database.
+        /// </summary>
         public string DateofArrival
         {
             get
@@ -58,6 +67,9 @@ namespace Order_System_UI.Models
             }
         }
 
+        /// <summary>
+        /// Gets or Sets the year to display the net costs.
+        /// </summary>
         public string NetCosts
         {
             get => netCosts;
@@ -70,6 +82,9 @@ namespace Order_System_UI.Models
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the NetCost is an integer.
+        /// </summary>
         public bool ButtonStatus
         {
             get
@@ -80,6 +95,9 @@ namespace Order_System_UI.Models
             }
         }
 
+        /// <summary>
+        /// Gets the status if an integer was entered in the textbox.
+        /// </summary>
         public string TextStatus
         {
             get
@@ -92,6 +110,9 @@ namespace Order_System_UI.Models
             }
         }
 
+        /// <summary>
+        /// Gets the data from the database into a list being data binded to the data grid also manipluating searches.
+        /// </summary>
         public List<TransportationDataLog1> DataTable
         {
             get

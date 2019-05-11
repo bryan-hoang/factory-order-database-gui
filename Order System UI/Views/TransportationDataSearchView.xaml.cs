@@ -44,6 +44,11 @@ namespace Order_System_UI.Views
             hm.Show();
         }
 
+        /// <summary>
+        /// Sums up the yearly numerical data displaying it as a messagebox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SummationYearlyData(object sender, RoutedEventArgs e)
         {
             var list = datacontext.TransportationDataLog1s;

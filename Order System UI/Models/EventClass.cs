@@ -12,6 +12,7 @@ namespace Order_System_UI.Models
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // event handler for the inherited classes 
         protected void OnPropertyChanged(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
 
     }// end class
