@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="TransportationDataSearchView"
         Height="500"
-        Width="800">
+        Width="900">
 
     <Grid Margin="10">
 
@@ -28,11 +28,12 @@
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center"
                    HorizontalAlignment="Right"
-                   FontSize="16">Truck Company Name</Label>
+                   FontSize="16">Seller's Name</Label>
             <TextBox Grid.Column="1"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     Width="250"></TextBox>
+                     Width="250" 
+                     Text="{Binding Path = SellerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -42,11 +43,12 @@
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center"
                    HorizontalAlignment="Right"
-                   FontSize="16">Seller's Name</Label>
+                   FontSize="16">Truck Company Name</Label>
             <TextBox Grid.Column="1"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     Width="250"></TextBox>
+                     Width="250"
+                     Text="{Binding Path=TruckCompanyName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -60,7 +62,8 @@
             <DatePicker Grid.Column="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Width="150"></DatePicker>
+                        Width="150"
+                        SelectedDate="{Binding Path=DateofArrival, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
         </Grid>
 
         <Label Grid.Row="3"
@@ -68,7 +71,20 @@
                HorizontalAlignment="Center"
                FontSize="16">Data Table</Label>
 
-        <TextBlock Grid.Row="4"></TextBlock>
+        <DataGrid Grid.Row="4" Name="DataTable" AutoGenerateColumns="False" ItemsSource="{Binding Path=DataTable}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Seller Name" Binding="{Binding Name_of_Seller}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Truck Company" Binding="{Binding Truck_Company}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Quality" Binding="{Binding Quality}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Weight" Binding="{Binding Weight}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Number of Bags" Binding="{Binding Number_of_Bags}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Freight Charges" Binding="{Binding Freight_Charges}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Shipment Number" Binding="{Binding Shipment_Number}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date of Arrival" Binding="{Binding Date_of_Arrival}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Total Cost" Binding="{Binding Total_Cost}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
@@ -82,14 +98,15 @@
                      Grid.Column="1"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     Width="150"></TextBox>
+                     Width="150"
+                     Text="{Binding Path=NetCosts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </Grid>
 
         <Button Grid.Row="6"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Click="GoBackHome"
-                IsEnabled="False">Display Data</Button>
+                Click="SummationYearlyData"
+                IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}">Display Data</Button>
 
         <Button Grid.Row="7"
                 VerticalAlignment="Bottom"
@@ -97,6 +114,13 @@
                 Width="100"
                 Height="30"
                 Click="GoBackHome">Go Back</Button>
+
+        <TextBlock
+                Grid.Row="8"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Text="{Binding Path=TextStatus, Mode=OneWay}"
+                ></TextBlock>
 
 
 

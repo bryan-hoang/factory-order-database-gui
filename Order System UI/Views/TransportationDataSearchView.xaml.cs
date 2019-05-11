@@ -1,10 +1,19 @@
 ﻿using System.Windows;
+using System.Collections.Generic;
+using Order_System_UI.Models;
+using System.Configuration;
 
 namespace Order_System_UI.Views
 {
     /// <inheritdoc cref="Window" />
     public partial class TransportationDataSearchView : Window
     {
+        // declare private field to pass data to SQL
+        private readonly TransportationSearchModel transportationSearchModel;
+
+        // declare private field for LINQ operations
+        private TransportLinkDataContext datacontext;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TransportationDataSearchView"/> class.
         /// Start up the window.
@@ -12,7 +21,15 @@ namespace Order_System_UI.Views
         public TransportationDataSearchView()
         {
             InitializeComponent();
+            this.transportationSearchModel = new TransportationSearchModel();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            // set up SQL-LINQ connections
+            string connectionString = ConfigurationManager.ConnectionStrings["Order_System_UI.Properties.Settings.modelConnectionString"].ConnectionString;
+            datacontext = new TransportLinkDataContext(connectionString);
+
+            // setting the DataContext for data binding
+            this.DataContext = transportationSearchModel;
         }
 
         /// <summary>
@@ -27,11 +44,31 @@ namespace Order_System_UI.Views
             hm.Show();
         }
 
-        private void SearchYearlyData(object sender, RoutedEventArgs e)
+        private void SummationYearlyData(object sender, RoutedEventArgs e)
         {
-            MainWindow hm = new MainWindow();
-            this.Close();
-            hm.Show();
-        }
-    }
-}
+            var list = datacontext.TransportationDataLog1s;
+
+            decimal weightTotal = 0;
+            decimal priceTotal = 0;
+            int numberofbagsTotal = 0;
+            decimal freightChargesTotal = 0;
+            decimal costsTotal = 0;
+
+            foreach (TransportationDataLog1 x in list)
+            {
+                string[] compare = x.Date_of_Arrival.Split('/');
+                if (YearSelect.Text.ToString().Equals(compare[2]))
+                {
+                    weightTotal += decimal.Parse(x.Weight);
+                    priceTotal += decimal.Parse(x.Price);
+                    numberofbagsTotal += int.Parse(x.Number_of_Bags);
+                    freightChargesTotal += decimal.Parse(x.Freight_Charges);
+                    costsTotal += decimal.Parse(x.Total_Cost);
+                }// end if
+            }// end loop
+            MessageBox.Show("Yearly Cost Summary" + "\n" + "Total weight: " + weightTotal + "\n" + "Total price: " + priceTotal
+                + "\n" + "Total Number of Bags: " + numberofbagsTotal + "\n" + "Total Freight Charges: " + freightChargesTotal
+                + "\n" + "Total Costs: " + costsTotal);
+        }// end method
+    }// end class
+}// end namespace

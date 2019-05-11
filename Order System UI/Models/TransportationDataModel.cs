@@ -5,7 +5,7 @@ using System.Windows.Controls;
 namespace Order_System_UI.Models
 {
     /// <inheritdoc />
-    public class TransportationDataModel : INotifyPropertyChanged
+    public class TransportationDataModel : EventClass
     {
         // This is the string portion of the U.I
         private string seller;
@@ -18,13 +18,10 @@ namespace Order_System_UI.Models
         private string numberOfBags;
         private string freightCharges;
         private string shipmentNumber;
-        private DateTime? dateOfArrival;
+        private string dateOfArrival;
         // This is the status portion of the U.I
         private string status;
         private int count;
-
-        /// <inheritdoc/>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets the name of seller of the cotton seeds.
@@ -182,9 +179,15 @@ namespace Order_System_UI.Models
         /// <summary>
         /// Gets or sets the date of arrival of the truck.
         /// </summary>
-        public DateTime? DateOfArrival
+        public string DateOfArrival
         {
-            get => dateOfArrival;
+            get
+            {
+                if (dateOfArrival == null)
+                    return null;
+                string[] spiltDate = dateOfArrival.Split();
+                return spiltDate[0];
+            }
             set
             {
                 dateOfArrival = value;
@@ -283,7 +286,7 @@ namespace Order_System_UI.Models
                                     && !string.IsNullOrWhiteSpace(numberOfBags)
                                     && !string.IsNullOrWhiteSpace(shipmentNumber)
                                     && !string.IsNullOrWhiteSpace(freightCharges)
-                                    && dateOfArrival.HasValue;
+                                    && !string.IsNullOrWhiteSpace(dateOfArrival);
 
         /// <summary>
         /// Method to deal with status text.
@@ -304,9 +307,5 @@ namespace Order_System_UI.Models
 
             OnPropertyChanged("ButtonStatus");
         }
-
-        // This is the event handler portion of the U.I
-        private void OnPropertyChanged(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-
     }// end class
 }// end namespace

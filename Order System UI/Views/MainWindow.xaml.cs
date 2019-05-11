@@ -16,7 +16,7 @@ namespace Order_System_UI.Views
         }
 
         /// <summary>
-        /// go to input transportation data.
+        /// Go to input transportation data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -28,7 +28,7 @@ namespace Order_System_UI.Views
         }
 
         /// <summary>
-        /// go to search transportation data.
+        /// Go to search transportation data.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
