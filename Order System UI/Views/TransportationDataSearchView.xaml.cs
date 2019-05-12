@@ -91,6 +91,9 @@ namespace Order_System_UI.Views
             {
                 s1.del = (Order_System_UI.TransportationDataLog1)DataTable.SelectedItem;
                 object oo = s1.DataTable;
+                TransportationDataSearchView x = new TransportationDataSearchView();
+                this.Close();
+                x.Show();
             }
             catch (Exception)
             {

@@ -44,24 +44,30 @@ namespace Order_System_UI.Views
         /// </summary>
         private void SqlWindow(object sender, RoutedEventArgs e)
         {
-            TransportationDataLog1 cc = new TransportationDataLog1();
-            cc.Name_of_Seller = transportationData.Seller;
-            cc.Number_of_Bags = transportationData.NumberOfBags;
-            cc.Price = transportationData.Price;
-            cc.Quality = transportationData.Quality;
-            cc.Shipment_Number = transportationData.ShipmentNumber;
-            cc.Total_Cost = transportationData.Result;
-            cc.Truck_Company = transportationData.TruckingCompany;
-            cc.Weight = transportationData.Weight;
-            cc.Freight_Charges = transportationData.FreightCharges;
-            cc.Date_of_Arrival = transportationData.DateOfArrival;
+            try
+            {
+                TransportationDataLog1 cc = new TransportationDataLog1();
+                cc.Name_of_Seller = transportationData.Seller;
+                cc.Number_of_Bags = transportationData.NumberOfBags;
+                cc.Price = transportationData.Price;
+                cc.Quality = transportationData.Quality;
+                cc.Shipment_Number = transportationData.ShipmentNumber;
+                cc.Total_Cost = transportationData.Result;
+                cc.Truck_Company = transportationData.TruckingCompany;
+                cc.Weight = transportationData.Weight;
+                cc.Freight_Charges = transportationData.FreightCharges;
+                cc.Date_of_Arrival = transportationData.DateOfArrival;
 
-            dataContext.TransportationDataLog1s.InsertOnSubmit(cc);
+                dataContext.TransportationDataLog1s.InsertOnSubmit(cc);
 
-            dataContext.SubmitChanges();
+                dataContext.SubmitChanges();
 
-            MessageBox.Show("Data has been successfully inserted");
-
+                MessageBox.Show("Data has been successfully inserted");
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Data UNsuccessfully inserted");
+            }
         }// end method
 
     }// end class
