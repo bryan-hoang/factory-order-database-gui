@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Home Window"
-        Height="500"
-        Width="800">
+        Name="HomeWindow"
+        WindowStartupLocation="CenterScreen"
+        Height="450"
+        Width="800"
+        ResizeMode="NoResize">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -26,31 +30,34 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label FontSize="20"
-               Foreground="Blue"
-               VerticalAlignment="Bottom"
+        <Label Content="Kahloon Factory DataBase"
+               Grid.Row="0"
+               Grid.Column="1"
                HorizontalAlignment="Center"
-               Grid.Column="1">Kahloon Factory DataBase</Label>
+               VerticalAlignment="Bottom"
+               FontSize="20"
+               Foreground="Blue" />
 
-        <Button Name="InputTransportationDataButton"
-                Click="InputTransportationData"
+        <Button Content="Input Transportation Data"
+                Grid.Row="2"
                 Grid.Column="1"
-                Grid.Row="2">Input Transportation Data</Button>
-
-        <Button Name="SearchTransportationDataButton"
-                Click="SearchTransportationData"
+                Command="{Binding GoToTransportationDataInputWindowCommand}"
+                CommandParameter="{Binding ElementName=HomeWindow}" />
+        <Button Content="Search Transportation Data"
+                Grid.Row="4"
                 Grid.Column="1"
-                Grid.Row="4">Search Transportation Data</Button>
-
-        <Button Name="InputSalesDataButton"
-                Click="InputSalesData"
+                Command="{Binding GoToTransportationDataSearchWindowCommand}"
+                CommandParameter="{Binding ElementName=HomeWindow}" />
+        <Button Content="Input Sales Data"
+                Grid.Row="6"
                 Grid.Column="1"
-                Grid.Row="6">Input Sales Data</Button>
-
-        <Button Name="SearchSalesDataButton"
-                Click="SearchSalesData"
+                Command="{Binding GoToSalesDataInputWindowCommand}"
+                CommandParameter="{Binding ElementName=HomeWindow}" />
+        <Button Content="Search Sales Data"
+                Grid.Row="8"
                 Grid.Column="1"
-                Grid.Row="8">Search Sales Data</Button>
+                Command="{Binding GoToSalesDataSearchWindowCommand}"
+                CommandParameter="{Binding ElementName=HomeWindow}" />
 
     </Grid>
 </Window>
