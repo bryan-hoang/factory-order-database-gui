@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using CottonOilFactory.OrderGUI.Models;
 
-namespace CottonOilFactory.OrderGUI.Views
+namespace CottonOilFactory.OrderGUI.Views.TransportationData
 {
     /// <inheritdoc cref="Window" />
     public partial class TransportationDataInputView : Window
@@ -16,9 +16,8 @@ namespace CottonOilFactory.OrderGUI.Views
         public TransportationDataInputView()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.transportationDataModel = new TransportationDataModel();
-            this.DataContext = transportationDataModel;
+            transportationDataModel = new TransportationDataModel();
+            DataContext = transportationDataModel;
         }
 
         /// <summary>
@@ -40,7 +39,7 @@ namespace CottonOilFactory.OrderGUI.Views
         private void GoBackToHomeScreen(object sender, RoutedEventArgs e)
         {
             var mainWindow = new MainWindow();
-            this.Close();
+            Close();
             mainWindow.Show();
         }
 
