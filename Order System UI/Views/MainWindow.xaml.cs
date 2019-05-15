@@ -18,8 +18,8 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Go to input transportation data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void InputTransportationData(object sender, RoutedEventArgs e)
         {
             var transportationDataInputView = new TransportationDataInputView();
@@ -30,8 +30,8 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Go to search transportation data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void SearchTransportationData(object sender, RoutedEventArgs e)
         {
             var transportationDataSearchView = new TransportationDataSearchView();
@@ -42,8 +42,8 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Go to input sales data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void InputSalesData(object sender, RoutedEventArgs e)
         {
             // N/A
@@ -52,12 +52,11 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Go to search sales data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void SearchSalesData(object sender, RoutedEventArgs e)
         {
             // N/A
         }
-
-    }
-}
+    }// end class
+}// end namespace

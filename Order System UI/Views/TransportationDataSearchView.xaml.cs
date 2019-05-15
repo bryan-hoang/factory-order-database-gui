@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
-using Order_System_UI.Models;
 using Order_System_UI.LINQ_SQL_Connection;
+using Order_System_UI.Models;
 
 namespace Order_System_UI.Views
 {
@@ -28,8 +28,8 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Go back to home screen.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void GoBackHome(object sender, RoutedEventArgs e)
         {
             MainWindow hm = new MainWindow();
@@ -40,11 +40,11 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Sums up the yearly numerical data displaying it as a messagebox.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void SummationYearlyData(object sender, RoutedEventArgs e)
         {
-            LINQSQLConnection connect = new LINQSQLConnection();
+            LinqSqlDeclaration connect = new LinqSqlDeclaration();
             var list = connect.List;
 
             decimal weightTotal = 0;
@@ -74,19 +74,19 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Deletes a piece of data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event handler.</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TransportationSearchModel s1 = new TransportationSearchModel();
+            TransportationSearchModel modfityData = new TransportationSearchModel();
+            TransportationDataSearchView reShow = new TransportationDataSearchView();
 
             try
             {
-                s1.del = (Order_System_UI.TransportationDataLog1)DataTable.SelectedItem;
-                var deletedItem = s1.DataTable;
-                TransportationDataSearchView x = new TransportationDataSearchView();
+                TransportationDataLog1 rowDel = (Order_System_UI.TransportationDataLog1)DataTable.SelectedItem;
+                modfityData.DeleteRow(rowDel);
                 this.Close();
-                x.Show();
+                reShow.Show();
             }
             catch (Exception)
             {

@@ -8,6 +8,9 @@ using Order_System_UI.LINQ_SQL_Connection;
 
 namespace Order_System_UI.Models
 {
+    /// <summary>
+    /// Class for searching transportation data from SQL server.
+    /// </summary>
     public class TransportationSearchModel : EventClass
     {
         // declare private fields
@@ -15,11 +18,9 @@ namespace Order_System_UI.Models
         private string sellerName;
         private string dateofArrival;
         private string netCosts;
-        private bool tableStatus;
-        public TransportationDataLog1 del;
 
         /// <summary>
-        /// Searches the truck company name in the database.
+        /// Gets or sets the truck company name in the database.
         /// </summary>
         public string TruckCompanyName
         {
@@ -27,7 +28,9 @@ namespace Order_System_UI.Models
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
-                    tableStatus = false;
+                {
+                    DeleteStatus = false;
+                }// end if
                 truckCompanyName = value;
                 OnPropertyChanged("TruckCompanyName");
                 OnPropertyChanged("DataTable");
@@ -35,7 +38,7 @@ namespace Order_System_UI.Models
         }
 
         /// <summary>
-        /// Searches the seller name in the database.
+        /// Gets or sets the seller name in the database.
         /// </summary>
         public string SellerName
         {
@@ -48,7 +51,9 @@ namespace Order_System_UI.Models
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
-                    tableStatus = false;
+                {
+                    DeleteStatus = false;
+                }// end if
                 sellerName = value;
                 OnPropertyChanged("SellerName");
                 OnPropertyChanged("DataTable");
@@ -56,14 +61,16 @@ namespace Order_System_UI.Models
         }
 
         /// <summary>
-        /// Searches the date of arrival in the database.
+        /// Gets or sets the date of arrival in the database.
         /// </summary>
         public string DateofArrival
         {
             get
             {
                 if (dateofArrival == null)
+                {
                     return null;
+                }// end if
                 string[] spiltDate = dateofArrival.Split();
                 return spiltDate[0];
             }
@@ -71,7 +78,10 @@ namespace Order_System_UI.Models
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
-                    tableStatus = false;
+                {
+                    DeleteStatus = false;
+                }
+
                 dateofArrival = value;
                 OnPropertyChanged("DateofArrival");
                 OnPropertyChanged("DataTable");
@@ -88,8 +98,8 @@ namespace Order_System_UI.Models
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
-                    tableStatus = false;
-                }
+                    DeleteStatus = false;
+                }// end if
                 netCosts = value;
                 OnPropertyChanged("NetCosts");
                 OnPropertyChanged("DeleteStatus");
@@ -106,22 +116,28 @@ namespace Order_System_UI.Models
             get
             {
                 if (int.TryParse(netCosts, out int a))
+                {
                     return true;
+                }// end if
                 return false;
             }
         }
 
         /// <summary>
-        /// Gets the status if an integer was entered in the textbox.
+        /// Gets the status if an integer was entered in the yearly textbox.
         /// </summary>
         public string TextStatus
         {
             get
             {
                 if (netCosts == null)
+                {
                     return null;
+                }// end if
                 else if (int.TryParse(netCosts, out int a))
+                {
                     return null;
+                }// end else if
                 return "Invalid Input";
             }
         }
@@ -138,8 +154,7 @@ namespace Order_System_UI.Models
                     OnPropertyChanged("DeleteStatus");
                     return;
                 }// end if
-                //del = value;
-                tableStatus = true;
+                DeleteStatus = true;
                 OnPropertyChanged("DeleteStatus");
             }
         }
@@ -147,10 +162,7 @@ namespace Order_System_UI.Models
         /// <summary>
         /// Gets a value indicating whether the button should be enabled.
         /// </summary>
-        public bool DeleteStatus
-        {
-            get => tableStatus;
-        }
+        public bool DeleteStatus { get; private set; }
 
         /// <summary>
         /// Gets the data from the database into a list being data binded to the data grid also manipluating searches.
@@ -159,25 +171,16 @@ namespace Order_System_UI.Models
         {
             get
             {
-                LINQSQLConnection connect = new LINQSQLConnection();
+                LinqSqlDeclaration connect = new LinqSqlDeclaration();
                 TransportLinkDataContext datacontext = connect.DataContext;
                 List<TransportationDataLog1> tableData = connect.TableData;
                 var list = connect.List;
-
-                if (del != null)
-                {
-                    TransportationDataLog1 tt = (Order_System_UI.TransportationDataLog1)del;
-                    datacontext.TransportationDataLog1s.Attach(tt);
-                    datacontext.TransportationDataLog1s.DeleteOnSubmit(tt);
-                    datacontext.SubmitChanges();
-                }// end if
 
                 if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(truckCompanyName) && string.IsNullOrWhiteSpace(DateofArrival))
                 {
                     foreach (TransportationDataLog1 c in list)
                     {
-                        if (c != del)
-                            tableData.Add(c);
+                        tableData.Add(c);
                     }
                     return tableData;
                 }// end if
@@ -186,7 +189,9 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else if
@@ -195,7 +200,9 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else if
@@ -204,7 +211,9 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else if
@@ -213,7 +222,9 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else if
@@ -222,7 +233,9 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else if
@@ -231,7 +244,9 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else if
@@ -240,11 +255,30 @@ namespace Order_System_UI.Models
                     foreach (TransportationDataLog1 c in list)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
+                        {
                             tableData.Add(c);
+                        }// end if
                     }
                     return tableData;
                 }// end else
-            }
-        }
+            }// end get
+        }// end property
+
+        /// <summary>
+        /// Deletes a row of data from the SQL server.
+        /// </summary>
+        /// <param name="del">Row to be deleted from data.</param>
+        public void DeleteRow(TransportationDataLog1 del)
+        {
+            LinqSqlDeclaration connect = new LinqSqlDeclaration();
+            TransportLinkDataContext datacontext = connect.DataContext;
+            if (del != null)
+            {
+                TransportationDataLog1 delRow = (Order_System_UI.TransportationDataLog1)del;
+                datacontext.TransportationDataLog1s.Attach(delRow);
+                datacontext.TransportationDataLog1s.DeleteOnSubmit(delRow);
+                datacontext.SubmitChanges();
+            }// end if
+        }// end method
     }// end class
 }// end namespace

@@ -184,10 +184,13 @@ namespace Order_System_UI.Models
             get
             {
                 if (dateOfArrival == null)
+                {
                     return null;
+                }// end if
                 string[] spiltDate = dateOfArrival.Split();
                 return spiltDate[0];
             }
+
             set
             {
                 dateOfArrival = value;

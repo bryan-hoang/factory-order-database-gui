@@ -11,24 +11,48 @@ namespace Order_System_UI.LINQ_SQL_Connection
     /// <summary>
     /// Class for LINQ-SQL operations.
     /// </summary>
-    public class LINQ_SQL_Connection
+    public class LinqSqlDeclaration
     {
         /// <summary>
         /// Declared attributes for LINQ-SQL operations.
         /// </summary>
-        public TransportLinkDataContext DataContext;
-        public List<TransportationDataLog1> TableData;
-        public Table<TransportationDataLog1> List;
+        private readonly TransportLinkDataContext dataContext;
+        private readonly List<TransportationDataLog1> tableData;
+        private readonly Table<TransportationDataLog1> list;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LINQ_SQL_Connection"/> class for LINQ-SQL operations.
+        /// Initializes a new instance of the <see cref="LinqSqlDeclaration"/> class for LINQ-SQL operations.
         /// </summary>
-        public LINQ_SQL_Connection()
+        public LinqSqlDeclaration()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Order_System_UI.Properties.Settings.modelConnectionString"].ConnectionString;
-            this.DataContext = new TransportLinkDataContext(connectionString);
-            this.TableData = new List<TransportationDataLog1>();
-            this.List = DataContext.TransportationDataLog1s;
+            this.dataContext = new TransportLinkDataContext(connectionString);
+            this.tableData = new List<TransportationDataLog1>();
+            this.list = dataContext.TransportationDataLog1s;
         }// end constructor
+
+        /// <summary>
+        /// Gets the dataContext.
+        /// </summary>
+        public TransportLinkDataContext DataContext
+        {
+            get => dataContext;
+        }
+
+        /// <summary>
+        /// Gets the tableData.
+        /// </summary>
+        public List<TransportationDataLog1> TableData
+        {
+            get => tableData;
+        }
+
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        public Table<TransportationDataLog1> List
+        {
+            get => list;
+        }
     }// end class
 }// end namespace

@@ -6,7 +6,7 @@ namespace Order_System_UI.Views
     /// <inheritdoc cref="Window" />
     public partial class TransportationDataInputView : Window
     {
-        // field for passing transportationDataModel across different windows
+        // field for passing transportation data across different windows
         private readonly TransportationDataModel transportationDataModel;
 
         /// <summary>
@@ -24,8 +24,8 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Goes to the order confirmation window.
         /// </summary>
-        /// <param name="sender">event for button.</param>
-        /// <param name="e">event handler for button.</param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">event handler.</param>
         private void ShowDataConfirmationDialog(object sender, RoutedEventArgs e)
         {
             var transportationDataConfirmView = new TransportationDataConfirmView(transportationDataModel);
@@ -35,8 +35,8 @@ namespace Order_System_UI.Views
         /// <summary>
         /// Goes to the home screen.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object sender.</param>
+        /// <param name="e">Event Handler.</param>
         private void GoBackToHomeScreen(object sender, RoutedEventArgs e)
         {
             var mainWindow = new MainWindow();

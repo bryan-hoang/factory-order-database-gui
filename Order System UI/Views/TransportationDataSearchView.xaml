@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="TransportationDataSearchView"
-        Height="500"
-        Width="900">
+        Height="725"
+        Width="935">
 
     <Grid Margin="10">
 

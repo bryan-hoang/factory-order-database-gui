@@ -34,27 +34,27 @@ namespace Order_System_UI.Views
         }// end method
 
         /// <summary>
-        /// Button to make transportationData sent to SQL DataBase.
+        /// Button to make the transportation data be sent to the SQL DataBase.
         /// </summary>
         private void SqlWindow(object sender, RoutedEventArgs e)
         {
-            LINQSQLConnection connect = new LINQSQLConnection();
+            LinqSqlDeclaration connect = new LinqSqlDeclaration();
             TransportLinkDataContext dataContext = connect.DataContext;
-            List<TransportationDataLog1> tableData = connect.TableData;
-            var list = connect.List;
             try
             {
-                TransportationDataLog1 cc = new TransportationDataLog1();
-                cc.Name_of_Seller = transportationData.Seller;
-                cc.Number_of_Bags = transportationData.NumberOfBags;
-                cc.Price = transportationData.Price;
-                cc.Quality = transportationData.Quality;
-                cc.Shipment_Number = transportationData.ShipmentNumber;
-                cc.Total_Cost = transportationData.Result;
-                cc.Truck_Company = transportationData.TruckingCompany;
-                cc.Weight = transportationData.Weight;
-                cc.Freight_Charges = transportationData.FreightCharges;
-                cc.Date_of_Arrival = transportationData.DateOfArrival;
+                TransportationDataLog1 cc = new TransportationDataLog1
+                {
+                    Name_of_Seller = transportationData.Seller,
+                    Number_of_Bags = transportationData.NumberOfBags,
+                    Price = transportationData.Price,
+                    Quality = transportationData.Quality,
+                    Shipment_Number = transportationData.ShipmentNumber,
+                    Total_Cost = transportationData.Result,
+                    Truck_Company = transportationData.TruckingCompany,
+                    Weight = transportationData.Weight,
+                    Freight_Charges = transportationData.FreightCharges,
+                    Date_of_Arrival = transportationData.DateOfArrival,
+                };
 
                 dataContext.TransportationDataLog1s.InsertOnSubmit(cc);
 
