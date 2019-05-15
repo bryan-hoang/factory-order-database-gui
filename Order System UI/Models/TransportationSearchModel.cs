@@ -4,14 +4,12 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Order_System_UI.LINQ_SQL_Connection;
 
 namespace Order_System_UI.Models
 {
     public class TransportationSearchModel : EventClass
     {
-        // declare LINQ attribute for LINQ operations
-        private TransportLinkDataContext datacontext;
-
         // declare private fields
         private string truckCompanyName;
         private string sellerName;
@@ -161,10 +159,10 @@ namespace Order_System_UI.Models
         {
             get
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["Order_System_UI.Properties.Settings.modelConnectionString"].ConnectionString;
-                datacontext = new TransportLinkDataContext(connectionString);
-                List<TransportationDataLog1> tableData = new List<TransportationDataLog1>();
-                var list = datacontext.TransportationDataLog1s;
+                LINQSQLConnection connect = new LINQSQLConnection();
+                TransportLinkDataContext datacontext = connect.DataContext;
+                List<TransportationDataLog1> tableData = connect.TableData;
+                var list = connect.List;
 
                 if (del != null)
                 {

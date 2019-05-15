@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Windows;
+using Order_System_UI.LINQ_SQL_Connection;
 using Order_System_UI.Models;
 
 namespace Order_System_UI.Views
@@ -11,24 +13,16 @@ namespace Order_System_UI.Views
         // field to pass transportationData to transportationData input window
         private readonly TransportationDataModel transportationData;
 
-        // field for LINQ operations
-        private TransportLinkDataContext dataContext;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TransportationDataConfirmView"/> class.
-        /// Start up the window screen.
         /// </summary>
+        /// <param name="transportationDataModel">Class for passing the data from the input window to this window</param>
         public TransportationDataConfirmView(TransportationDataModel transportationDataModel)
         {
             InitializeComponent();
-            // transfer data to current window
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.transportationData = transportationDataModel;
             this.DataContext = transportationData;
-
-            // set up SQL connection
-            string connectionString = ConfigurationManager.ConnectionStrings["Order_System_UI.Properties.Settings.modelConnectionString"].ConnectionString;
-            dataContext = new TransportLinkDataContext(connectionString);
         }// end constructor
 
         /// <summary>
@@ -44,6 +38,10 @@ namespace Order_System_UI.Views
         /// </summary>
         private void SqlWindow(object sender, RoutedEventArgs e)
         {
+            LINQSQLConnection connect = new LINQSQLConnection();
+            TransportLinkDataContext dataContext = connect.DataContext;
+            List<TransportationDataLog1> tableData = connect.TableData;
+            var list = connect.List;
             try
             {
                 TransportationDataLog1 cc = new TransportationDataLog1();
@@ -66,9 +64,8 @@ namespace Order_System_UI.Views
             }
             catch (Exception ee)
             {
-                MessageBox.Show("Data UNsuccessfully inserted");
-            }
+                MessageBox.Show("Data UNsuccessfully inserted" + "\n" + ee.ToString());
+            }// end try-catch block
         }// end method
-
     }// end class
 }// end name space

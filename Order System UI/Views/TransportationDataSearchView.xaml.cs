@@ -1,9 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Order_System_UI.Models;
-using System.Collections.Generic;
-using Order_System_UI.Models;
-using System.Configuration;
-using System;
+using Order_System_UI.LINQ_SQL_Connection;
 
 namespace Order_System_UI.Views
 {
@@ -12,9 +10,6 @@ namespace Order_System_UI.Views
     {
         // declare private field to pass data to SQL
         private readonly TransportationSearchModel transportationSearchModel;
-
-        // declare private field for LINQ operations
-        private TransportLinkDataContext datacontext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransportationDataSearchView"/> class.
@@ -25,10 +20,6 @@ namespace Order_System_UI.Views
             InitializeComponent();
             this.transportationSearchModel = new TransportationSearchModel();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            // set up SQL-LINQ connections
-            string connectionString = ConfigurationManager.ConnectionStrings["Order_System_UI.Properties.Settings.modelConnectionString"].ConnectionString;
-            datacontext = new TransportLinkDataContext(connectionString);
 
             // setting the DataContext for data binding
             this.DataContext = transportationSearchModel;
@@ -53,7 +44,8 @@ namespace Order_System_UI.Views
         /// <param name="e"></param>
         private void SummationYearlyData(object sender, RoutedEventArgs e)
         {
-            var list = datacontext.TransportationDataLog1s;
+            LINQSQLConnection connect = new LINQSQLConnection();
+            var list = connect.List;
 
             decimal weightTotal = 0;
             decimal priceTotal = 0;
@@ -73,9 +65,10 @@ namespace Order_System_UI.Views
                     costsTotal += decimal.Parse(x.Total_Cost);
                 }// end if
             }// end loop
-            MessageBox.Show("Yearly Cost Summary" + "\n" + "Total weight: " + weightTotal + "\n" + "Total price: " + priceTotal
-                + "\n" + "Total Number of Bags: " + numberofbagsTotal + "\n" + "Total Freight Charges: " + freightChargesTotal
-                + "\n" + "Total Costs: " + costsTotal);
+            MessageBox.Show(
+                "Yearly Cost Summary" + "\n" + "Total weight: " + weightTotal + "\n" + "Total price: " + priceTotal +
+                "\n" + "Total Number of Bags: " + numberofbagsTotal + "\n" + "Total Freight Charges: " + freightChargesTotal +
+                "\n" + "Total Costs: " + costsTotal);
         }// end method
 
         /// <summary>
@@ -90,7 +83,7 @@ namespace Order_System_UI.Views
             try
             {
                 s1.del = (Order_System_UI.TransportationDataLog1)DataTable.SelectedItem;
-                object oo = s1.DataTable;
+                var deletedItem = s1.DataTable;
                 TransportationDataSearchView x = new TransportationDataSearchView();
                 this.Close();
                 x.Show();
