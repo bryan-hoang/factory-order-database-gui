@@ -1,53 +1,65 @@
-﻿using System.ComponentModel;
+﻿using System;
+using CottonOilFactory.OrderGUI.BaseClasses;
 
 namespace CottonOilFactory.OrderGUI.Models
 {
-    public class SalesDataModel : INotifyPropertyChanged
+    /// <inheritdoc />
+    public class SalesDataModel : ModelBase
     {
-
-        public const string ProductName = "Product Name (Placeholder)";
-
+        private string buyerName;
         private decimal pricePerBag;
         private int numberOfBags;
-        private decimal totalCost;
 
-        /// <inheritdoc />
-        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Gets the name of the product to sell.
+        /// </summary>
+        public static string ProductName { get; } = "Khan";
 
-        public string Buyer { get; set; }
+        public string BuyerName
+        {
+            get => buyerName;
+            set
+            {
+                buyerName = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
+                OnPropertyChanged(nameof(IsValidData));
+            }
+        }
+
+        public BagWeight? WeightPerBag { get; set; }
 
         public string PricePerBag
         {
-            get => pricePerBag.ToString();
-
+            get => pricePerBag == 0 ? string.Empty : pricePerBag.ToString();
             set
             {
-                if (decimal.TryParse(value, out decimal price) && price >= 0)
-                {
-                    pricePerBag = price;
-                }
+                pricePerBag = !decimal.TryParse(value, out decimal price) || price < 0 ? 0 : price;
+                OnPropertyChanged(nameof(TotalCost));
+                OnPropertyChanged(nameof(IsValidData));
             }
         }
 
         public string NumberOfBags
         {
-            get => numberOfBags.ToString();
+            get => numberOfBags == 0 ? string.Empty : numberOfBags.ToString();
             set
             {
-                if (int.TryParse(value, out int numBags) && numBags >= 0)
-                {
-                    numberOfBags = numBags;
-                }
+                numberOfBags = !int.TryParse(value, out int numBags) || numBags < 0 ? 0 : numBags;
+                OnPropertyChanged(nameof(TotalCost));
+                OnPropertyChanged(nameof(IsValidData));
             }
         }
 
-        public string TotalCost
-        {
-            get => totalCost.ToString();
-            set => totalCost = pricePerBag * numberOfBags;
-        }
+        public string TotalCost => (pricePerBag * numberOfBags).ToString();
 
-        protected void OnPropertyChange(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        public MethodOfPayment? PaymentMethod { get; set; }
 
+        public DateTime? DateOfSale { get; set; }
+
+        public bool IsValidData => buyerName != string.Empty
+                                   && WeightPerBag != null
+                                   && pricePerBag != 0
+                                   && numberOfBags != 0
+                                   && PaymentMethod != null
+                                   && DateOfSale != null;
     }
 }

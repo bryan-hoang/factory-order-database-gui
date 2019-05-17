@@ -1,10 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
+using CottonOilFactory.OrderGUI.BaseClasses;
 
 namespace CottonOilFactory.OrderGUI.Models
 {
     /// <inheritdoc />
-    public class TransportationDataModel : INotifyPropertyChanged
+    public class TransportationDataModel : ModelBase
     {
         // This is the string portion of the U.I
         private string seller;
@@ -22,9 +22,6 @@ namespace CottonOilFactory.OrderGUI.Models
         private string status;
         private int count;
 
-        /// <inheritdoc/>
-        public event PropertyChangedEventHandler PropertyChanged;
-
         /// <summary>
         /// Gets or sets the name of seller of the cotton seeds.
         /// </summary>
@@ -34,7 +31,7 @@ namespace CottonOilFactory.OrderGUI.Models
             set
             {
                 seller = value;
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -47,8 +44,8 @@ namespace CottonOilFactory.OrderGUI.Models
             set
             {
                 truckingCompany = value;
-                OnPropertyChanged("TruckingCompany");
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(TruckingCompany));
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -76,7 +73,7 @@ namespace CottonOilFactory.OrderGUI.Models
             set
             {
                 isIsBadQuality = value;
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -89,7 +86,7 @@ namespace CottonOilFactory.OrderGUI.Models
             set
             {
                 isMediumQuality = value;
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -102,7 +99,7 @@ namespace CottonOilFactory.OrderGUI.Models
             set
             {
                 isGoodQuality = value;
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -118,7 +115,7 @@ namespace CottonOilFactory.OrderGUI.Models
                 {
                     StatusEvent(true);
                     weight = value;
-                    OnPropertyChanged("Weight");
+                    OnPropertyChanged(nameof(Weight));
                 }// end else if
                 else
                 {
@@ -126,7 +123,7 @@ namespace CottonOilFactory.OrderGUI.Models
                     weight = null;
                 }
 
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -142,15 +139,14 @@ namespace CottonOilFactory.OrderGUI.Models
                 {
                     StatusEvent(true);
                     numberOfBags = value;
-                    OnPropertyChanged("NumberOfBags");
+                    OnPropertyChanged(nameof(NumberOfBags));
                 }// end else if
                 else
                 {
                     StatusEvent(false);
                     numberOfBags = null;
                 }
-
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -166,7 +162,7 @@ namespace CottonOilFactory.OrderGUI.Models
                 {
                     StatusEvent(true);
                     shipmentNumber = value;
-                    OnPropertyChanged("ShipmentNumber");
+                    OnPropertyChanged(nameof(ShipmentNumber));
                 }// end else if
                 else
                 {
@@ -174,7 +170,7 @@ namespace CottonOilFactory.OrderGUI.Models
                     shipmentNumber = null;
                 }// end else
 
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -187,7 +183,7 @@ namespace CottonOilFactory.OrderGUI.Models
             set
             {
                 dateOfArrival = value;
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -205,8 +201,8 @@ namespace CottonOilFactory.OrderGUI.Models
                 {
                     price = value;
                     StatusEvent(true);
-                    OnPropertyChanged("Result");
-                    OnPropertyChanged("ButtonStatus");
+                    OnPropertyChanged(nameof(Result));
+                    OnPropertyChanged(nameof(ButtonStatus));
                 }// end else if
                 else
                 {
@@ -214,7 +210,7 @@ namespace CottonOilFactory.OrderGUI.Models
                     price = null;
                 }// end else
 
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -230,8 +226,8 @@ namespace CottonOilFactory.OrderGUI.Models
                 {
                     freightCharges = value;
                     StatusEvent(true);
-                    OnPropertyChanged("FreightCharges");
-                    OnPropertyChanged("Result");
+                    OnPropertyChanged(nameof(FreightCharges));
+                    OnPropertyChanged(nameof(Result));
                 }// end else if
                 else
                 {
@@ -239,7 +235,7 @@ namespace CottonOilFactory.OrderGUI.Models
                     freightCharges = null;
                 }// end else
 
-                OnPropertyChanged("ButtonStatus");
+                OnPropertyChanged(nameof(ButtonStatus));
             }
         }
 
@@ -293,19 +289,16 @@ namespace CottonOilFactory.OrderGUI.Models
             if (check)
             {
                 count = 0;
-                OnPropertyChanged("Status");
+                OnPropertyChanged(nameof(Status));
             }// end if
             else
             {
                 count = 1;
-                OnPropertyChanged("Status");
+                OnPropertyChanged(nameof(Status));
             }// end else
 
-            OnPropertyChanged("ButtonStatus");
+            OnPropertyChanged(nameof(ButtonStatus));
         }
-
-        // This is the event handler portion of the U.I
-        private void OnPropertyChanged(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
 
     }// end class
 }// end namespace

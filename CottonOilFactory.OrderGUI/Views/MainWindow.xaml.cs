@@ -1,9 +1,12 @@
 ﻿using System.Windows;
+using CottonOilFactory.OrderGUI.Factories;
+using CottonOilFactory.OrderGUI.Interfaces;
+using CottonOilFactory.OrderGUI.ViewModels;
 
 namespace CottonOilFactory.OrderGUI.Views
 {
     /// <inheritdoc cref="Window" />
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IClosableWindow
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -12,52 +15,7 @@ namespace CottonOilFactory.OrderGUI.Views
         public MainWindow()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            DataContext = new MainWindowViewModel(new SalesDataInputWindowFactory(), new SalesDataSearchWindowFactory());
         }
-
-        /// <summary>
-        /// go to input transportation data.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void InputTransportationData(object sender, RoutedEventArgs e)
-        {
-            var transportationDataInputView = new TransportationDataInputView();
-            this.Close();
-            transportationDataInputView.Show();
-        }
-
-        /// <summary>
-        /// go to search transportation data.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchTransportationData(object sender, RoutedEventArgs e)
-        {
-            var transportationDataSearchView = new TransportationDataSearchView();
-            this.Close();
-            transportationDataSearchView.Show();
-        }
-
-        /// <summary>
-        /// Go to input sales data.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void InputSalesData(object sender, RoutedEventArgs e)
-        {
-            // N/A
-        }
-
-        /// <summary>
-        /// Go to search sales data.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SearchSalesData(object sender, RoutedEventArgs e)
-        {
-            // N/A
-        }
-
     }
 }
