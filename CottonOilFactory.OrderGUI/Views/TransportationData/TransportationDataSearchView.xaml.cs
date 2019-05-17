@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CottonOilFactory.OrderGUI.Views
+namespace CottonOilFactory.OrderGUI.Views.TransportationData
 {
     /// <inheritdoc cref="Window" />
     public partial class TransportationDataSearchView : Window
@@ -12,7 +12,6 @@ namespace CottonOilFactory.OrderGUI.Views
         public TransportationDataSearchView()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         /// <summary>
@@ -23,14 +22,14 @@ namespace CottonOilFactory.OrderGUI.Views
         private void GoBackHome(object sender, RoutedEventArgs e)
         {
             MainWindow hm = new MainWindow();
-            this.Close();
+            Close();
             hm.Show();
         }
 
         private void SearchYearlyData(object sender, RoutedEventArgs e)
         {
             MainWindow hm = new MainWindow();
-            this.Close();
+            Close();
             hm.Show();
         }
     }
