@@ -33,5 +33,16 @@ namespace CottonOilFactory.OrderGUI.Properties {
                 return ((string)(this["MyFirstDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BRYAN-SP4;Initial Catalog=tempdb;Persist Security Info=True;User ID=s" +
+            "a;Password=QQbq65#*")]
+        public string tempdbConnectionString {
+            get {
+                return ((string)(this["tempdbConnectionString"]));
+            }
+        }
     }
 }

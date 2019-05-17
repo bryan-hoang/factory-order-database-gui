@@ -103,10 +103,10 @@
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Models\MethodOfPayment.cs" />
     <Compile Include="Models\BagWeight.cs" />
-    <Compile Include="MyFirstDBDataSet.Designer.cs">
+    <Compile Include="tempdbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyFirstDBDataSet.xsd</DependentUpon>
+      <DependentUpon>tempdbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SalesData\SalesDataSearchViewModel.cs" />
     <Compile Include="BaseClasses\NotifyPropertyChanged.cs" />
@@ -158,23 +158,23 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="CottonOilFactory.OrderGUI.ruleset" />
-    <None Include="MyFirstDBDataSet.xsc">
-      <DependentUpon>MyFirstDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MyFirstDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MyFirstDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MyFirstDBDataSet.xss">
-      <DependentUpon>MyFirstDBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AdditionalFiles Include="stylecop.json" />
+    <None Include="tempdbDataSet.xsc">
+      <DependentUpon>tempdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tempdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tempdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tempdbDataSet.xss">
+      <DependentUpon>tempdbDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

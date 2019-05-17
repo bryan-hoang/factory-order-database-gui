@@ -20,17 +20,17 @@ namespace CottonOilFactory.OrderGUI {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("MyFirstDBDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("tempdbDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class MyFirstDBDataSet : global::System.Data.DataSet {
+    public partial class tempdbDataSet : global::System.Data.DataSet {
         
-        private TableDataTable tableTable;
+        private TransportationDataLogDataTable tableTransportationDataLog;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public MyFirstDBDataSet() {
+        public tempdbDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace CottonOilFactory.OrderGUI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected MyFirstDBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected tempdbDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace CottonOilFactory.OrderGUI {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Table"] != null)) {
-                    base.Tables.Add(new TableDataTable(ds.Tables["Table"]));
+                if ((ds.Tables["TransportationDataLog"] != null)) {
+                    base.Tables.Add(new TransportationDataLogDataTable(ds.Tables["TransportationDataLog"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace CottonOilFactory.OrderGUI {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TableDataTable Table {
+        public TransportationDataLogDataTable TransportationDataLog {
             get {
-                return this.tableTable;
+                return this.tableTransportationDataLog;
             }
         }
         
@@ -127,7 +127,7 @@ namespace CottonOilFactory.OrderGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            MyFirstDBDataSet cln = ((MyFirstDBDataSet)(base.Clone()));
+            tempdbDataSet cln = ((tempdbDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace CottonOilFactory.OrderGUI {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Table"] != null)) {
-                    base.Tables.Add(new TableDataTable(ds.Tables["Table"]));
+                if ((ds.Tables["TransportationDataLog"] != null)) {
+                    base.Tables.Add(new TransportationDataLogDataTable(ds.Tables["TransportationDataLog"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace CottonOilFactory.OrderGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTable = ((TableDataTable)(base.Tables["Table"]));
+            this.tableTransportationDataLog = ((TransportationDataLogDataTable)(base.Tables["TransportationDataLog"]));
             if ((initTable == true)) {
-                if ((this.tableTable != null)) {
-                    this.tableTable.InitVars();
+                if ((this.tableTransportationDataLog != null)) {
+                    this.tableTransportationDataLog.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace CottonOilFactory.OrderGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "MyFirstDBDataSet";
+            this.DataSetName = "tempdbDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/MyFirstDBDataSet.xsd";
+            this.Namespace = "http://tempuri.org/tempdbDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTable = new TableDataTable();
-            base.Tables.Add(this.tableTable);
+            this.tableTransportationDataLog = new TransportationDataLogDataTable();
+            base.Tables.Add(this.tableTransportationDataLog);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeTable() {
+        private bool ShouldSerializeTransportationDataLog() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace CottonOilFactory.OrderGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            MyFirstDBDataSet ds = new MyFirstDBDataSet();
+            tempdbDataSet ds = new tempdbDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,21 +270,41 @@ namespace CottonOilFactory.OrderGUI {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void TableRowChangeEventHandler(object sender, TableRowChangeEvent e);
+        public delegate void TransportationDataLogRowChangeEventHandler(object sender, TransportationDataLogRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TableDataTable : global::System.Data.TypedTableBase<TableRow> {
+        public partial class TransportationDataLogDataTable : global::System.Data.TypedTableBase<TransportationDataLogRow> {
             
             private global::System.Data.DataColumn columnId;
             
+            private global::System.Data.DataColumn columnName_of_Seller;
+            
+            private global::System.Data.DataColumn columnTruck_Company;
+            
+            private global::System.Data.DataColumn columnQuality;
+            
+            private global::System.Data.DataColumn columnWeight;
+            
+            private global::System.Data.DataColumn columnPrice;
+            
+            private global::System.Data.DataColumn columnNumber_of_Bags;
+            
+            private global::System.Data.DataColumn columnFreight_Charges;
+            
+            private global::System.Data.DataColumn columnShipment_Number;
+            
+            private global::System.Data.DataColumn columnDate_of_Arrival;
+            
+            private global::System.Data.DataColumn columnTotal_Cost;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableDataTable() {
-                this.TableName = "Table";
+            public TransportationDataLogDataTable() {
+                this.TableName = "TransportationDataLog";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -292,7 +312,7 @@ namespace CottonOilFactory.OrderGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal TableDataTable(global::System.Data.DataTable table) {
+            internal TransportationDataLogDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -309,7 +329,7 @@ namespace CottonOilFactory.OrderGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected TableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TransportationDataLogDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -324,6 +344,86 @@ namespace CottonOilFactory.OrderGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Name_of_SellerColumn {
+                get {
+                    return this.columnName_of_Seller;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Truck_CompanyColumn {
+                get {
+                    return this.columnTruck_Company;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QualityColumn {
+                get {
+                    return this.columnQuality;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn WeightColumn {
+                get {
+                    return this.columnWeight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PriceColumn {
+                get {
+                    return this.columnPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Number_of_BagsColumn {
+                get {
+                    return this.columnNumber_of_Bags;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Freight_ChargesColumn {
+                get {
+                    return this.columnFreight_Charges;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Shipment_NumberColumn {
+                get {
+                    return this.columnShipment_Number;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Date_of_ArrivalColumn {
+                get {
+                    return this.columnDate_of_Arrival;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Total_CostColumn {
+                get {
+                    return this.columnTotal_Cost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -333,52 +433,62 @@ namespace CottonOilFactory.OrderGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRow this[int index] {
+            public TransportationDataLogRow this[int index] {
                 get {
-                    return ((TableRow)(this.Rows[index]));
+                    return ((TransportationDataLogRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TableRowChangeEventHandler TableRowChanging;
+            public event TransportationDataLogRowChangeEventHandler TransportationDataLogRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TableRowChangeEventHandler TableRowChanged;
+            public event TransportationDataLogRowChangeEventHandler TransportationDataLogRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TableRowChangeEventHandler TableRowDeleting;
+            public event TransportationDataLogRowChangeEventHandler TransportationDataLogRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TableRowChangeEventHandler TableRowDeleted;
+            public event TransportationDataLogRowChangeEventHandler TransportationDataLogRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddTableRow(TableRow row) {
+            public void AddTransportationDataLogRow(TransportationDataLogRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRow AddTableRow() {
-                TableRow rowTableRow = ((TableRow)(this.NewRow()));
+            public TransportationDataLogRow AddTransportationDataLogRow(string Name_of_Seller, string Truck_Company, string Quality, string Weight, string Price, string Number_of_Bags, string Freight_Charges, string Shipment_Number, string Date_of_Arrival, string Total_Cost) {
+                TransportationDataLogRow rowTransportationDataLogRow = ((TransportationDataLogRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null};
-                rowTableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTableRow);
-                return rowTableRow;
+                        null,
+                        Name_of_Seller,
+                        Truck_Company,
+                        Quality,
+                        Weight,
+                        Price,
+                        Number_of_Bags,
+                        Freight_Charges,
+                        Shipment_Number,
+                        Date_of_Arrival,
+                        Total_Cost};
+                rowTransportationDataLogRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTransportationDataLogRow);
+                return rowTransportationDataLogRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRow FindById(int Id) {
-                return ((TableRow)(this.Rows.Find(new object[] {
+            public TransportationDataLogRow FindById(int Id) {
+                return ((TransportationDataLogRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TableDataTable cln = ((TableDataTable)(base.Clone()));
+                TransportationDataLogDataTable cln = ((TransportationDataLogDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -386,13 +496,23 @@ namespace CottonOilFactory.OrderGUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TableDataTable();
+                return new TransportationDataLogDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
+                this.columnName_of_Seller = base.Columns["Name of Seller"];
+                this.columnTruck_Company = base.Columns["Truck Company"];
+                this.columnQuality = base.Columns["Quality"];
+                this.columnWeight = base.Columns["Weight"];
+                this.columnPrice = base.Columns["Price"];
+                this.columnNumber_of_Bags = base.Columns["Number of Bags"];
+                this.columnFreight_Charges = base.Columns["Freight Charges"];
+                this.columnShipment_Number = base.Columns["Shipment Number"];
+                this.columnDate_of_Arrival = base.Columns["Date of Arrival"];
+                this.columnTotal_Cost = base.Columns["Total Cost"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -400,6 +520,26 @@ namespace CottonOilFactory.OrderGUI {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
+                this.columnName_of_Seller = new global::System.Data.DataColumn("Name of Seller", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName_of_Seller);
+                this.columnTruck_Company = new global::System.Data.DataColumn("Truck Company", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruck_Company);
+                this.columnQuality = new global::System.Data.DataColumn("Quality", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuality);
+                this.columnWeight = new global::System.Data.DataColumn("Weight", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeight);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice);
+                this.columnNumber_of_Bags = new global::System.Data.DataColumn("Number of Bags", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumber_of_Bags);
+                this.columnFreight_Charges = new global::System.Data.DataColumn("Freight Charges", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFreight_Charges);
+                this.columnShipment_Number = new global::System.Data.DataColumn("Shipment Number", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShipment_Number);
+                this.columnDate_of_Arrival = new global::System.Data.DataColumn("Date of Arrival", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate_of_Arrival);
+                this.columnTotal_Cost = new global::System.Data.DataColumn("Total Cost", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Cost);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -408,39 +548,52 @@ namespace CottonOilFactory.OrderGUI {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.ExtendedProperties.Add("Generator_RowClassName", "TableRow");
-                this.ExtendedProperties.Add("Generator_RowEvArgName", "TableRowChangeEvent");
-                this.ExtendedProperties.Add("Generator_RowEvHandlerName", "TableRowChangeEventHandler");
-                this.ExtendedProperties.Add("Generator_TableClassName", "TableDataTable");
-                this.ExtendedProperties.Add("Generator_TablePropName", "Table");
-                this.ExtendedProperties.Add("Generator_TableVarName", "tableTable");
-                this.ExtendedProperties.Add("Generator_UserTableName", "Table");
+                this.columnName_of_Seller.AllowDBNull = false;
+                this.columnName_of_Seller.MaxLength = 2147483647;
+                this.columnTruck_Company.AllowDBNull = false;
+                this.columnTruck_Company.MaxLength = 2147483647;
+                this.columnQuality.AllowDBNull = false;
+                this.columnQuality.MaxLength = 2147483647;
+                this.columnWeight.AllowDBNull = false;
+                this.columnWeight.MaxLength = 2147483647;
+                this.columnPrice.AllowDBNull = false;
+                this.columnPrice.MaxLength = 2147483647;
+                this.columnNumber_of_Bags.AllowDBNull = false;
+                this.columnNumber_of_Bags.MaxLength = 2147483647;
+                this.columnFreight_Charges.AllowDBNull = false;
+                this.columnFreight_Charges.MaxLength = 2147483647;
+                this.columnShipment_Number.AllowDBNull = false;
+                this.columnShipment_Number.MaxLength = 2147483647;
+                this.columnDate_of_Arrival.AllowDBNull = false;
+                this.columnDate_of_Arrival.MaxLength = 2147483647;
+                this.columnTotal_Cost.AllowDBNull = false;
+                this.columnTotal_Cost.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRow NewTableRow() {
-                return ((TableRow)(this.NewRow()));
+            public TransportationDataLogRow NewTransportationDataLogRow() {
+                return ((TransportationDataLogRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TableRow(builder);
+                return new TransportationDataLogRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TableRow);
+                return typeof(TransportationDataLogRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TableRowChanged != null)) {
-                    this.TableRowChanged(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.TransportationDataLogRowChanged != null)) {
+                    this.TransportationDataLogRowChanged(this, new TransportationDataLogRowChangeEvent(((TransportationDataLogRow)(e.Row)), e.Action));
                 }
             }
             
@@ -448,8 +601,8 @@ namespace CottonOilFactory.OrderGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TableRowChanging != null)) {
-                    this.TableRowChanging(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.TransportationDataLogRowChanging != null)) {
+                    this.TransportationDataLogRowChanging(this, new TransportationDataLogRowChangeEvent(((TransportationDataLogRow)(e.Row)), e.Action));
                 }
             }
             
@@ -457,8 +610,8 @@ namespace CottonOilFactory.OrderGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TableRowDeleted != null)) {
-                    this.TableRowDeleted(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.TransportationDataLogRowDeleted != null)) {
+                    this.TransportationDataLogRowDeleted(this, new TransportationDataLogRowChangeEvent(((TransportationDataLogRow)(e.Row)), e.Action));
                 }
             }
             
@@ -466,14 +619,14 @@ namespace CottonOilFactory.OrderGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TableRowDeleting != null)) {
-                    this.TableRowDeleting(this, new TableRowChangeEvent(((TableRow)(e.Row)), e.Action));
+                if ((this.TransportationDataLogRowDeleting != null)) {
+                    this.TransportationDataLogRowDeleting(this, new TransportationDataLogRowChangeEvent(((TransportationDataLogRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveTableRow(TableRow row) {
+            public void RemoveTransportationDataLogRow(TransportationDataLogRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -482,7 +635,7 @@ namespace CottonOilFactory.OrderGUI {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MyFirstDBDataSet ds = new MyFirstDBDataSet();
+                tempdbDataSet ds = new tempdbDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -500,7 +653,7 @@ namespace CottonOilFactory.OrderGUI {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TableDataTable";
+                attribute2.FixedValue = "TransportationDataLogDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -544,25 +697,135 @@ namespace CottonOilFactory.OrderGUI {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TableRow : global::System.Data.DataRow {
+        public partial class TransportationDataLogRow : global::System.Data.DataRow {
             
-            private TableDataTable tableTable;
+            private TransportationDataLogDataTable tableTransportationDataLog;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal TableRow(global::System.Data.DataRowBuilder rb) : 
+            internal TransportationDataLogRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTable = ((TableDataTable)(this.Table));
+                this.tableTransportationDataLog = ((TransportationDataLogDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tableTable.IdColumn]));
+                    return ((int)(this[this.tableTransportationDataLog.IdColumn]));
                 }
                 set {
-                    this[this.tableTable.IdColumn] = value;
+                    this[this.tableTransportationDataLog.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Name_of_Seller {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Name_of_SellerColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Name_of_SellerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Truck_Company {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Truck_CompanyColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Truck_CompanyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Quality {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.QualityColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.QualityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Weight {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.WeightColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.WeightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Price {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.PriceColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Number_of_Bags {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Number_of_BagsColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Number_of_BagsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Freight_Charges {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Freight_ChargesColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Freight_ChargesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Shipment_Number {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Shipment_NumberColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Shipment_NumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Date_of_Arrival {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Date_of_ArrivalColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Date_of_ArrivalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Total_Cost {
+                get {
+                    return ((string)(this[this.tableTransportationDataLog.Total_CostColumn]));
+                }
+                set {
+                    this[this.tableTransportationDataLog.Total_CostColumn] = value;
                 }
             }
         }
@@ -571,22 +834,22 @@ namespace CottonOilFactory.OrderGUI {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class TableRowChangeEvent : global::System.EventArgs {
+        public class TransportationDataLogRowChangeEvent : global::System.EventArgs {
             
-            private TableRow eventRow;
+            private TransportationDataLogRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRowChangeEvent(TableRow row, global::System.Data.DataRowAction action) {
+            public TransportationDataLogRowChangeEvent(TransportationDataLogRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRow Row {
+            public TransportationDataLogRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -602,7 +865,7 @@ namespace CottonOilFactory.OrderGUI {
         }
     }
 }
-namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
+namespace CottonOilFactory.OrderGUI.tempdbDataSetTableAdapters {
     
     
     /// <summary>
@@ -614,7 +877,7 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TableTableAdapter : global::System.ComponentModel.Component {
+    public partial class TransportationDataLogTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -628,7 +891,7 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public TableTableAdapter() {
+        public TransportationDataLogTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -725,26 +988,63 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Table";
+            tableMapping.DataSetTable = "TransportationDataLog";
             tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Name of Seller", "Name of Seller");
+            tableMapping.ColumnMappings.Add("Truck Company", "Truck Company");
+            tableMapping.ColumnMappings.Add("Quality", "Quality");
+            tableMapping.ColumnMappings.Add("Weight", "Weight");
+            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("Number of Bags", "Number of Bags");
+            tableMapping.ColumnMappings.Add("Freight Charges", "Freight Charges");
+            tableMapping.ColumnMappings.Add("Shipment Number", "Shipment Number");
+            tableMapping.ColumnMappings.Add("Date of Arrival", "Date of Arrival");
+            tableMapping.ColumnMappings.Add("Total Cost", "Total Cost");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Table] WHERE (([Id] = @Original_Id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TransportationDataLog] WHERE (([Id] = @Original_Id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Table] DEFAULT VALUES;\r\nSELECT Id FROM [Table] WHERE (Id = SCO" +
-                "PE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TransportationDataLog] ([Name of Seller], [Truck Company], [Quality], [Weight], [Price], [Number of Bags], [Freight Charges], [Shipment Number], [Date of Arrival], [Total Cost]) VALUES (@Name_of_Seller, @Truck_Company, @Quality, @Weight, @Price, @Number_of_Bags, @Freight_Charges, @Shipment_Number, @Date_of_Arrival, @Total_Cost);
+SELECT Id, [Name of Seller], [Truck Company], Quality, Weight, Price, [Number of Bags], [Freight Charges], [Shipment Number], [Date of Arrival], [Total Cost] FROM TransportationDataLog WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_of_Seller", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name of Seller", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Truck_Company", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Truck Company", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quality", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quality", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Weight", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_of_Bags", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number of Bags", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Freight_Charges", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Freight Charges", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Shipment_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Shipment Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_of_Arrival", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date of Arrival", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_Cost", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TransportationDataLog] SET [Name of Seller] = @Name_of_Seller, [Truck Company] = @Truck_Company, [Quality] = @Quality, [Weight] = @Weight, [Price] = @Price, [Number of Bags] = @Number_of_Bags, [Freight Charges] = @Freight_Charges, [Shipment Number] = @Shipment_Number, [Date of Arrival] = @Date_of_Arrival, [Total Cost] = @Total_Cost WHERE (([Id] = @Original_Id));
+SELECT Id, [Name of Seller], [Truck Company], Quality, Weight, Price, [Number of Bags], [Freight Charges], [Shipment Number], [Date of Arrival], [Total Cost] FROM TransportationDataLog WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name_of_Seller", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name of Seller", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Truck_Company", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Truck Company", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quality", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quality", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Weight", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_of_Bags", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number of Bags", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Freight_Charges", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Freight Charges", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Shipment_Number", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Shipment Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date_of_Arrival", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date of Arrival", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total_Cost", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CottonOilFactory.OrderGUI.Properties.Settings.Default.MyFirstDBConnectionString;
+            this._connection.ConnectionString = global::CottonOilFactory.OrderGUI.Properties.Settings.Default.tempdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -753,7 +1053,9 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id FROM dbo.[Table]";
+            this._commandCollection[0].CommandText = "SELECT Id, [Name of Seller], [Truck Company], Quality, Weight, Price, [Number of " +
+                "Bags], [Freight Charges], [Shipment Number], [Date of Arrival], [Total Cost] FRO" +
+                "M dbo.TransportationDataLog";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -761,7 +1063,7 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MyFirstDBDataSet.TableDataTable dataTable) {
+        public virtual int Fill(tempdbDataSet.TransportationDataLogDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -774,9 +1076,9 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MyFirstDBDataSet.TableDataTable GetData() {
+        public virtual tempdbDataSet.TransportationDataLogDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            MyFirstDBDataSet.TableDataTable dataTable = new MyFirstDBDataSet.TableDataTable();
+            tempdbDataSet.TransportationDataLogDataTable dataTable = new tempdbDataSet.TransportationDataLogDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -784,15 +1086,15 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MyFirstDBDataSet.TableDataTable dataTable) {
+        public virtual int Update(tempdbDataSet.TransportationDataLogDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MyFirstDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Table");
+        public virtual int Update(tempdbDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "TransportationDataLog");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -836,7 +1138,67 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert() {
+        public virtual int Insert(string Name_of_Seller, string Truck_Company, string Quality, string Weight, string Price, string Number_of_Bags, string Freight_Charges, string Shipment_Number, string Date_of_Arrival, string Total_Cost) {
+            if ((Name_of_Seller == null)) {
+                throw new global::System.ArgumentNullException("Name_of_Seller");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name_of_Seller));
+            }
+            if ((Truck_Company == null)) {
+                throw new global::System.ArgumentNullException("Truck_Company");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Truck_Company));
+            }
+            if ((Quality == null)) {
+                throw new global::System.ArgumentNullException("Quality");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Quality));
+            }
+            if ((Weight == null)) {
+                throw new global::System.ArgumentNullException("Weight");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Weight));
+            }
+            if ((Price == null)) {
+                throw new global::System.ArgumentNullException("Price");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Price));
+            }
+            if ((Number_of_Bags == null)) {
+                throw new global::System.ArgumentNullException("Number_of_Bags");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Number_of_Bags));
+            }
+            if ((Freight_Charges == null)) {
+                throw new global::System.ArgumentNullException("Freight_Charges");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Freight_Charges));
+            }
+            if ((Shipment_Number == null)) {
+                throw new global::System.ArgumentNullException("Shipment_Number");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Shipment_Number));
+            }
+            if ((Date_of_Arrival == null)) {
+                throw new global::System.ArgumentNullException("Date_of_Arrival");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Date_of_Arrival));
+            }
+            if ((Total_Cost == null)) {
+                throw new global::System.ArgumentNullException("Total_Cost");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Total_Cost));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -852,6 +1214,97 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
                 }
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Name_of_Seller, string Truck_Company, string Quality, string Weight, string Price, string Number_of_Bags, string Freight_Charges, string Shipment_Number, string Date_of_Arrival, string Total_Cost, int Original_Id, int Id) {
+            if ((Name_of_Seller == null)) {
+                throw new global::System.ArgumentNullException("Name_of_Seller");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name_of_Seller));
+            }
+            if ((Truck_Company == null)) {
+                throw new global::System.ArgumentNullException("Truck_Company");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Truck_Company));
+            }
+            if ((Quality == null)) {
+                throw new global::System.ArgumentNullException("Quality");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Quality));
+            }
+            if ((Weight == null)) {
+                throw new global::System.ArgumentNullException("Weight");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Weight));
+            }
+            if ((Price == null)) {
+                throw new global::System.ArgumentNullException("Price");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Price));
+            }
+            if ((Number_of_Bags == null)) {
+                throw new global::System.ArgumentNullException("Number_of_Bags");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Number_of_Bags));
+            }
+            if ((Freight_Charges == null)) {
+                throw new global::System.ArgumentNullException("Freight_Charges");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Freight_Charges));
+            }
+            if ((Shipment_Number == null)) {
+                throw new global::System.ArgumentNullException("Shipment_Number");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Shipment_Number));
+            }
+            if ((Date_of_Arrival == null)) {
+                throw new global::System.ArgumentNullException("Date_of_Arrival");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Date_of_Arrival));
+            }
+            if ((Total_Cost == null)) {
+                throw new global::System.ArgumentNullException("Total_Cost");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Total_Cost));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Name_of_Seller, string Truck_Company, string Quality, string Weight, string Price, string Number_of_Bags, string Freight_Charges, string Shipment_Number, string Date_of_Arrival, string Total_Cost, int Original_Id) {
+            return this.Update(Name_of_Seller, Truck_Company, Quality, Weight, Price, Number_of_Bags, Freight_Charges, Shipment_Number, Date_of_Arrival, Total_Cost, Original_Id, Original_Id);
+        }
     }
     
     /// <summary>
@@ -866,7 +1319,7 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private TableTableAdapter _tableTableAdapter;
+        private TransportationDataLogTableAdapter _transportationDataLogTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -888,12 +1341,12 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public TableTableAdapter TableTableAdapter {
+        public TransportationDataLogTableAdapter TransportationDataLogTableAdapter {
             get {
-                return this._tableTableAdapter;
+                return this._transportationDataLogTableAdapter;
             }
             set {
-                this._tableTableAdapter = value;
+                this._transportationDataLogTableAdapter = value;
             }
         }
         
@@ -916,9 +1369,9 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tableTableAdapter != null) 
-                            && (this._tableTableAdapter.Connection != null))) {
-                    return this._tableTableAdapter.Connection;
+                if (((this._transportationDataLogTableAdapter != null) 
+                            && (this._transportationDataLogTableAdapter.Connection != null))) {
+                    return this._transportationDataLogTableAdapter.Connection;
                 }
                 return null;
             }
@@ -933,7 +1386,7 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tableTableAdapter != null)) {
+                if ((this._transportationDataLogTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -945,14 +1398,14 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(MyFirstDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(tempdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._transportationDataLogTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TransportationDataLog.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(updatedRows));
+                    result = (result + this._transportationDataLogTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -964,13 +1417,13 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(MyFirstDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(tempdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._transportationDataLogTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TransportationDataLog.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(addedRows));
+                    result = (result + this._transportationDataLogTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -982,13 +1435,13 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(MyFirstDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(tempdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tableTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Table.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._transportationDataLogTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TransportationDataLog.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tableTableAdapter.Update(deletedRows));
+                    result = (result + this._transportationDataLogTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1024,15 +1477,15 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(MyFirstDBDataSet dataSet) {
+        public virtual int UpdateAll(tempdbDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._tableTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tableTableAdapter.Connection) == false))) {
+            if (((this._transportationDataLogTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._transportationDataLogTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1068,13 +1521,13 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tableTableAdapter != null)) {
-                    revertConnections.Add(this._tableTableAdapter, this._tableTableAdapter.Connection);
-                    this._tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tableTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tableTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tableTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tableTableAdapter.Adapter);
+                if ((this._transportationDataLogTableAdapter != null)) {
+                    revertConnections.Add(this._transportationDataLogTableAdapter, this._transportationDataLogTableAdapter.Connection);
+                    this._transportationDataLogTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._transportationDataLogTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._transportationDataLogTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._transportationDataLogTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._transportationDataLogTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1135,9 +1588,9 @@ namespace CottonOilFactory.OrderGUI.MyFirstDBDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._tableTableAdapter != null)) {
-                    this._tableTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tableTableAdapter]));
-                    this._tableTableAdapter.Transaction = null;
+                if ((this._transportationDataLogTableAdapter != null)) {
+                    this._transportationDataLogTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._transportationDataLogTableAdapter]));
+                    this._transportationDataLogTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
