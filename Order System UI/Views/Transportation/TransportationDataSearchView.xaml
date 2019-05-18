@@ -28,7 +28,8 @@
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center"
                    HorizontalAlignment="Right"
-                   FontSize="16">Seller's Name</Label>
+                   FontSize="16"
+                   Foreground="Blue">Seller's Name</Label>
             <TextBox Grid.Column="1"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Center"
@@ -43,7 +44,8 @@
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center"
                    HorizontalAlignment="Right"
-                   FontSize="16">Truck Company Name</Label>
+                   FontSize="16"
+                   Foreground="Blue">Truck Company Name</Label>
             <TextBox Grid.Column="1"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Center"
@@ -58,7 +60,8 @@
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center"
                    HorizontalAlignment="Right"
-                   FontSize="16">Date of Arrival</Label>
+                   FontSize="16"
+                   Foreground="Blue">Date of Arrival</Label>
             <DatePicker Grid.Column="1"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -69,7 +72,8 @@
         <Label Grid.Row="3"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
-               FontSize="16">Data Table</Label>
+               FontSize="16"
+               Foreground="Blue">Data Table</Label>
 
         <DataGrid Grid.Row="4" Name="DataTable" AutoGenerateColumns="False" SelectedItem="{Binding Path=TableStatus, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=DataTable, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" >
             <DataGrid.Columns>
@@ -93,7 +97,8 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Row="5"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Right">Select year to review net costs</Label>
+                   HorizontalAlignment="Right"
+                   Foreground="Blue">Select year to review net costs:</Label>
             <TextBox Name="YearSelect"
                      Grid.Column="1"
                      HorizontalAlignment="Left"

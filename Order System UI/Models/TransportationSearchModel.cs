@@ -167,99 +167,98 @@ namespace Order_System_UI.Models
         /// <summary>
         /// Gets the data from the database into a list being data binded to the data grid also manipluating searches.
         /// </summary>
-        public List<TransportationDataLog1> DataTable
+        public List<TransportationDataLog> DataTable
         {
             get
             {
                 LinqSqlDeclaration connect = new LinqSqlDeclaration();
-                TransportLinkDataContext datacontext = connect.DataContext;
-                List<TransportationDataLog1> tableData = connect.TableData;
-                var list = connect.List;
+                List<TransportationDataLog> listData = connect.ListData;
+                var table = connect.Table;
 
                 if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(truckCompanyName) && string.IsNullOrWhiteSpace(DateofArrival))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
-                        tableData.Add(c);
+                        listData.Add(c);
                     }
-                    return tableData;
+                    return listData;
                 }// end if
                 else if (string.IsNullOrWhiteSpace(truckCompanyName) && string.IsNullOrWhiteSpace(DateofArrival))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else if
                 else if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(DateofArrival))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else if
                 else if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(truckCompanyName))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else if
                 else if (string.IsNullOrWhiteSpace(DateofArrival))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else if
                 else if (string.IsNullOrWhiteSpace(sellerName))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else if
                 else if (string.IsNullOrWhiteSpace(truckCompanyName))
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else if
                 else
                 {
-                    foreach (TransportationDataLog1 c in list)
+                    foreach (TransportationDataLog c in table)
                     {
                         if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
                         {
-                            tableData.Add(c);
+                            listData.Add(c);
                         }// end if
                     }
-                    return tableData;
+                    return listData;
                 }// end else
             }// end get
         }// end property
@@ -268,15 +267,15 @@ namespace Order_System_UI.Models
         /// Deletes a row of data from the SQL server.
         /// </summary>
         /// <param name="del">Row to be deleted from data.</param>
-        public void DeleteRow(TransportationDataLog1 del)
+        public void DeleteRow(TransportationDataLog del)
         {
             LinqSqlDeclaration connect = new LinqSqlDeclaration();
             TransportLinkDataContext datacontext = connect.DataContext;
             if (del != null)
             {
-                TransportationDataLog1 delRow = (Order_System_UI.TransportationDataLog1)del;
-                datacontext.TransportationDataLog1s.Attach(delRow);
-                datacontext.TransportationDataLog1s.DeleteOnSubmit(delRow);
+                TransportationDataLog delRow = del as TransportationDataLog;
+                datacontext.TransportationDataLogs.Attach(delRow);
+                datacontext.TransportationDataLogs.DeleteOnSubmit(delRow);
                 datacontext.SubmitChanges();
             }// end if
         }// end method

@@ -30,9 +30,9 @@ namespace Order_System_UI
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTransportationDataLog1(TransportationDataLog1 instance);
-    partial void UpdateTransportationDataLog1(TransportationDataLog1 instance);
-    partial void DeleteTransportationDataLog1(TransportationDataLog1 instance);
+    partial void InsertTransportationDataLog(TransportationDataLog instance);
+    partial void UpdateTransportationDataLog(TransportationDataLog instance);
+    partial void DeleteTransportationDataLog(TransportationDataLog instance);
     #endregion
 		
 		public TransportLinkDataContext() : 
@@ -65,17 +65,17 @@ namespace Order_System_UI
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TransportationDataLog1> TransportationDataLog1s
+		public System.Data.Linq.Table<TransportationDataLog> TransportationDataLogs
 		{
 			get
 			{
-				return this.GetTable<TransportationDataLog1>();
+				return this.GetTable<TransportationDataLog>();
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TransportationDataLog")]
-	public partial class TransportationDataLog1 : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class TransportationDataLog : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -130,7 +130,7 @@ namespace Order_System_UI
     partial void OnTotal_CostChanged();
     #endregion
 		
-		public TransportationDataLog1()
+		public TransportationDataLog()
 		{
 			OnCreated();
 		}

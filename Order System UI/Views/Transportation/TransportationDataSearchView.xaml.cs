@@ -45,7 +45,7 @@ namespace Order_System_UI.Views
         private void SummationYearlyData(object sender, RoutedEventArgs e)
         {
             LinqSqlDeclaration connect = new LinqSqlDeclaration();
-            var list = connect.List;
+            var table = connect.Table;
 
             decimal weightTotal = 0;
             decimal priceTotal = 0;
@@ -53,7 +53,7 @@ namespace Order_System_UI.Views
             decimal freightChargesTotal = 0;
             decimal costsTotal = 0;
 
-            foreach (TransportationDataLog1 x in list)
+            foreach (TransportationDataLog x in table)
             {
                 string[] compare = x.Date_of_Arrival.Split('/');
                 if (YearSelect.Text.ToString().Equals(compare[2]))
@@ -83,7 +83,7 @@ namespace Order_System_UI.Views
 
             try
             {
-                TransportationDataLog1 rowDel = (Order_System_UI.TransportationDataLog1)DataTable.SelectedItem;
+                TransportationDataLog rowDel = (TransportationDataLog)DataTable.SelectedItem;
                 modfityData.DeleteRow(rowDel);
                 this.Close();
                 reShow.Show();

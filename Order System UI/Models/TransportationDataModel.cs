@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Order_System_UI.Models
 {
@@ -309,6 +310,6 @@ namespace Order_System_UI.Models
             }// end else
 
             OnPropertyChanged("ButtonStatus");
-        }
+        }// end property
     }// end class
 }// end namespace

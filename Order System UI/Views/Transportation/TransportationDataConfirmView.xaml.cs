@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Windows;
 using Order_System_UI.LINQ_SQL_Connection;
 using Order_System_UI.Models;
@@ -20,7 +18,6 @@ namespace Order_System_UI.Views
         public TransportationDataConfirmView(TransportationDataModel transportationDataModel)
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.transportationData = transportationDataModel;
             this.DataContext = transportationData;
         }// end constructor
@@ -42,7 +39,7 @@ namespace Order_System_UI.Views
             TransportLinkDataContext dataContext = connect.DataContext;
             try
             {
-                TransportationDataLog1 cc = new TransportationDataLog1
+                TransportationDataLog cc = new TransportationDataLog
                 {
                     Name_of_Seller = transportationData.Seller,
                     Number_of_Bags = transportationData.NumberOfBags,
@@ -56,7 +53,7 @@ namespace Order_System_UI.Views
                     Date_of_Arrival = transportationData.DateOfArrival,
                 };
 
-                dataContext.TransportationDataLog1s.InsertOnSubmit(cc);
+                dataContext.TransportationDataLogs.InsertOnSubmit(cc);
 
                 dataContext.SubmitChanges();
 
@@ -68,4 +65,4 @@ namespace Order_System_UI.Views
             }// end try-catch block
         }// end method
     }// end class
-}// end name space
+}// end namespace

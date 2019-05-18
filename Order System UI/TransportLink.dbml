@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="model" Class="TransportLinkDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=AMESHPC\AMESHK_SERVER;Initial Catalog=model;Persist Security Info=True;User ID=sa" SettingsObjectName="Order_System_UI.Properties.Settings" SettingsPropertyName="modelConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.TransportationDataLog" Member="TransportationDataLog1s">
-    <Type Name="TransportationDataLog1">
+  <Table Name="dbo.TransportationDataLog" Member="TransportationDataLogs">
+    <Type Name="TransportationDataLog">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="[Name of Seller]" Member="Name_of_Seller" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="[Truck Company]" Member="Truck_Company" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />

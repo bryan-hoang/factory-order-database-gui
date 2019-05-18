@@ -119,16 +119,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TransportLink.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Commands\GoToHomeWindow.cs" />
+    <Compile Include="ViewModels\Commands\GoToTransportationSearchWindow.cs" />
+    <Compile Include="ViewModels\Commands\GoToTransportationInputWindow.cs" />
+    <Compile Include="ViewModels\HomeWindowViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TransportationDataConfirmView.xaml.cs">
+    <Compile Include="Views\Transportation\TransportationDataConfirmView.xaml.cs">
       <DependentUpon>TransportationDataConfirmView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TransportationDataInputView.xaml.cs">
+    <Compile Include="Views\Transportation\TransportationDataInputView.xaml.cs">
       <DependentUpon>TransportationDataInputView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TransportationDataSearchView.xaml.cs">
+    <Compile Include="Views\Transportation\TransportationDataSearchView.xaml.cs">
       <DependentUpon>TransportationDataSearchView.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -173,15 +177,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TransportationDataConfirmView.xaml">
+    <Page Include="Views\Transportation\TransportationDataConfirmView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Views\TransportationDataInputView.xaml">
+    <Page Include="Views\Transportation\TransportationDataInputView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TransportationDataSearchView.xaml">
+    <Page Include="Views\Transportation\TransportationDataSearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -191,10 +195,6 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -210,6 +210,13 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Sales\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step-1.png" />
+    <Resource Include="Images\step-2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

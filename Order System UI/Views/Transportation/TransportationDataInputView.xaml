@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Transportation Data Input"
         Height="500"
-        Width="800">
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Name="TransportationDataInput">
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -81,11 +83,11 @@
                VerticalAlignment="Center"
                Foreground="Blue">Total Cost (Rs):</Label>
 
-        <Label Content="(Picture Placeholder)"
-               Grid.Row="10"
-               Grid.Column="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center" />
+        <Image>
+            <Image.Source>
+                <BitmapImage UriSource="Images/Step-1.png"></BitmapImage>
+            </Image.Source>
+        </Image>
 
         <TextBox Name="sellerName"
                  Grid.Row="0"
@@ -177,10 +179,17 @@
                    VerticalAlignment="Center" 
                    Text="{Binding Path=Result, Mode=OneWay, FallbackValue=0.00}"/>
 
-        <Button Content="Go Back"
+        <Image
+                Grid.Column="1" Grid.Row="10" Source="/images/Step-1.png"/>
+                
+                
+        
+        <Button 
+                Content="Go Back"
                 Grid.Row="11"
                 Grid.Column="0"
-                Click="GoBackToHomeScreen" />
+                Click="GoToHomeWindow"/>
+        
         <TextBlock 
                    Grid.Row="11"
                    Grid.Column="1"
@@ -190,9 +199,8 @@
         <Button Content="Confirm Transportation Data"
                 Grid.Row="11"
                 Grid.Column="2"
-                Click="ShowDataConfirmationDialog"
-                IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}" />
-
-
+                IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}"
+                Click="GoToDataConfirmWindow"/>
+    
     </Grid>
 </Window>

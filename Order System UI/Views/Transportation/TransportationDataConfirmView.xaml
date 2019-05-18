@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Title="Transportation Data Confirmation"
         Height="400"
-        Width="700">
+        Width="700"
+        WindowStartupLocation="CenterScreen">
 
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -82,10 +83,10 @@
                Grid.Row="9"
                HorizontalAlignment="Right"
                VerticalAlignment="Center">Total Cost:</Label>
-        <Label Grid.Column="1"
+        <Image
+               Grid.Column="1"
                Grid.Row="10"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center">Insert Picture:</Label>
+               Source="/Images/step-2.png"/>
 
         <TextBlock Text="{Binding Path= Seller, Mode=OneWay}"
                    Grid.Column="1"

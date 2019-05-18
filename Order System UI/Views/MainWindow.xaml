@@ -6,7 +6,10 @@
         mc:Ignorable="d"
         Title="Home Window"
         Height="500"
-        Width="800">
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Name="HomeWindow">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -32,23 +35,27 @@
                HorizontalAlignment="Center"
                Grid.Column="1">Kahloon Factory DataBase</Label>
 
-        <Button Name="InputTransportationDataButton"
-                Click="InputTransportationData"
+        <Button Content="Input Transportation Data"
+                Name="InputTransportationDataButton"
                 Grid.Column="1"
-                Grid.Row="2">Input Transportation Data</Button>
-
+                Grid.Row="2"
+                Command="{Binding Path=GoToTransportationInputWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                CommandParameter="{Binding ElementName=HomeWindow}"></Button>
+        
         <Button Name="SearchTransportationDataButton"
-                Click="SearchTransportationData"
+                Content="Search Transportation Data"
                 Grid.Column="1"
-                Grid.Row="4">Search Transportation Data</Button>
+                Grid.Row="4"
+                Command="{Binding Path=GoToTransportationSearchWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                CommandParameter="{Binding ElementName=HomeWindow}"></Button>
 
         <Button Name="InputSalesDataButton"
-                Click="InputSalesData"
+                Content="Input Sales Data"
                 Grid.Column="1"
-                Grid.Row="6">Input Sales Data</Button>
+                Grid.Row="6"
+                ></Button>
 
         <Button Name="SearchSalesDataButton"
-                Click="SearchSalesData"
                 Grid.Column="1"
                 Grid.Row="8">Search Sales Data</Button>
 

@@ -17,8 +17,8 @@ namespace Order_System_UI.LINQ_SQL_Connection
         /// Declared attributes for LINQ-SQL operations.
         /// </summary>
         private readonly TransportLinkDataContext dataContext;
-        private readonly List<TransportationDataLog1> tableData;
-        private readonly Table<TransportationDataLog1> list;
+        private readonly List<TransportationDataLog> listData;
+        private readonly Table<TransportationDataLog> table;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LinqSqlDeclaration"/> class for LINQ-SQL operations.
@@ -27,32 +27,32 @@ namespace Order_System_UI.LINQ_SQL_Connection
         {
             string connectionString = ConfigurationManager.ConnectionStrings["Order_System_UI.Properties.Settings.modelConnectionString"].ConnectionString;
             this.dataContext = new TransportLinkDataContext(connectionString);
-            this.tableData = new List<TransportationDataLog1>();
-            this.list = dataContext.TransportationDataLog1s;
-        }// end constructor
+            this.listData = new List<TransportationDataLog>();
+            this.table = dataContext.TransportationDataLogs;
+        }
 
         /// <summary>
         /// Gets the dataContext.
         /// </summary>
         public TransportLinkDataContext DataContext
         {
-            get => dataContext;
+            get => this.dataContext;
         }
 
         /// <summary>
         /// Gets the tableData.
         /// </summary>
-        public List<TransportationDataLog1> TableData
+        public List<TransportationDataLog> ListData
         {
-            get => tableData;
+            get => this.listData;
         }
 
         /// <summary>
         /// Gets the list.
         /// </summary>
-        public Table<TransportationDataLog1> List
+        public Table<TransportationDataLog> Table
         {
-            get => list;
-        }
+            get => this.table;
+        }// end property
     }// end class
 }// end namespace
