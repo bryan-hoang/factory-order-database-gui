@@ -40,7 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Style\CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -51,7 +51,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Style\CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -70,7 +70,9 @@
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -95,19 +97,25 @@
     <Compile Include="BaseClasses\ModelBase.cs" />
     <Compile Include="BaseClasses\ViewModelBase.cs" />
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Database\CottonFactoryOrderInformationDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\LinqToSqlConnection.cs" />
     <Compile Include="Factories\AbstractWindowFactory.cs" />
     <Compile Include="Factories\MainWindowFactory.cs" />
     <Compile Include="Factories\SalesDataConfirmWindowFactory.cs" />
     <Compile Include="Factories\SalesDataInputWindowFactory.cs" />
     <Compile Include="Factories\SalesDataSearchWindowFactory.cs" />
-    <Compile Include="Interfaces\IClosable.cs" />
+    <Compile Include="Interfaces\IClosableWindow.cs" />
     <Compile Include="Models\MethodOfPayment.cs" />
     <Compile Include="Models\BagWeight.cs" />
-    <Compile Include="tempdbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>tempdbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\SalesData\SalesDataSearchViewModel.cs" />
     <Compile Include="BaseClasses\NotifyPropertyChanged.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -157,24 +165,32 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="CottonOilFactory.OrderGUI.ruleset" />
+    <None Include="Database\CottonFactoryOrderInformationDataSet.xsc">
+      <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database\CottonFactoryOrderInformationDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CottonFactoryOrderInformationDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\CottonFactoryOrderInformationDataSet.xss">
+      <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Style\CottonOilFactory.OrderGUI.ruleset" />
+    <None Include="Database\DataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <AdditionalFiles Include="stylecop.json" />
-    <None Include="tempdbDataSet.xsc">
-      <DependentUpon>tempdbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="tempdbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>tempdbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="tempdbDataSet.xss">
-      <DependentUpon>tempdbDataSet.xsd</DependentUpon>
-    </None>
+    <AdditionalFiles Include="Style\stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -210,7 +226,9 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

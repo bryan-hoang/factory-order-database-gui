@@ -9,8 +9,8 @@
         Width="800"
         ResizeMode="NoResize"
         Name="SalesDataSearchWindow"
-        WindowStartupLocation="CenterScreen">
-
+        WindowStartupLocation="CenterScreen"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -21,12 +21,10 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
         <Label Content="Buyer's Name:"
                Grid.Row="0"
                Grid.Column="0"
@@ -44,7 +42,7 @@
                Grid.Column="0"
                HorizontalAlignment="Right"
                VerticalAlignment="Center" />
-        <DatePicker SelectedDate="{Binding DateOfSale, Mode=OneWay}"
+        <DatePicker SelectedDate="{Binding DateOfSale, UpdateSourceTrigger=PropertyChanged}"
                     Grid.Row="1"
                     Grid.Column="1"
                     HorizontalAlignment="Left"
@@ -55,51 +53,57 @@
                Grid.ColumnSpan="2"
                HorizontalAlignment="Center"
                VerticalAlignment="Bottom" />
-        <DataGrid Grid.Row="3"
+        <DataGrid Name="DataGrid"
+                  ItemsSource="{Binding SalesDatumsToDisplay}"
+                  Grid.Row="3"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedSalesDatum, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Buyer Name"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Name_of_Buyer}" />
                 <DataGridTextColumn Header="Weight per bag"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Weight_per_Bag}" />
                 <DataGridTextColumn Header="Price per bag"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Price_per_Bag}" />
                 <DataGridTextColumn Header="Number of Bags"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Number_of_Bags}" />
                 <DataGridTextColumn Header="Total Cost"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Total_Cost}" />
                 <DataGridTextColumn Header="Payment Method"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Payment_Method}" />
                 <DataGridTextColumn Header="Date of Sale"
-                                    Binding="{Binding }" />
+                                    Binding="{Binding Date_of_Sale}" />
             </DataGrid.Columns>
         </DataGrid>
-
         <Label Content="Select a year to display its total cost data:"
                Grid.Row="4"
                Grid.Column="0"
                HorizontalAlignment="Right"
                VerticalAlignment="Center" />
-        <Calendar SelectedDate="{Binding YearOfDataToDisplay}"
-                  Grid.Row="4"
-                  Grid.Column="1"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Center"
-                  DisplayMode="Year" />
+        <TextBox Text="{Binding YearOfDataToDisplay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Width="100" />
         <Button Content="Display the year's data"
                 Grid.Row="5"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Command="{Binding DisplayTheSelectedYearsDataCommand}"
-                Width="130"
-                Height="20" />
+                Width="150" />
         <Button Content="Go Back"
                 Grid.Row="6"
                 Grid.Column="0"
                 Command="{Binding GoBackToMainWindowCommand}"
                 CommandParameter="{Binding ElementName=SalesDataSearchWindow}"
-                Width="100" />
+                Width="150" />
+        <Button Content="Delete Selected Row"
+                Grid.Row="6"
+                Grid.Column="1"
+                Command="{Binding DeleteSelectedRowCommand}"
+                Width="150" />
     </Grid>
 </Window>

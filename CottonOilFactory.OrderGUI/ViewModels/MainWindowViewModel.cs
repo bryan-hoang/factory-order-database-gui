@@ -15,10 +15,10 @@ namespace CottonOilFactory.OrderGUI.ViewModels
         {
             this.salesDataInputWindowFactory = salesDataInputWindowFactory;
             this.salesDataSearchWindowFactory = salesDataSearchWindowFactory;
-            GoToTransportationDataInputWindowCommand = new RelayCommand<IClosableWindow>(this.GoToTransportationDataInputWindow);
-            GoToTransportationDataSearchWindowCommand = new RelayCommand<IClosableWindow>(this.GoToTransportationDataSearchWindow);
-            GoToSalesDataInputWindowCommand = new RelayCommand<IClosableWindow>(this.GoToSalesDataInputWindow);
-            GoToSalesDataSearchWindowCommand = new RelayCommand<IClosableWindow>(this.GoToSalesDataSearchWindow);
+            GoToTransportationDataInputWindowCommand = new RelayCommand<IClosableWindow>(GoToTransportationDataInputWindow);
+            GoToTransportationDataSearchWindowCommand = new RelayCommand<IClosableWindow>(GoToTransportationDataSearchWindow);
+            GoToSalesDataInputWindowCommand = new RelayCommand<IClosableWindow>(GoToSalesDataInputWindow);
+            GoToSalesDataSearchWindowCommand = new RelayCommand<IClosableWindow>(GoToSalesDataSearchWindow);
         }
 
         public RelayCommand<IClosableWindow> GoToTransportationDataInputWindowCommand { get; }
@@ -32,9 +32,7 @@ namespace CottonOilFactory.OrderGUI.ViewModels
         /// <summary>
         /// go to input transportation data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void GoToTransportationDataInputWindow(IClosableWindow closableWindow)
+        private void GoToTransportationDataInputWindow(IClosableWindow closableWindow)
         {
             var transportationDataInputView = new TransportationDataInputView();
             transportationDataInputView.Show();
@@ -44,16 +42,14 @@ namespace CottonOilFactory.OrderGUI.ViewModels
         /// <summary>
         /// go to search transportation data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void GoToTransportationDataSearchWindow(IClosableWindow closableWindow)
+        private void GoToTransportationDataSearchWindow(IClosableWindow closableWindow)
         {
             var transportationDataSearchView = new TransportationDataSearchView();
             transportationDataSearchView.Show();
             closableWindow?.Close();
         }
 
-        public void GoToSalesDataInputWindow(IClosableWindow closableWindow)
+        private void GoToSalesDataInputWindow(IClosableWindow closableWindow)
         {
             salesDataInputWindowFactory?.CreateWindow();
             closableWindow?.Close();
@@ -62,12 +58,10 @@ namespace CottonOilFactory.OrderGUI.ViewModels
         /// <summary>
         /// Go to search sales data.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void GoToSalesDataSearchWindow(IClosableWindow closableWindow)
+        private void GoToSalesDataSearchWindow(IClosableWindow closableWindow)
         {
-            salesDataSearchWindowFactory?.CreateWindow();
-            closableWindow?.Close();
+            salesDataSearchWindowFactory.CreateWindow();
+            closableWindow.Close();
         }
 
     }

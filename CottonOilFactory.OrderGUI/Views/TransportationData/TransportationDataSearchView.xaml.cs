@@ -21,14 +21,14 @@ namespace CottonOilFactory.OrderGUI.Views.TransportationData
         /// <param name="e"></param>
         private void GoBackHome(object sender, RoutedEventArgs e)
         {
-            MainWindow hm = new MainWindow();
+            Main hm = new Main();
             Close();
             hm.Show();
         }
 
         private void SearchYearlyData(object sender, RoutedEventArgs e)
         {
-            MainWindow hm = new MainWindow();
+            Main hm = new Main();
             Close();
             hm.Show();
         }

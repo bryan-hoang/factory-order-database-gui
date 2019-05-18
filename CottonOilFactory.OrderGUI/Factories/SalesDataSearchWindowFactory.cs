@@ -1,4 +1,5 @@
-﻿using CottonOilFactory.OrderGUI.ViewModels.SalesData;
+﻿using System.Windows.Controls;
+using CottonOilFactory.OrderGUI.ViewModels.SalesData;
 using CottonOilFactory.OrderGUI.Views.SalesData;
 
 namespace CottonOilFactory.OrderGUI.Factories
