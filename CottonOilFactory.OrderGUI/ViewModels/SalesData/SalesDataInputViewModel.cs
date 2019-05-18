@@ -1,5 +1,6 @@
 ﻿using CottonOilFactory.OrderGUI.BaseClasses;
 using CottonOilFactory.OrderGUI.Factories;
+using CottonOilFactory.OrderGUI.Interfaces;
 using CottonOilFactory.OrderGUI.Models;
 using GalaSoft.MvvmLight.CommandWpf;
 

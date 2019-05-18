@@ -38,7 +38,7 @@ namespace CottonOilFactory.OrderGUI.Views.TransportationData
         /// <param name="e"></param>
         private void GoBackToHomeScreen(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow();
+            var mainWindow = new Main();
             Close();
             mainWindow.Show();
         }
