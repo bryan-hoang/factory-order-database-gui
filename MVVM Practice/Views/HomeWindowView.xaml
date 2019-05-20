@@ -1,0 +1,93 @@
+﻿<Window x:Class="MVVM_Practice.Views.HomeWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM_Practice.Views"
+        mc:Ignorable="d"
+        Title="Home Window" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Name="HomeScreen">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Content="Type Name:" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            FontSize="34" 
+            Grid.Column="0" 
+            Grid.Row="0"/>
+        
+        <Label
+            Content="Type a Number:" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            FontSize="34" 
+            Grid.Column="0" 
+            Grid.Row="1"/>
+
+        <Label
+            Content="Enter a data:" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            FontSize="34" 
+            Grid.Column="0" 
+            Grid.Row="2"/>
+
+        <TextBox
+            Name="NameText" 
+            Width="100" 
+            Height="50" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Grid.Column="1" 
+            Grid.Row="0"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            Text="{Binding Path=NameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBox
+            Name="NumberText" 
+            Width="100" 
+            Height="50" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            Grid.Column="1" 
+            Grid.Row="1"
+            Text="{Binding Path= DecimalText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <DatePicker
+            Name="DateText" 
+            Width="100" Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="2"
+            SelectedDate="{Binding Path=DateText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button
+            Name="NextWindowButton"
+            Content="Confirm Window"
+            Width="100"
+            Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="3"
+            IsEnabled="{Binding Path=GoToConfirmationWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+            Command="{Binding Path=NextWindow}"
+            CommandParameter="{Binding ElementName=HomeScreen}"/>
+
+    </Grid>
+</Window>
