@@ -62,7 +62,9 @@
     <Compile Include="Models\ProjectDataModel.cs" />
     <Compile Include="PropertyChanged\PropertyInterface.cs" />
     <Compile Include="ViewModels\Commands\GoToConfirmationWindow.cs" />
-    <Compile Include="ViewModels\HomeWindowViewModel.cs" />
+    <Compile Include="ViewModels\Commands\GoToHomeScreen.cs" />
+    <Compile Include="ViewModels\ConfirmationWindowViewModel.cs" />
+    <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="Views\ConfirmationWindowView.xaml.cs">
       <DependentUpon>ConfirmationWindowView.xaml</DependentUpon>
     </Compile>

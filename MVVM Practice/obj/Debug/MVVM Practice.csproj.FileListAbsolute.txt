@@ -15,3 +15,20 @@ C:\Users\Amesh\source\repos\MVVM Practice\MVVM Practice\obj\Debug\MVVM Practice.
 C:\Users\Amesh\source\repos\MVVM Practice\MVVM Practice\obj\Debug\MVVM Practice.pdb
 C:\Users\Amesh\source\repos\MVVM Practice\MVVM Practice\obj\Debug\Views\ConfirmationWindowView.g.cs
 C:\Users\Amesh\source\repos\MVVM Practice\MVVM Practice\obj\Debug\Views\ConfirmationWindowView.baml
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\bin\Debug\MVVM Practice.exe.config
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\bin\Debug\MVVM Practice.exe
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\bin\Debug\MVVM Practice.pdb
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice.csprojAssemblyReference.cache
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\Views\ConfirmationWindowView.g.cs
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\Views\HomeWindowView.g.cs
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\App.g.cs
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice_MarkupCompile.cache
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice_MarkupCompile.lref
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\Views\ConfirmationWindowView.baml
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\Views\HomeWindowView.baml
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice.g.resources
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM_Practice.Properties.Resources.resources
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice.csproj.GenerateResource.cache
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice.csproj.CoreCompileInputs.cache
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice.exe
+C:\Users\Amesh\source\repos\SubmittedMVVMExample\MVVM Practice\obj\Debug\MVVM Practice.pdb

@@ -11,7 +11,7 @@ namespace MVVM_Practice.Views
         public HomeWindowView()
         {
             InitializeComponent();
-            this.DataContext = new HomeWindowViewModel();
+            this.DataContext = new ProjectViewModel();
         }// end constructor
     }// end class
 }// end namespace

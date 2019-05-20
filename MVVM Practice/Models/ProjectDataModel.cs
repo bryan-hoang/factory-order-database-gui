@@ -7,11 +7,6 @@ namespace MVVM_Practice.Models
     {
         private string decimaltext;
 
-        public bool Status
-        {
-            get => !(string.IsNullOrEmpty(decimaltext));
-        }
-
         public string NameText { get; set; }
 
         public string DecimalText
@@ -30,7 +25,6 @@ namespace MVVM_Practice.Models
                 {
                     this.decimaltext = value;
                 }
-                //OnPropertyChanged("Status");
             }
         }
 

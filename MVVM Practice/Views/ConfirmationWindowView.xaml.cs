@@ -8,10 +8,10 @@ namespace MVVM_Practice.Views
     /// </summary>
     public partial class ConfirmationWindowView : Window
     {
-        public ConfirmationWindowView(HomeWindowViewModel hm)
+        public ConfirmationWindowView(ProjectViewModel viewmd)
         {
             InitializeComponent();
-            this.DataContext = hm;
+            this.DataContext = viewmd;
         }
     }
 }

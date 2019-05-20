@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM_Practice.Views"
         mc:Ignorable="d"
-        Title="Home Window" Height="450" Width="800"
+        Title="Home Window" Height="550" Width="850"
         WindowStartupLocation="CenterScreen"
         Name="HomeScreen">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -28,7 +28,7 @@
             FontSize="34" 
             Grid.Column="0" 
             Grid.Row="0"/>
-        
+
         <Label
             Content="Type a Number:" 
             HorizontalAlignment="Center" 
@@ -58,8 +58,8 @@
             Text="{Binding Path=NameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBox
-            Name="NumberText" 
-            Width="100" 
+            Name="NumberText"
+            Width="100"
             Height="50" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
@@ -74,7 +74,7 @@
             VerticalAlignment="Center"
             Grid.Column="1"
             Grid.Row="2"
-            SelectedDate="{Binding Path=DateText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            SelectedDate="{Binding Path=DateText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button
             Name="NextWindowButton"
@@ -85,9 +85,8 @@
             VerticalAlignment="Center"
             Grid.Column="1"
             Grid.Row="3"
-            IsEnabled="{Binding Path=GoToConfirmationWindow, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-            Command="{Binding Path=NextWindow}"
+            Command="{Binding Path=GoToConfirmationWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             CommandParameter="{Binding ElementName=HomeScreen}"/>
-
+        
     </Grid>
 </Window>
