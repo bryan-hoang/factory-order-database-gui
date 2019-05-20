@@ -17,6 +17,7 @@
             <ColumnDefinition Width="9*" />
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -36,58 +37,69 @@
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Grid.Column="0"
+
+        <Label Content="Name of Trucking Company"
+               Grid.Column="0"
                Grid.Row="1"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Name of Trucking Company</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue"/>
+
+        <Label Content="Quality"
+               Grid.Column="0"
                Grid.Row="2"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Quality</Label>
+               Foreground="Blue"/>
+
         <Label Content="Weight (kg)"
                Grid.Row="3"
                Grid.Column="0"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Grid.Column="0"
+
+        <Label Content="Number of Bags"
+               Grid.Column="0"
                Grid.Row="5"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Number of Bags</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue"/>
+
+        <Label Content="Price (Rs)"
+               Grid.Column="0"
                Grid.Row="4"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Price (Rs)</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue"/>
+
+        <Label Content="Freight Charges"
+               Grid.Column="0"
                Grid.Row="6"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Freight Charges (Rs)</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue"/>
+
+        <Label Content="Shipment Number"
+               Grid.Column="0"
                Grid.Row="7"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Shipment Number</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue"/>
+
+        <Label Content="Date of Arrival"
+               Grid.Column="0"
                Grid.Row="8"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Date of Arrival</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue"/>
+
+        <Label Content="Total Cost (Rs):"
+               Grid.Column="0"
                Grid.Row="9"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Total Cost (Rs):</Label>
-
-        <Image>
-            <Image.Source>
-                <BitmapImage UriSource="Images/Step-1.png"></BitmapImage>
-            </Image.Source>
-        </Image>
+               Foreground="Blue"/>
 
         <TextBox Name="sellerName"
                  Grid.Row="0"
@@ -96,6 +108,7 @@
                  VerticalAlignment="Center"
                  Width="300" 
                  Text="{Binding Path=Seller, Mode=OneWayToSource}"/>
+
         <TextBox Name="truckCompanyName"
                  Grid.Row="1"
                  Grid.Column="1"
@@ -103,6 +116,7 @@
                  VerticalAlignment="Center"
                  Width="300" 
                  Text="{Binding Path=TruckingCompany, Mode=OneWayToSource}"/>
+
         <Grid Grid.Row="2"
               Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -112,39 +126,45 @@
                 <ColumnDefinition Width="6*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+
             <RadioButton Content="Bad"
                          GroupName="quality"
                          Grid.Column="1"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         IsChecked="{Binding Path=IsBadQuality, Mode=OneWayToSource}" />
+                         IsChecked="{Binding Path=IsBadQuality, Mode=OneWayToSource}"/>
+
             <RadioButton Content="Medium"
                          GroupName="quality"
                          Grid.Column="2"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         IsChecked="{Binding Path=IsMediumQuality, Mode=OneWayToSource, FallbackValue=true}" />
+                         IsChecked="{Binding Path=IsMediumQuality, Mode=OneWayToSource, FallbackValue=true}"/>
+
             <RadioButton Content="Good"
                          GroupName="quality"
                          Grid.Column="3"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         IsChecked="{Binding Path=IsGoodQuality, Mode=OneWayToSource}" />
+                         IsChecked="{Binding Path=IsGoodQuality, Mode=OneWayToSource}"/>
         </Grid>
+
         <TextBox Name="weight"
                  Grid.Row="3"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 Text="{Binding Path=Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                 Text="{Binding Path=Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
         <TextBox Name="price"
                  Grid.Row="4"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                 Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
         <TextBox Name="numberOfBags"
                  Grid.Row="5"
                  Grid.Column="1"
@@ -152,6 +172,7 @@
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center" 
                  Text="{Binding Path=NumberOfBags, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
         <TextBox Name="freightCharges"
                  Grid.Row="6"
                  Grid.Column="1"
@@ -159,6 +180,7 @@
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center" 
                  Text="{Binding Path=FreightCharges, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
         <TextBox Name="shipmentNumber"
                  Grid.Row="7"
                  Grid.Column="1"
@@ -166,12 +188,14 @@
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center" 
                  Text="{Binding Path=ShipmentNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
         <DatePicker  Name="dateofArrival"
                      Grid.Row="8"
                      Grid.Column="1"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center" 
                      SelectedDate="{Binding Path=DateOfArrival, Mode=TwoWay}"/>
+
         <TextBlock Name="totalCost"
                    Grid.Column="1"
                    Grid.Row="9"
@@ -181,26 +205,27 @@
 
         <Image
                 Grid.Column="1" Grid.Row="10" Source="/images/Step-1.png"/>
-                
-                
-        
+
+
+
         <Button 
                 Content="Go Back"
                 Grid.Row="11"
                 Grid.Column="0"
                 Click="GoToHomeWindow"/>
-        
+
         <TextBlock 
                    Grid.Row="11"
                    Grid.Column="1"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Text="{Binding Path=Status, Mode=OneWay}"/>
+
         <Button Content="Confirm Transportation Data"
                 Grid.Row="11"
                 Grid.Column="2"
                 IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}"
                 Click="GoToDataConfirmWindow"/>
-    
+
     </Grid>
 </Window>

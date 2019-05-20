@@ -10,12 +10,13 @@
         WindowStartupLocation="CenterScreen"
         Name="HomeWindow">
 
-    <Grid>
+    <Grid> 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -29,35 +30,36 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label FontSize="20"
+        <Label Content="Kahloon Factory DataBase"
+               FontSize="20"
                Foreground="Blue"
                VerticalAlignment="Bottom"
                HorizontalAlignment="Center"
-               Grid.Column="1">Kahloon Factory DataBase</Label>
+               Grid.Column="1"/>
 
         <Button Content="Input Transportation Data"
                 Name="InputTransportationDataButton"
                 Grid.Column="1"
                 Grid.Row="2"
                 Command="{Binding Path=GoToTransportationInputWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                CommandParameter="{Binding ElementName=HomeWindow}"></Button>
+                CommandParameter="{Binding ElementName=HomeWindow}"/>
         
         <Button Name="SearchTransportationDataButton"
                 Content="Search Transportation Data"
                 Grid.Column="1"
                 Grid.Row="4"
                 Command="{Binding Path=GoToTransportationSearchWindow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                CommandParameter="{Binding ElementName=HomeWindow}"></Button>
+                CommandParameter="{Binding ElementName=HomeWindow}"/>
 
         <Button Name="InputSalesDataButton"
                 Content="Input Sales Data"
                 Grid.Column="1"
-                Grid.Row="6"
-                ></Button>
+                Grid.Row="6"/>
 
-        <Button Name="SearchSalesDataButton"
+        <Button Content="Search Sales Data"
+                Name="SearchSalesDataButton"
                 Grid.Column="1"
-                Grid.Row="8">Search Sales Data</Button>
+                Grid.Row="8"/>
 
     </Grid>
 </Window>

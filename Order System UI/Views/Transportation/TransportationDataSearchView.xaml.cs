@@ -19,14 +19,11 @@ namespace Order_System_UI.Views
         {
             InitializeComponent();
             this.transportationSearchModel = new TransportationSearchModel();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            // setting the DataContext for data binding
             this.DataContext = transportationSearchModel;
         }
 
         /// <summary>
-        /// Go back to home screen.
+        /// Goes back to home screen.
         /// </summary>
         /// <param name="sender">Object sender.</param>
         /// <param name="e">Event handler.</param>
@@ -72,7 +69,7 @@ namespace Order_System_UI.Views
         }// end method
 
         /// <summary>
-        /// Deletes a piece of data.
+        /// Deletes a row of data.
         /// </summary>
         /// <param name="sender">Object sender.</param>
         /// <param name="e">Event handler.</param>

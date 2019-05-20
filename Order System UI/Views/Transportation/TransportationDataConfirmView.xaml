@@ -32,57 +32,76 @@
 
         </Grid.RowDefinitions>
 
-        <Label Foreground="Blue"
+        <Label Content="Seller Name:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="0"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Seller Name:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Name of Trucking Company:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="1"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Name of Trucking Company:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Quality:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="2"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Quality:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Weight:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="3"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Weight:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Price:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="4"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Price:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Number of Bags:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="5"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Number of Bags:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Freight Charges"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="6"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Freight Charges:</Label>
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Shipment Number:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="7"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Shipment Number:</Label>
+               VerticalAlignment="Center"/>
+
         <Label Content="Date of Arrival (y-m-d):"
                Grid.Row="8"
                Grid.Column="0"
                Foreground="Blue"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center" />
-        <Label Foreground="Blue"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Total Cost:"
+               Foreground="Blue"
                Grid.Column="0"
                Grid.Row="9"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center">Total Cost:</Label>
+               VerticalAlignment="Center"/>
+
         <Image
                Grid.Column="1"
                Grid.Row="10"
@@ -92,70 +111,82 @@
                    Grid.Column="1"
                    Grid.Row="0"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Left" />
+                   HorizontalAlignment="Left"/>
+
         <TextBlock Name="TruckingCompanyName"
                    Grid.Column="1"
                    Grid.Row="1"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=TruckingCompany, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=TruckingCompany, Mode=OneWay}"/>
+
         <TextBlock Name="Quality"
                    Grid.Column="1"
                    Grid.Row="2"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path= Quality, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path= Quality, Mode=OneWay}"/>
+
         <TextBlock Name="Weight"
                    Grid.Column="1"
                    Grid.Row="3"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=Weight, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=Weight, Mode=OneWay}"/>
+
         <TextBlock Name="Price"
                    Grid.Column="1"
                    Grid.Row="4"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=Price, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=Price, Mode=OneWay}"/>
+
         <TextBlock Name="NumberOfBags"
                    Grid.Column="1"
                    Grid.Row="5"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=NumberOfBags, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=NumberOfBags, Mode=OneWay}"/>
+
         <TextBlock Name="FreightCharges"
                    Grid.Column="1"
                    Grid.Row="6"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=FreightCharges, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=FreightCharges, Mode=OneWay}"/>
+
         <TextBlock Name="ShipmentNumber"
                    Grid.Column="1"
                    Grid.Row="7"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=ShipmentNumber, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=ShipmentNumber, Mode=OneWay}"/>
+
         <TextBlock Name="DateOfArrival"
                    Grid.Column="1"
                    Grid.Row="8"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=DateOfArrival, Mode=OneWay, StringFormat=yyyy-MM-dd}"></TextBlock>
+                   Text="{Binding Path=DateOfArrival, Mode=OneWay, StringFormat=yyyy-MM-dd}"/>
+
         <TextBlock Name="TotalCost"
                    Grid.Column="1"
                    Grid.Row="9"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
-                   Text="{Binding Path=Result, Mode=OneWay}"></TextBlock>
+                   Text="{Binding Path=Result, Mode=OneWay}"/>
 
-        <Button Grid.Column="0"
+        <Button Content="Go Back"
+                Grid.Column="0"
                 Grid.Row="11"
                 Click="GoBackToTransportationDataInputWindow"
-                IsEnabled="True">Go Back</Button>
-        <Button Grid.Column="2"
+                IsEnabled="True"/>
+
+        <Button Content="Insert into DataSet"
+                Grid.Column="2"
                 Grid.Row="11"
                 Click="SqlWindow"
-                IsEnabled="True">Insert into DataSet</Button>
+                IsEnabled="True"/>
 
     </Grid>
 

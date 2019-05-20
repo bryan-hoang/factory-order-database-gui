@@ -24,7 +24,12 @@ namespace Order_System_UI.Models
         /// </summary>
         public string TruckCompanyName
         {
-            get => truckCompanyName;
+            get
+            {
+                OnPropertyChanged("DataTable");
+                return truckCompanyName;
+            }
+
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
@@ -32,7 +37,6 @@ namespace Order_System_UI.Models
                     DeleteStatus = false;
                 }// end if
                 truckCompanyName = value;
-                OnPropertyChanged("TruckCompanyName");
                 OnPropertyChanged("DataTable");
             }
         }
@@ -167,99 +171,19 @@ namespace Order_System_UI.Models
         /// <summary>
         /// Gets the data from the database into a list being data binded to the data grid also manipluating searches.
         /// </summary>
-        public List<TransportationDataLog> DataTable
+        public IEnumerable<TransportationDataLog> DataTable
         {
             get
             {
                 LinqSqlDeclaration connect = new LinqSqlDeclaration();
-                List<TransportationDataLog> listData = connect.ListData;
-                var table = connect.Table;
 
-                if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(truckCompanyName) && string.IsNullOrWhiteSpace(DateofArrival))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        listData.Add(c);
-                    }
-                    return listData;
-                }// end if
-                else if (string.IsNullOrWhiteSpace(truckCompanyName) && string.IsNullOrWhiteSpace(DateofArrival))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else if
-                else if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(DateofArrival))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else if
-                else if (string.IsNullOrWhiteSpace(sellerName) && string.IsNullOrWhiteSpace(truckCompanyName))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else if
-                else if (string.IsNullOrWhiteSpace(DateofArrival))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else if
-                else if (string.IsNullOrWhiteSpace(sellerName))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else if
-                else if (string.IsNullOrWhiteSpace(truckCompanyName))
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else if
-                else
-                {
-                    foreach (TransportationDataLog c in table)
-                    {
-                        if (string.Equals(c.Name_of_Seller, sellerName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Truck_Company, truckCompanyName, StringComparison.OrdinalIgnoreCase) && string.Equals(c.Date_of_Arrival, DateofArrival, StringComparison.OrdinalIgnoreCase))
-                        {
-                            listData.Add(c);
-                        }// end if
-                    }
-                    return listData;
-                }// end else
+                IEnumerable<TransportationDataLog> dataDisplay =
+                    from table in connect.Table
+                    where (table.Truck_Company.Contains(truckCompanyName) || string.IsNullOrEmpty(truckCompanyName)) &&
+                          (table.Name_of_Seller.Contains(sellerName) || string.IsNullOrEmpty(sellerName)) && 
+                          (table.Date_of_Arrival.Equals(DateofArrival) || string.IsNullOrEmpty(dateofArrival))
+                    select table;
+                return dataDisplay;
             }// end get
         }// end property
 
