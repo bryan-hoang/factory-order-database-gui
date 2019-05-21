@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CottonOilFactory.OrderSystemGUI.Database
-{
 #pragma warning disable 1591
 
+namespace CottonOilFactory.OrderSystemGUI.Database {
+    
+    
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
     ///</summary>
@@ -43,7 +44,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         protected CottonFactoryOrderInformationDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-            base(info, context, false) {
+                base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -278,7 +279,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
                             s1.Position = 0;
                             s2.Position = 0;
                             for (; ((s1.Position != s1.Length) 
-                                    && (s1.ReadByte() == s2.ReadByte())); ) {
+                                        && (s1.ReadByte() == s2.ReadByte())); ) {
                                 ;
                             }
                             if ((s1.Position == s1.Length)) {
@@ -364,7 +365,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected TransportationDatumDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                base(info, context) {
+                    base(info, context) {
                 this.InitVars();
             }
             
@@ -496,17 +497,17 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             public TransportationDatumRow AddTransportationDatumRow(string Name_of_Seller, string Truck_Company, string Quality, string Weight, string Price, string Number_of_Bags, string Freight_Charges, string Shipment_Number, string Date_of_Arrival, string Total_Cost) {
                 TransportationDatumRow rowTransportationDatumRow = ((TransportationDatumRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                    null,
-                    Name_of_Seller,
-                    Truck_Company,
-                    Quality,
-                    Weight,
-                    Price,
-                    Number_of_Bags,
-                    Freight_Charges,
-                    Shipment_Number,
-                    Date_of_Arrival,
-                    Total_Cost};
+                        null,
+                        Name_of_Seller,
+                        Truck_Company,
+                        Quality,
+                        Weight,
+                        Price,
+                        Number_of_Bags,
+                        Freight_Charges,
+                        Shipment_Number,
+                        Date_of_Arrival,
+                        Total_Cost};
                 rowTransportationDatumRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransportationDatumRow);
                 return rowTransportationDatumRow;
@@ -516,7 +517,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TransportationDatumRow FindByTransportationDatumID(int TransportationDatumID) {
                 return ((TransportationDatumRow)(this.Rows.Find(new object[] {
-                    TransportationDatumID})));
+                            TransportationDatumID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,7 +576,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
                 this.columnTotal_Cost = new global::System.Data.DataColumn("Total Cost", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Cost);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                    this.columnTransportationDatumID}, true));
+                                this.columnTransportationDatumID}, true));
                 this.columnTransportationDatumID.AutoIncrement = true;
                 this.columnTransportationDatumID.AutoIncrementSeed = -1;
                 this.columnTransportationDatumID.AutoIncrementStep = -1;
@@ -705,7 +706,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
                                 s1.Position = 0;
                                 s2.Position = 0;
                                 for (; ((s1.Position != s1.Length) 
-                                        && (s1.ReadByte() == s2.ReadByte())); ) {
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
                                     ;
                                 }
                                 if ((s1.Position == s1.Length)) {
@@ -780,7 +781,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected SalesDatumDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                base(info, context) {
+                    base(info, context) {
                 this.InitVars();
             }
             
@@ -888,14 +889,14 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             public SalesDatumRow AddSalesDatumRow(string Name_of_Buyer, string Weight_per_Bag, string Price_per_Bag, string Number_of_Bags, string Total_Cost, string Payment_Method, string Date_of_Sale) {
                 SalesDatumRow rowSalesDatumRow = ((SalesDatumRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                    null,
-                    Name_of_Buyer,
-                    Weight_per_Bag,
-                    Price_per_Bag,
-                    Number_of_Bags,
-                    Total_Cost,
-                    Payment_Method,
-                    Date_of_Sale};
+                        null,
+                        Name_of_Buyer,
+                        Weight_per_Bag,
+                        Price_per_Bag,
+                        Number_of_Bags,
+                        Total_Cost,
+                        Payment_Method,
+                        Date_of_Sale};
                 rowSalesDatumRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSalesDatumRow);
                 return rowSalesDatumRow;
@@ -905,7 +906,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SalesDatumRow FindBySalesDatumID(int SalesDatumID) {
                 return ((SalesDatumRow)(this.Rows.Find(new object[] {
-                    SalesDatumID})));
+                            SalesDatumID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -955,7 +956,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
                 this.columnDate_of_Sale = new global::System.Data.DataColumn("Date of Sale", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate_of_Sale);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                    this.columnSalesDatumID}, true));
+                                this.columnSalesDatumID}, true));
                 this.columnSalesDatumID.AutoIncrement = true;
                 this.columnSalesDatumID.AutoIncrementSeed = -1;
                 this.columnSalesDatumID.AutoIncrementStep = -1;
@@ -1079,7 +1080,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
                                 s1.Position = 0;
                                 s2.Position = 0;
                                 for (; ((s1.Position != s1.Length) 
-                                        && (s1.ReadByte() == s2.ReadByte())); ) {
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
                                     ;
                                 }
                                 if ((s1.Position == s1.Length)) {
@@ -1112,7 +1113,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal TransportationDatumRow(global::System.Data.DataRowBuilder rb) : 
-                base(rb) {
+                    base(rb) {
                 this.tableTransportationDatum = ((TransportationDatumDataTable)(this.Table));
             }
             
@@ -1248,7 +1249,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal SalesDatumRow(global::System.Data.DataRowBuilder rb) : 
-                base(rb) {
+                    base(rb) {
                 this.tableSalesDatum = ((SalesDatumDataTable)(this.Table));
             }
             
@@ -1409,7 +1410,10 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             }
         }
     }
-
+}
+namespace CottonOilFactory.OrderSystemGUI.Database.CottonFactoryOrderInformationDataSetTableAdapters {
+    
+    
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
     ///</summary>
@@ -1417,7 +1421,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-                                                     ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class TransportationDatumTableAdapter : global::System.ComponentModel.Component {
         
@@ -1488,15 +1492,15 @@ namespace CottonOilFactory.OrderSystemGUI.Database
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                     && (this.Adapter.DeleteCommand != null))) {
+                            && (this.Adapter.DeleteCommand != null))) {
                     this.Adapter.DeleteCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                     && (this.Adapter.InsertCommand != null))) {
+                            && (this.Adapter.InsertCommand != null))) {
                     this.Adapter.InsertCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                     && (this.Adapter.UpdateCommand != null))) {
+                            && (this.Adapter.UpdateCommand != null))) {
                     this.Adapter.UpdateCommand.Transaction = this._transaction;
                 }
             }
@@ -1546,7 +1550,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TransportationDatum] WHERE (([TransportationDatumID] = @Origin" +
-                                                      "al_TransportationDatumID))";
+                "al_TransportationDatumID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransportationDatumID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransportationDatumID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -1597,8 +1601,8 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight," +
-                                                     " Price, [Number of Bags], [Freight Charges], [Shipment Number], [Date of Arrival" +
-                                                     "], [Total Cost] FROM dbo.TransportationDatum";
+                " Price, [Number of Bags], [Freight Charges], [Shipment Number], [Date of Arrival" +
+                "], [Total Cost] FROM dbo.TransportationDatum";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1645,7 +1649,7 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow dataRow) {
             return this.Adapter.Update(new global::System.Data.DataRow[] {
-                dataRow});
+                        dataRow});
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1663,7 +1667,7 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TransportationDatumID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                 != global::System.Data.ConnectionState.Open)) {
+                        != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.DeleteCommand.Connection.Open();
             }
             try {
@@ -1744,7 +1748,7 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                 != global::System.Data.ConnectionState.Open)) {
+                        != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.InsertCommand.Connection.Open();
             }
             try {
@@ -1827,7 +1831,7 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
             this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(TransportationDatumID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                 != global::System.Data.ConnectionState.Open)) {
+                        != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.UpdateCommand.Connection.Open();
             }
             try {
@@ -1857,7 +1861,7 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-                                                     ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class SalesDatumTableAdapter : global::System.ComponentModel.Component {
         
@@ -1928,15 +1932,15 @@ SELECT TransportationDatumID, [Name of Seller], [Truck Company], Quality, Weight
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                     && (this.Adapter.DeleteCommand != null))) {
+                            && (this.Adapter.DeleteCommand != null))) {
                     this.Adapter.DeleteCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                     && (this.Adapter.InsertCommand != null))) {
+                            && (this.Adapter.InsertCommand != null))) {
                     this.Adapter.InsertCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                     && (this.Adapter.UpdateCommand != null))) {
+                            && (this.Adapter.UpdateCommand != null))) {
                     this.Adapter.UpdateCommand.Transaction = this._transaction;
                 }
             }
@@ -2027,7 +2031,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number " +
-                                                     "of Bags], [Total Cost], [Payment Method], [Date of Sale] FROM dbo.SalesDatum";
+                "of Bags], [Total Cost], [Payment Method], [Date of Sale] FROM dbo.SalesDatum";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2074,7 +2078,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow dataRow) {
             return this.Adapter.Update(new global::System.Data.DataRow[] {
-                dataRow});
+                        dataRow});
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2092,7 +2096,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_SalesDatumID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                 != global::System.Data.ConnectionState.Open)) {
+                        != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.DeleteCommand.Connection.Open();
             }
             try {
@@ -2155,7 +2159,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                 != global::System.Data.ConnectionState.Open)) {
+                        != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.InsertCommand.Connection.Open();
             }
             try {
@@ -2220,7 +2224,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(SalesDatumID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                 != global::System.Data.ConnectionState.Open)) {
+                        != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.UpdateCommand.Connection.Open();
             }
             try {
@@ -2249,7 +2253,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD" +
-                                                     "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")]
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
@@ -2277,8 +2281,8 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-                                                       "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-                                                       "a", "System.Drawing.Design.UITypeEditor")]
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public TransportationDatumTableAdapter TransportationDatumTableAdapter {
             get {
                 return this._transportationDatumTableAdapter;
@@ -2291,8 +2295,8 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-                                                       "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-                                                       "a", "System.Drawing.Design.UITypeEditor")]
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public SalesDatumTableAdapter SalesDatumTableAdapter {
             get {
                 return this._salesDatumTableAdapter;
@@ -2322,11 +2326,11 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                     return this._connection;
                 }
                 if (((this._transportationDatumTableAdapter != null) 
-                     && (this._transportationDatumTableAdapter.Connection != null))) {
+                            && (this._transportationDatumTableAdapter.Connection != null))) {
                     return this._transportationDatumTableAdapter.Connection;
                 }
                 if (((this._salesDatumTableAdapter != null) 
-                     && (this._salesDatumTableAdapter.Connection != null))) {
+                            && (this._salesDatumTableAdapter.Connection != null))) {
                     return this._salesDatumTableAdapter.Connection;
                 }
                 return null;
@@ -2363,7 +2367,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                 global::System.Data.DataRow[] updatedRows = dataSet.TransportationDatum.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
-                     && (0 < updatedRows.Length))) {
+                            && (0 < updatedRows.Length))) {
                     result = (result + this._transportationDatumTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
@@ -2372,7 +2376,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                 global::System.Data.DataRow[] updatedRows = dataSet.SalesDatum.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
-                     && (0 < updatedRows.Length))) {
+                            && (0 < updatedRows.Length))) {
                     result = (result + this._salesDatumTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
@@ -2390,7 +2394,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             if ((this._transportationDatumTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TransportationDatum.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
-                     && (0 < addedRows.Length))) {
+                            && (0 < addedRows.Length))) {
                     result = (result + this._transportationDatumTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
@@ -2398,7 +2402,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             if ((this._salesDatumTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.SalesDatum.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
-                     && (0 < addedRows.Length))) {
+                            && (0 < addedRows.Length))) {
                     result = (result + this._salesDatumTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
@@ -2416,7 +2420,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             if ((this._salesDatumTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.SalesDatum.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
-                     && (0 < deletedRows.Length))) {
+                            && (0 < deletedRows.Length))) {
                     result = (result + this._salesDatumTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
@@ -2424,7 +2428,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             if ((this._transportationDatumTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TransportationDatum.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
-                     && (0 < deletedRows.Length))) {
+                            && (0 < deletedRows.Length))) {
                     result = (result + this._transportationDatumTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
@@ -2439,11 +2443,11 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private global::System.Data.DataRow[] GetRealUpdatedRows(global::System.Data.DataRow[] updatedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             if (((updatedRows == null) 
-                 || (updatedRows.Length < 1))) {
+                        || (updatedRows.Length < 1))) {
                 return updatedRows;
             }
             if (((allAddedRows == null) 
-                 || (allAddedRows.Count < 1))) {
+                        || (allAddedRows.Count < 1))) {
                 return updatedRows;
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> realUpdatedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -2469,23 +2473,23 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                 return 0;
             }
             if (((this._transportationDatumTableAdapter != null) 
-                 && (this.MatchTableAdapterConnection(this._transportationDatumTableAdapter.Connection) == false))) {
+                        && (this.MatchTableAdapterConnection(this._transportationDatumTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                                                           "tring.");
+                        "tring.");
             }
             if (((this._salesDatumTableAdapter != null) 
-                 && (this.MatchTableAdapterConnection(this._salesDatumTableAdapter.Connection) == false))) {
+                        && (this.MatchTableAdapterConnection(this._salesDatumTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                                                           "tring.");
+                        "tring.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
-                                                              "ger TableAdapter property to a valid TableAdapter instance.");
+                        "ger TableAdapter property to a valid TableAdapter instance.");
             }
             bool workConnOpened = false;
             if (((workConnection.State & global::System.Data.ConnectionState.Broken) 
-                 == global::System.Data.ConnectionState.Broken)) {
+                        == global::System.Data.ConnectionState.Broken)) {
                 workConnection.Close();
             }
             if ((workConnection.State == global::System.Data.ConnectionState.Closed)) {
@@ -2495,7 +2499,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             global::System.Data.IDbTransaction workTransaction = workConnection.BeginTransaction();
             if ((workTransaction == null)) {
                 throw new global::System.ApplicationException("The transaction cannot begin. The current data connection does not support transa" +
-                                                              "ctions or the current state is not allowing the transaction to begin.");
+                        "ctions or the current state is not allowing the transaction to begin.");
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
             global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -2619,7 +2623,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                 return true;
             }
             if (((this.Connection == null) 
-                 || (inputConnection == null))) {
+                        || (inputConnection == null))) {
                 return true;
             }
             if (string.Equals(this.Connection.ConnectionString, inputConnection.ConnectionString, global::System.StringComparison.Ordinal)) {
@@ -2673,8 +2677,8 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
 
                 global::System.Data.DataRow parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
                 for (
-                    ; ((parent != null) 
-                       && (traversedRows.ContainsKey(parent) == false)); 
+                ; ((parent != null) 
+                            && (traversedRows.ContainsKey(parent) == false)); 
                 ) {
                     distance = (distance + 1);
                     root = parent;
@@ -2687,8 +2691,8 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                     traversedRows[row] = row;
                     parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Original);
                     for (
-                        ; ((parent != null) 
-                           && (traversedRows.ContainsKey(parent) == false)); 
+                    ; ((parent != null) 
+                                && (traversedRows.ContainsKey(parent) == false)); 
                     ) {
                         distance = (distance + 1);
                         root = parent;
@@ -2724,7 +2728,7 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
                 }
                 else {
                     global::System.Diagnostics.Debug.Assert(((root1.Table != null) 
-                                                             && (root2.Table != null)));
+                                    && (root2.Table != null)));
                     if ((root1.Table.Rows.IndexOf(root1) < root2.Table.Rows.IndexOf(root2))) {
                         return -1;
                     }
@@ -2735,6 +2739,6 @@ SELECT SalesDatumID, [Name of Buyer], [Weight per Bag], [Price per Bag], [Number
             }
         }
     }
+}
 
 #pragma warning restore 1591
-}

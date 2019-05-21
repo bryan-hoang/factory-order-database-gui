@@ -4,15 +4,15 @@ using System.Linq;
 using System.Windows;
 using CottonOilFactory.OrderSystemGUI.Database;
 using CottonOilFactory.OrderSystemGUI.Factories;
-using CottonOilFactory.OrderSystemGUI.Models;
+using CottonOilFactory.OrderSystemGUI.Models.SalesData;
 using GalaSoft.MvvmLight.CommandWpf;
 
 namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
 {
     public class SalesDataSearchViewModel : AbstractBackToMainWindowViewModel
     {
-        private string yearOfDataToDisplay;
-        private string dateOfSale;
+        private string _yearOfDataToDisplay;
+        private string _dateOfSale;
 
         public SalesDataSearchViewModel(AbstractWindowFactory mainWindowFactory)
             : base(mainWindowFactory)
@@ -40,7 +40,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
             set
             {
                 SalesDataModel.DateOfSale = value;
-                dateOfSale = value?.ToString("yyyy-MM-dd");
+                _dateOfSale = value?.ToString("yyyy-MM-dd");
                 OnPropertyChanged(nameof(SalesDatumsToDisplay));
             }
         }
@@ -49,14 +49,14 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
         {
             get
             {
-                LinqToSqlConnection linqToSqlConnection = new LinqToSqlConnection();
+                var linqToSqlConnection = new LinqToSqlConnection();
 
                 IEnumerable<SalesDatum> salesDatumsToDisplay =
 
                     from salesDatum in linqToSqlConnection.SalesDatumTable
                     where (salesDatum.Name_of_Buyer.Contains(BuyerName) || string.IsNullOrEmpty(BuyerName))
                           &&
-                          (salesDatum.Date_of_Sale.Equals(dateOfSale) || dateOfSale == null)
+                          (salesDatum.Date_of_Sale.Equals(_dateOfSale) || _dateOfSale == null)
                     select salesDatum;
 
                 return salesDatumsToDisplay;
@@ -65,12 +65,12 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
 
         public string YearOfDataToDisplay
         {
-            get => yearOfDataToDisplay;
+            get => _yearOfDataToDisplay;
             set
             {
                 if (value == string.Empty || int.TryParse(value, out _))
                 {
-                    yearOfDataToDisplay = value;
+                    _yearOfDataToDisplay = value;
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
 
         private void DisplayTheSelectedYearsData()
         {
-            if (string.IsNullOrEmpty(yearOfDataToDisplay))
+            if (string.IsNullOrEmpty(_yearOfDataToDisplay))
             {
                 MessageBox.Show("No year has been selected yet!");
                 return;
@@ -97,7 +97,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
 
             if (!selectedYearsData.Any())
             {
-                MessageBox.Show("No data with the selected year of " + yearOfDataToDisplay + " was found.");
+                MessageBox.Show("No data with the selected year of " + _yearOfDataToDisplay + " was found.");
                 return;
             }
 
@@ -120,7 +120,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
                 MessageBox.Show("No row to delete has been selected!");
                 return;
             }
-            LinqToSqlConnection linqToSqlConnection = new LinqToSqlConnection();
+            var linqToSqlConnection = new LinqToSqlConnection();
             linqToSqlConnection.DataClassesDataContext.SalesDatums.Attach(SelectedSalesDatum);
             linqToSqlConnection.DataClassesDataContext.SalesDatums.DeleteOnSubmit(SelectedSalesDatum);
             linqToSqlConnection.DataClassesDataContext.SubmitChanges();

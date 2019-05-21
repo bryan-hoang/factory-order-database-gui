@@ -1,4 +1,4 @@
-﻿namespace CottonOilFactory.OrderSystemGUI.Models
+﻿namespace CottonOilFactory.OrderSystemGUI.Models.SalesData
 {
     public enum BagWeight
     {

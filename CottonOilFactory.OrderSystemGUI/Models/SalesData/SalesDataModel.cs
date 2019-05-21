@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace CottonOilFactory.OrderSystemGUI.Models
+namespace CottonOilFactory.OrderSystemGUI.Models.SalesData
 {
     /// <inheritdoc />
     public class SalesDataModel : ModelBase
     {
-        private string buyerName;
-        private decimal pricePerBag;
-        private int numberOfBags;
+        private string _buyerName;
+        private decimal _pricePerBag;
+        private int _numberOfBags;
 
         /// <summary>
         /// Gets the name of the product to sell.
@@ -16,10 +16,10 @@ namespace CottonOilFactory.OrderSystemGUI.Models
 
         public string BuyerName
         {
-            get => buyerName;
+            get => _buyerName;
             set
             {
-                buyerName = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
+                _buyerName = string.IsNullOrWhiteSpace(value) ? string.Empty : value;
                 OnPropertyChanged(nameof(IsValidData));
             }
         }
@@ -28,10 +28,10 @@ namespace CottonOilFactory.OrderSystemGUI.Models
 
         public string PricePerBag
         {
-            get => pricePerBag == 0 ? string.Empty : pricePerBag.ToString();
+            get => _pricePerBag == 0 ? string.Empty : _pricePerBag.ToString();
             set
             {
-                pricePerBag = !decimal.TryParse(value, out decimal price) || price < 0 ? 0 : price;
+                _pricePerBag = !decimal.TryParse(value, out decimal price) || price < 0 ? 0 : price;
                 OnPropertyChanged(nameof(TotalCost));
                 OnPropertyChanged(nameof(IsValidData));
             }
@@ -39,25 +39,25 @@ namespace CottonOilFactory.OrderSystemGUI.Models
 
         public string NumberOfBags
         {
-            get => numberOfBags == 0 ? string.Empty : numberOfBags.ToString();
+            get => _numberOfBags == 0 ? string.Empty : _numberOfBags.ToString();
             set
             {
-                numberOfBags = !int.TryParse(value, out int numBags) || numBags < 0 ? 0 : numBags;
+                _numberOfBags = !int.TryParse(value, out int numBags) || numBags < 0 ? 0 : numBags;
                 OnPropertyChanged(nameof(TotalCost));
                 OnPropertyChanged(nameof(IsValidData));
             }
         }
 
-        public string TotalCost => (pricePerBag * numberOfBags).ToString();
+        public string TotalCost => (_pricePerBag * _numberOfBags).ToString();
 
         public MethodOfPayment? PaymentMethod { get; set; }
 
         public DateTime? DateOfSale { get; set; }
 
-        public bool IsValidData => buyerName != string.Empty
+        public bool IsValidData => _buyerName != string.Empty
                                    && WeightPerBag != null
-                                   && pricePerBag != 0
-                                   && numberOfBags != 0
+                                   && _pricePerBag != 0
+                                   && _numberOfBags != 0
                                    && PaymentMethod != null
                                    && DateOfSale != null;
     }

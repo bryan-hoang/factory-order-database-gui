@@ -1,9 +1,10 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Data.Linq;
 
 namespace CottonOilFactory.OrderSystemGUI.Database
 {
-    public class LinqToSqlConnection
+    public class LinqToSqlConnection : IDisposable
     {
         public LinqToSqlConnection()
         {
@@ -21,5 +22,9 @@ namespace CottonOilFactory.OrderSystemGUI.Database
 
         public Table<SalesDatum> SalesDatumTable { get; }
 
+        public void Dispose()
+        {
+            DataClassesDataContext.Dispose();
+        }
     }
 }

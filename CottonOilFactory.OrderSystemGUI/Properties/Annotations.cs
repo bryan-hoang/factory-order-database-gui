@@ -230,6 +230,7 @@ namespace CottonOilFactory.OrderSystemGUI.Properties
     public sealed class NotifyPropertyChangedInvocatorAttribute : Attribute
     {
         public NotifyPropertyChangedInvocatorAttribute() { }
+
         public NotifyPropertyChangedInvocatorAttribute([NotNull] string parameterName)
         {
             ParameterName = parameterName;
@@ -1136,6 +1137,7 @@ namespace CottonOilFactory.OrderSystemGUI.Properties
         {
             BaseType = baseType;
         }
+
         public RazorPageBaseTypeAttribute([NotNull] string baseType, string pageName)
         {
             BaseType = baseType;
@@ -1143,6 +1145,7 @@ namespace CottonOilFactory.OrderSystemGUI.Properties
         }
 
         [NotNull] public string BaseType { get; }
+
         [CanBeNull] public string PageName { get; }
     }
 

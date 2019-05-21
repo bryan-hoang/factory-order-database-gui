@@ -7,13 +7,13 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private readonly AbstractWindowFactory salesDataInputWindowFactory;
-        private readonly AbstractWindowFactory salesDataSearchWindowFactory;
+        private readonly AbstractWindowFactory _salesDataInputWindowFactory;
+        private readonly AbstractWindowFactory _salesDataSearchWindowFactory;
 
         public MainWindowViewModel(AbstractWindowFactory salesDataInputWindowFactory, AbstractWindowFactory salesDataSearchWindowFactory)
         {
-            this.salesDataInputWindowFactory = salesDataInputWindowFactory;
-            this.salesDataSearchWindowFactory = salesDataSearchWindowFactory;
+            this._salesDataInputWindowFactory = salesDataInputWindowFactory;
+            this._salesDataSearchWindowFactory = salesDataSearchWindowFactory;
             GoToTransportationDataInputWindowCommand = new RelayCommand<IClosableWindow>(GoToTransportationDataInputWindow);
             GoToTransportationDataSearchWindowCommand = new RelayCommand<IClosableWindow>(GoToTransportationDataSearchWindow);
             GoToSalesDataInputWindowCommand = new RelayCommand<IClosableWindow>(GoToSalesDataInputWindow);
@@ -50,7 +50,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels
 
         private void GoToSalesDataInputWindow(IClosableWindow closableWindow)
         {
-            salesDataInputWindowFactory?.CreateWindow();
+            _salesDataInputWindowFactory?.CreateWindow();
             closableWindow?.Close();
         }
 
@@ -59,7 +59,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels
         /// </summary>
         private void GoToSalesDataSearchWindow(IClosableWindow closableWindow)
         {
-            salesDataSearchWindowFactory.CreateWindow();
+            _salesDataSearchWindowFactory.CreateWindow();
             closableWindow.Close();
         }
 

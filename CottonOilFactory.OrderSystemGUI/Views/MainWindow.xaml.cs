@@ -6,13 +6,13 @@ using CottonOilFactory.OrderSystemGUI.ViewModels;
 namespace CottonOilFactory.OrderSystemGUI.Views
 {
     /// <inheritdoc cref="Window" />
-    public partial class Main : Window, IClosableWindow
+    public partial class MainWindow : Window, IClosableWindow
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Main"/> class.
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// Start up the Home Window.
         /// </summary>
-        public Main()
+        public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel(new SalesDataInputWindowFactory(), new SalesDataSearchWindowFactory());

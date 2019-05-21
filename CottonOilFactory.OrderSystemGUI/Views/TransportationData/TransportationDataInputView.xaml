@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Transportation Data Input"
-        WindowStartupLocation="CenterScreen"
         Height="500"
-        Width="800">
-
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Name="TransportationDataInput">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*" />
@@ -29,76 +29,76 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <Label Content="Name of Seller"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Grid.Column="0"
+        <Label Content="Name of Trucking Company"
+               Grid.Column="0"
                Grid.Row="1"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Name of Trucking Company</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue" />
+        <Label Content="Quality"
+               Grid.Column="0"
                Grid.Row="2"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Quality</Label>
+               Foreground="Blue" />
         <Label Content="Weight (kg)"
                Grid.Row="3"
                Grid.Column="0"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Grid.Column="0"
+        <Label Content="Number of Bags"
+               Grid.Column="0"
                Grid.Row="5"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Number of Bags</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue" />
+        <Label Content="Price (Rs)"
+               Grid.Column="0"
                Grid.Row="4"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Price (Rs)</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue" />
+        <Label Content="Freight Charges"
+               Grid.Column="0"
                Grid.Row="6"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Freight Charges (Rs)</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue" />
+        <Label Content="Shipment Number"
+               Grid.Column="0"
                Grid.Row="7"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Shipment Number</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue" />
+        <Label Content="Date of Arrival"
+               Grid.Column="0"
                Grid.Row="8"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Date of Arrival</Label>
-        <Label Grid.Column="0"
+               Foreground="Blue" />
+        <Label Content="Total Cost (Rs):"
+               Grid.Column="0"
                Grid.Row="9"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Foreground="Blue">Total Cost (Rs):</Label>
-
-        <Label Content="(Picture Placeholder)"
-               Grid.Row="10"
-               Grid.Column="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center" />
-
-        <TextBox Text="{Binding Path=Seller, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="0"
+               Foreground="Blue" />
+        <TextBox Grid.Row="0"
                  Grid.Column="1"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 Width="300" />
-        <TextBox Text="{Binding Path=TruckingCompany, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="1"
+                 Width="300"
+                 Text="{Binding Path=Seller, Mode=OneWayToSource}" />
+        <TextBox Grid.Row="1"
                  Grid.Column="1"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 Width="300" />
+                 Width="300"
+                 Text="{Binding Path=TruckingCompany, Mode=OneWayToSource}" />
         <Grid Grid.Row="2"
               Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -119,7 +119,7 @@
                          Grid.Column="2"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         IsChecked="{Binding Path=IsMediumQuality, Mode=TwoWay}" />
+                         IsChecked="{Binding Path=IsMediumQuality, Mode=OneWayToSource, FallbackValue=true}" />
             <RadioButton Content="Good"
                          GroupName="quality"
                          Grid.Column="3"
@@ -127,62 +127,62 @@
                          VerticalAlignment="Center"
                          IsChecked="{Binding Path=IsGoodQuality, Mode=OneWayToSource}" />
         </Grid>
-        <TextBox Text="{Binding Path=Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="3"
+        <TextBox Grid.Row="3"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
-                 VerticalAlignment="Center" />
-        <TextBox Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="4"
+                 VerticalAlignment="Center"
+                 Text="{Binding Path=Weight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="4"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
-                 VerticalAlignment="Center" />
-        <TextBox Text="{Binding Path=NumberOfBags, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="5"
+                 VerticalAlignment="Center"
+                 Text="{Binding Path=Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="5"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
-                 VerticalAlignment="Center" />
-        <TextBox Text="{Binding Path=FreightCharges, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="6"
+                 VerticalAlignment="Center"
+                 Text="{Binding Path=NumberOfBags, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="6"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
-                 VerticalAlignment="Center" />
-        <TextBox Text="{Binding Path=ShipmentNumber, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="7"
+                 VerticalAlignment="Center"
+                 Text="{Binding Path=FreightCharges, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="7"
                  Grid.Column="1"
                  Width="300"
                  HorizontalAlignment="Center"
-                 VerticalAlignment="Center" />
-        <DatePicker  SelectedDate="{Binding Path=DateOfArrival, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                     Grid.Row="8"
-                     Grid.Column="1"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center" />
-        <TextBlock Text="{Binding Path=Result, Mode=OneWay, FallbackValue=0.00}"
-                   Grid.Column="1"
+                 VerticalAlignment="Center"
+                 Text="{Binding Path=ShipmentNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <DatePicker Grid.Row="8"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    SelectedDate="{Binding Path=DateOfArrival, Mode=TwoWay}" />
+        <TextBlock Grid.Column="1"
                    Grid.Row="9"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
-
+                   VerticalAlignment="Center"
+                   Text="{Binding Path=Result, Mode=OneWay, FallbackValue=0.00}" />
+        <Image Grid.Column="1"
+               Grid.Row="10"
+               Source="/Images/Step-1.png" />
         <Button Content="Go Back"
                 Grid.Row="11"
                 Grid.Column="0"
-                Click="GoBackToHomeScreen" />
-        <TextBlock Text="{Binding Path=Status, Mode=OneWay}"
-                   Grid.Row="11"
+                Click="GoToHomeWindow" />
+        <TextBlock Grid.Row="11"
                    Grid.Column="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
+                   VerticalAlignment="Center"
+                   Text="{Binding Path=Status, Mode=OneWay}" />
         <Button Content="Confirm Transportation Data"
                 Grid.Row="11"
                 Grid.Column="2"
-                Click="ShowDataConfirmationDialog"
-                IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}" />
-
-
+                IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}"
+                Click="GoToDataConfirmWindow" />
     </Grid>
 </Window>
