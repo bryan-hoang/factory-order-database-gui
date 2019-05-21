@@ -7,7 +7,7 @@ namespace CottonOilFactory.OrderSystemGUI.Factories
     {
         public override void CreateWindow()
         {
-            SalesDataSearchView salesDataSearchView = new SalesDataSearchView
+            var salesDataSearchView = new SalesDataSearchView
             {
                 DataContext = new SalesDataSearchViewModel(new MainWindowFactory())
             };

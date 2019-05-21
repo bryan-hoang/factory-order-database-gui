@@ -6,11 +6,11 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels
 {
     public abstract class AbstractBackToMainWindowViewModel : ViewModelBase
     {
-        protected readonly AbstractWindowFactory mainWindowFactory;
+        protected readonly AbstractWindowFactory MainWindowFactory;
 
         protected AbstractBackToMainWindowViewModel(AbstractWindowFactory mainWindowFactory)
         {
-            this.mainWindowFactory = mainWindowFactory;
+            this.MainWindowFactory = mainWindowFactory;
             GoBackToMainWindowCommand = new RelayCommand<IClosableWindow>(GoBackToMainWindow);
         }
 
@@ -18,7 +18,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels
 
         public void GoBackToMainWindow(IClosableWindow closableWindow)
         {
-            mainWindowFactory?.CreateWindow();
+            MainWindowFactory?.CreateWindow();
             closableWindow?.Close();
         }
     }

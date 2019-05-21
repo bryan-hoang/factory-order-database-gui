@@ -40,7 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>Style\CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -51,7 +51,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Style\CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -93,7 +93,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Style\GlobalSuppressions.cs" />
+    <Compile Include="Models\TransportationData\TransportationSearchModel.cs" />
     <Compile Include="ViewModels\AbstractBackToMainWindowViewModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -115,8 +115,8 @@
     <Compile Include="Factories\SalesDataInputWindowFactory.cs" />
     <Compile Include="Factories\SalesDataSearchWindowFactory.cs" />
     <Compile Include="Interfaces\IClosableWindow.cs" />
-    <Compile Include="Models\MethodOfPayment.cs" />
-    <Compile Include="Models\BagWeight.cs" />
+    <Compile Include="Models\SalesData\MethodOfPayment.cs" />
+    <Compile Include="Models\SalesData\BagWeight.cs" />
     <Compile Include="ViewModels\SalesData\SalesDataSearchViewModel.cs" />
     <Compile Include="BaseClass\NotifyPropertyChanged.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -126,8 +126,8 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\SalesDataModel.cs" />
-    <Compile Include="Models\TransportationDataModel.cs" />
+    <Compile Include="Models\SalesData\SalesDataModel.cs" />
+    <Compile Include="Models\TransportationData\TransportationDataModel.cs" />
     <Compile Include="Views\SalesData\SalesDataConfirmView.xaml.cs">
       <DependentUpon>SalesDataConfirmView.xaml</DependentUpon>
     </Compile>
@@ -177,7 +177,7 @@
     <None Include="Database\CottonFactoryOrderInformationDataSet.xss">
       <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Style\CottonOilFactory.OrderGUI.ruleset" />
+    <None Include="CottonOilFactory.OrderGUI.ruleset" />
     <None Include="Database\DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
@@ -191,7 +191,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <AdditionalFiles Include="Style\stylecop.json" />
+    <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -245,6 +245,11 @@
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Step-1.png" />
+    <Resource Include="Images\Step-2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

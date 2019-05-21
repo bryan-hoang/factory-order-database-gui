@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using CottonOilFactory.OrderSystemGUI.Database;
 using CottonOilFactory.OrderSystemGUI.Interfaces;
-using CottonOilFactory.OrderSystemGUI.Models;
+using CottonOilFactory.OrderSystemGUI.Models.SalesData;
 using GalaSoft.MvvmLight.CommandWpf;
 
 namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
@@ -28,7 +28,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
             }
         }
 
-        public string PaymentMethod => SalesDataModel.PaymentMethod == Models.MethodOfPayment.Cash ? "Cash" : "Debit";
+        public string PaymentMethod => SalesDataModel.PaymentMethod == MethodOfPayment.Cash ? "Cash" : "Debit";
 
         public RelayCommand<IClosableWindow> GoBackToSalesInputWindowCommand { get; }
 
@@ -41,11 +41,11 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
 
         private void InsertSalesData()
         {
-            LinqToSqlConnection linqToSqlConnection = new LinqToSqlConnection();
-            DataClassesDataContext dataClassesDataContext = linqToSqlConnection.DataClassesDataContext;
+            var linqToSqlConnection = new LinqToSqlConnection();
+            var dataClassesDataContext = linqToSqlConnection.DataClassesDataContext;
             try
             {
-                SalesDatum salesDatum = new SalesDatum()
+                var salesDatum = new SalesDatum()
                 {
                     Name_of_Buyer = SalesDataModel.BuyerName,
                     Weight_per_Bag = SalesDataModel.WeightPerBag == BagWeight.Forty ? "40" : "57",

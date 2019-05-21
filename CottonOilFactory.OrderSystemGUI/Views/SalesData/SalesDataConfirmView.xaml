@@ -18,15 +18,16 @@
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Label Content="Name of product:"
@@ -105,36 +106,41 @@
                    VerticalAlignment="Center" />
         <TextBlock Text="{Binding SalesDataModel.NumberOfBags, Mode=OneTime}"
                    Grid.Row="4"
-                   Grid.Column="1" 
+                   Grid.Column="1"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
         <TextBlock Text="{Binding SalesDataModel.TotalCost, Mode=OneTime}"
                    Grid.Row="5"
                    Grid.Column="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center" />
         <TextBlock Text="{Binding PaymentMethod, Mode=OneTime}"
                    Grid.Row="6"
                    Grid.Column="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center" />
         <TextBlock Text="{Binding SalesDataModel.DateOfSale, Mode=OneTime, StringFormat=yyyy-MM-dd}"
                    Grid.Row="7"
                    Grid.Column="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center" />
+
+        <Image Source="/Images/Step-2.png"
+               Grid.Row="8"
+               Grid.Column="1"
+               Margin="5"/>
 
         <Button Content="Go back"
-                Grid.Row="8"
+                Grid.Row="9"
                 Grid.Column="0"
                 Command="{Binding GoBackToSalesInputWindowCommand}"
                 CommandParameter="{Binding ElementName=SalesDataConfirmWindow}"
-                Margin="5"/>
+                Margin="5" />
         <Button Content="Insert Sales Data"
-                Grid.Row="8"
+                Grid.Row="9"
                 Grid.Column="2"
                 Command="{Binding InsertSalesDataCommand}"
-                Margin="5"/>
+                Margin="5" />
 
     </Grid>
 

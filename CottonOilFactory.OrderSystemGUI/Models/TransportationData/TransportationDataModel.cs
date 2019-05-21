@@ -1,35 +1,33 @@
-﻿using System;
-
-namespace CottonOilFactory.OrderSystemGUI.Models
+﻿namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
 {
     /// <inheritdoc />
     public class TransportationDataModel : ModelBase
     {
         // This is the string portion of the U.I
-        private string seller;
-        private string truckingCompany;
-        private bool isIsBadQuality;
-        private bool isMediumQuality = true;
-        private bool isGoodQuality;
-        private string weight;
-        private string price;
-        private string numberOfBags;
-        private string freightCharges;
-        private string shipmentNumber;
-        private DateTime? dateOfArrival;
+        private string _seller;
+        private string _truckingCompany;
+        private bool _isIsBadQuality;
+        private bool _isMediumQuality = true;
+        private bool _isGoodQuality;
+        private string _weight;
+        private string _price;
+        private string _numberOfBags;
+        private string _freightCharges;
+        private string _shipmentNumber;
+        private string _dateOfArrival;
         // This is the status portion of the U.I
-        private string status;
-        private int count;
+        private string _status;
+        private int _count;
 
         /// <summary>
         /// Gets or sets the name of seller of the cotton seeds.
         /// </summary>
         public string Seller
         {
-            get => seller;
+            get => _seller;
             set
             {
-                seller = value;
+                _seller = value;
                 OnPropertyChanged(nameof(ButtonStatus));
             }
         }
@@ -39,10 +37,10 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public string TruckingCompany
         {
-            get => truckingCompany;
+            get => _truckingCompany;
             set
             {
-                truckingCompany = value;
+                _truckingCompany = value;
                 OnPropertyChanged(nameof(TruckingCompany));
                 OnPropertyChanged(nameof(ButtonStatus));
             }
@@ -55,11 +53,11 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         {
             get
             {
-                if (isIsBadQuality)
+                if (_isIsBadQuality)
                 {
                     return "Bad";
                 }
-                return isMediumQuality ? "Medium" : "Good";
+                return _isMediumQuality ? "Medium" : "Good";
             }
         }
 
@@ -68,10 +66,10 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public bool IsBadQuality
         {
-            get => isIsBadQuality;
+            get => _isIsBadQuality;
             set
             {
-                isIsBadQuality = value;
+                _isIsBadQuality = value;
                 OnPropertyChanged(nameof(ButtonStatus));
             }
         }
@@ -81,10 +79,10 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public bool IsMediumQuality
         {
-            get => isMediumQuality;
+            get => _isMediumQuality;
             set
             {
-                isMediumQuality = value;
+                _isMediumQuality = value;
                 OnPropertyChanged(nameof(ButtonStatus));
             }
         }
@@ -94,10 +92,10 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public bool IsGoodQuality
         {
-            get => isGoodQuality;
+            get => _isGoodQuality;
             set
             {
-                isGoodQuality = value;
+                _isGoodQuality = value;
                 OnPropertyChanged(nameof(ButtonStatus));
             }
         }
@@ -107,19 +105,19 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public string Weight
         {
-            get => weight;
+            get => _weight;
             set
             {
                 if (decimal.TryParse(value, result: out decimal kg) && kg > 0.0M)
                 {
                     StatusEvent(true);
-                    weight = value;
+                    _weight = value;
                     OnPropertyChanged(nameof(Weight));
                 }// end else if
                 else
                 {
                     StatusEvent(false);
-                    weight = null;
+                    _weight = null;
                 }
 
                 OnPropertyChanged(nameof(ButtonStatus));
@@ -131,20 +129,21 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public string NumberOfBags
         {
-            get => numberOfBags;
+            get => _numberOfBags;
             set
             {
                 if (int.TryParse(value, out int num) && num > 0)
                 {
                     StatusEvent(true);
-                    numberOfBags = value;
+                    _numberOfBags = value;
                     OnPropertyChanged(nameof(NumberOfBags));
                 }// end else if
                 else
                 {
                     StatusEvent(false);
-                    numberOfBags = null;
+                    _numberOfBags = null;
                 }
+
                 OnPropertyChanged(nameof(ButtonStatus));
             }
         }
@@ -154,19 +153,19 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public string ShipmentNumber
         {
-            get => shipmentNumber;
+            get => _shipmentNumber;
             set
             {
                 if (int.TryParse(value, out int shipNum) && shipNum > 0)
                 {
                     StatusEvent(true);
-                    shipmentNumber = value;
+                    _shipmentNumber = value;
                     OnPropertyChanged(nameof(ShipmentNumber));
                 }// end else if
                 else
                 {
                     StatusEvent(false);
-                    shipmentNumber = null;
+                    _shipmentNumber = null;
                 }// end else
 
                 OnPropertyChanged(nameof(ButtonStatus));
@@ -176,12 +175,17 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// <summary>
         /// Gets or sets the date of arrival of the truck.
         /// </summary>
-        public DateTime? DateOfArrival
+        public string DateOfArrival
         {
-            get => dateOfArrival;
+            get
+            {
+                var splitDate = _dateOfArrival?.Split();
+                return splitDate?[0];
+            }
+
             set
             {
-                dateOfArrival = value;
+                _dateOfArrival = value;
                 OnPropertyChanged(nameof(ButtonStatus));
             }
         }
@@ -193,12 +197,12 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public string Price
         {
-            get => price;
+            get => _price;
             set
             {
                 if (decimal.TryParse(value, out decimal cost) && cost >= 0)
                 {
-                    price = value;
+                    _price = value;
                     StatusEvent(true);
                     OnPropertyChanged(nameof(Result));
                     OnPropertyChanged(nameof(ButtonStatus));
@@ -206,7 +210,7 @@ namespace CottonOilFactory.OrderSystemGUI.Models
                 else
                 {
                     StatusEvent(false);
-                    price = null;
+                    _price = null;
                 }// end else
 
                 OnPropertyChanged(nameof(ButtonStatus));
@@ -218,12 +222,12 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         /// </summary>
         public string FreightCharges
         {
-            get => freightCharges;
+            get => _freightCharges;
             set
             {
                 if (decimal.TryParse(value, out decimal cost) && cost >= 0)
                 {
-                    freightCharges = value;
+                    _freightCharges = value;
                     StatusEvent(true);
                     OnPropertyChanged(nameof(FreightCharges));
                     OnPropertyChanged(nameof(Result));
@@ -231,7 +235,7 @@ namespace CottonOilFactory.OrderSystemGUI.Models
                 else
                 {
                     StatusEvent(false);
-                    freightCharges = null;
+                    _freightCharges = null;
                 }// end else
 
                 OnPropertyChanged(nameof(ButtonStatus));
@@ -261,23 +265,23 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         {
             get
             {
-                status = count == 0 ? string.Empty : "Invalid input";
+                _status = _count == 0 ? string.Empty : "Invalid input";
 
-                return status;
+                return _status;
             }
         }
 
         /// <summary>
         /// Gets a value indicating whether the confirm button is enabled.
         /// </summary>
-        public bool ButtonStatus => !string.IsNullOrWhiteSpace(seller)
-                                    && !string.IsNullOrWhiteSpace(truckingCompany)
-                                    && !string.IsNullOrWhiteSpace(weight)
-                                    && !string.IsNullOrWhiteSpace(price)
-                                    && !string.IsNullOrWhiteSpace(numberOfBags)
-                                    && !string.IsNullOrWhiteSpace(shipmentNumber)
-                                    && !string.IsNullOrWhiteSpace(freightCharges)
-                                    && dateOfArrival.HasValue;
+        public bool ButtonStatus => !string.IsNullOrWhiteSpace(_seller)
+                                    && !string.IsNullOrWhiteSpace(_truckingCompany)
+                                    && !string.IsNullOrWhiteSpace(_weight)
+                                    && !string.IsNullOrWhiteSpace(_price)
+                                    && !string.IsNullOrWhiteSpace(_numberOfBags)
+                                    && !string.IsNullOrWhiteSpace(_shipmentNumber)
+                                    && !string.IsNullOrWhiteSpace(_freightCharges)
+                                    && !string.IsNullOrWhiteSpace(_dateOfArrival);
 
         /// <summary>
         /// Method to deal with status text.
@@ -287,17 +291,16 @@ namespace CottonOilFactory.OrderSystemGUI.Models
         {
             if (check)
             {
-                count = 0;
+                _count = 0;
                 OnPropertyChanged(nameof(Status));
             }// end if
             else
             {
-                count = 1;
+                _count = 1;
                 OnPropertyChanged(nameof(Status));
             }// end else
 
             OnPropertyChanged(nameof(ButtonStatus));
-        }
-
+        }// end property
     }// end class
 }// end namespace
