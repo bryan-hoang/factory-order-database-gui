@@ -124,7 +124,7 @@ namespace CottonOilFactory.OrderSystemGUI.Properties
     public sealed class StringFormatMethodAttribute : Attribute
     {
         /// <param name="formatParameterName">
-        /// Specifies which parameter of an annotated method should be treated as the format string
+        /// Specifies which parameter of an annotated method should be treated as the format string.
         /// </param>
         public StringFormatMethodAttribute([NotNull] string formatParameterName)
         {
