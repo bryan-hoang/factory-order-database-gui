@@ -1,0 +1,109 @@
+﻿<Window x:Class="CottonOilFactory.OrderSystemGUI.Views.SalesData.SalesDataSearchView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="SalesDataSearchView"
+        Height="450"
+        Width="800"
+        ResizeMode="NoResize"
+        Name="SalesDataSearchWindow"
+        WindowStartupLocation="CenterScreen"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="6*" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Content="Buyer's Name:"
+               Grid.Row="0"
+               Grid.Column="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center" />
+        <!--TODO: Add DataBinding-->
+        <TextBox Text="{Binding BuyerName, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="0"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Width="200" />
+        <Label Content="Date of Sale:"
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center" />
+        <DatePicker SelectedDate="{Binding DateOfSale, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" />
+        <Label Content="Data Table"
+               Grid.Row="2"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Bottom" />
+        <DataGrid Name="DataGrid"
+                  ItemsSource="{Binding SalesDatumsToDisplay}"
+                  Grid.Row="3"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedSalesDatum, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Buyer Name"
+                                    Binding="{Binding Name_of_Buyer}" />
+                <DataGridTextColumn Header="Weight per bag"
+                                    Binding="{Binding Weight_per_Bag}" />
+                <DataGridTextColumn Header="Price per bag"
+                                    Binding="{Binding Price_per_Bag}" />
+                <DataGridTextColumn Header="Number of Bags"
+                                    Binding="{Binding Number_of_Bags}" />
+                <DataGridTextColumn Header="Total Cost"
+                                    Binding="{Binding Total_Cost}" />
+                <DataGridTextColumn Header="Payment Method"
+                                    Binding="{Binding Payment_Method}" />
+                <DataGridTextColumn Header="Date of Sale"
+                                    Binding="{Binding Date_of_Sale}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Select a year to display its total cost data:"
+               Grid.Row="4"
+               Grid.Column="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center" />
+        <TextBox Text="{Binding YearOfDataToDisplay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Width="100" />
+        <Button Content="Display the year's data"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Command="{Binding DisplayTheSelectedYearsDataCommand}"
+                Width="150" />
+        <Button Content="Go Back"
+                Grid.Row="6"
+                Grid.Column="0"
+                Command="{Binding GoBackToMainWindowCommand}"
+                CommandParameter="{Binding ElementName=SalesDataSearchWindow}"
+                Width="150" />
+        <Button Content="Delete Selected Row"
+                Grid.Row="6"
+                Grid.Column="1"
+                Command="{Binding DeleteSelectedRowCommand}"
+                Width="150" />
+    </Grid>
+</Window>
