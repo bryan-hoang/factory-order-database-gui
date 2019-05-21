@@ -14,7 +14,7 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
         /// <summary>
         /// Initializes a new instance of the <see cref="TransportationDataConfirmView"/> class.
         /// </summary>
-        /// <param name="transportationDataModelModel">Class for passing the data from the input window to this window</param>
+        /// <param name="transportationDataModelModel">Class for passing the data from the input window to this window.</param>
         public TransportationDataConfirmView(TransportationDataModel transportationDataModelModel)
         {
             InitializeComponent();

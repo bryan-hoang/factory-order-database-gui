@@ -126,6 +126,5 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
             linqToSqlConnection.DataClassesDataContext.SubmitChanges();
             OnPropertyChanged(nameof(SalesDatumsToDisplay));
         }
-
     }
 }

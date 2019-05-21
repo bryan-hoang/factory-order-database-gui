@@ -11,7 +11,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
         public SalesDataInputViewModel(AbstractWindowFactory mainWindowFactory, AbstractWindowFactory saleDataConfirmWindowFactory) 
             : base(mainWindowFactory)
         {
-            this._saleDataConfirmWindowFactory = saleDataConfirmWindowFactory;
+            _saleDataConfirmWindowFactory = saleDataConfirmWindowFactory;
             SalesDataModel = new SalesDataModel();
             ConfirmSalesDataCommand = new RelayCommand(ConfirmSalesData, canExecute: () => SalesDataModel.IsValidData);
         }

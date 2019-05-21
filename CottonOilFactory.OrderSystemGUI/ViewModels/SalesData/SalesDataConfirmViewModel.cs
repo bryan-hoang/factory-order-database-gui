@@ -12,7 +12,7 @@ namespace CottonOilFactory.OrderSystemGUI.ViewModels.SalesData
     {
         public SalesDataConfirmViewModel(SalesDataModel salesDataModel)
         {
-            this.SalesDataModel = salesDataModel;
+            SalesDataModel = salesDataModel;
             GoBackToSalesInputWindowCommand = new RelayCommand<IClosableWindow>(GoBackToSalesInputWindow);
             InsertSalesDataCommand = new RelayCommand(InsertSalesData);
         }

@@ -40,7 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CottonOilFactory.OrderSystemGUI.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -51,10 +51,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>CottonOilFactory.OrderGUI.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>CottonOilFactory.OrderSystemGUI.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>CottonOilFactory.OrderSystemGUI.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -177,7 +177,7 @@
     <None Include="Database\CottonFactoryOrderInformationDataSet.xss">
       <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
     </None>
-    <None Include="CottonOilFactory.OrderGUI.ruleset" />
+    <None Include="CottonOilFactory.OrderSystemGUI.ruleset" />
     <None Include="Database\DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
