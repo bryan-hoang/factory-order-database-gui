@@ -343,8 +343,10 @@ healthchecksdb
 *.DotSettings
 
 # StyleCop.Analyzers
-packages.config
 stylecop.json
 
 # Rulesets
 *.ruleset
+
+# Supression
+GlobalSuppressions.cs
