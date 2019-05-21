@@ -342,9 +342,6 @@ healthchecksdb
 # ReSharper
 *.DotSettings
 
-# StyleCop.Analyzers
-stylecop.json
-
 # Rulesets
 *.ruleset
 
