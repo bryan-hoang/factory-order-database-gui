@@ -8,7 +8,9 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
     /// <inheritdoc cref="Window" />
     public partial class TransportationDataSearchView : Window
     {
+
         // declare private field to pass data to SQL
+        private readonly TransportationSearchModel transportationSearchModel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransportationDataSearchView"/> class.
@@ -17,8 +19,8 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
         public TransportationDataSearchView()
         {
             InitializeComponent();
-            var transportationSearchModel = new TransportationSearchModel();
-            DataContext = transportationSearchModel;
+            this.transportationSearchModel = new TransportationSearchModel();
+            this.DataContext = transportationSearchModel;
         }
 
         /// <summary>
@@ -49,10 +51,11 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
             decimal freightChargesTotal = 0;
             decimal costsTotal = 0;
 
+
             foreach (var transportationDatum in transportationDatumTable)
             {
-                var compare = transportationDatum.Date_of_Arrival.Split('/');
-                if (YearSelect.Text.Equals(compare[2]))
+                var compare = transportationDatum.Date_of_Arrival.Split('-');
+                if (YearSelect.Text.Equals(compare[0]))
                 {
                     weightTotal += decimal.Parse(transportationDatum.Weight);
                     priceTotal += decimal.Parse(transportationDatum.Price);
@@ -61,10 +64,23 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
                     costsTotal += decimal.Parse(transportationDatum.Total_Cost);
                 }// end if
             }// end loop
-            MessageBox.Show(
-                "Yearly Cost Summary" + "\n" + "Total weight: " + weightTotal + "\n" + "Total price: " + priceTotal +
-                "\n" + "Total Number of Bags: " + numberOfBagsTotal + "\n" + "Total Freight Charges: " + freightChargesTotal +
-                "\n" + "Total Costs: " + costsTotal);
+            if (string.IsNullOrWhiteSpace(YearSelect.Text.ToString()))
+            {
+                MessageBox.Show("No year has been selected to view!");
+                return;
+            }
+            if (costsTotal == 0)
+            {
+                MessageBox.Show("No data of the selected year of " + YearSelect.Text + " was found");
+                return;
+            }
+            else
+            {
+                MessageBox.Show(
+                  "Summary of " + YearSelect.Text.ToString() + " Transportation Data:" + "\n" + "Total weight: " + weightTotal + "\n" + "Total price: " + priceTotal +
+                  "\n" + "Total Number of Bags: " + numberOfBagsTotal + "\n" + "Total Freight Charges: " + freightChargesTotal +
+                  "\n" + "Total Costs: " + costsTotal);
+            }
         }// end method
 
         /// <summary>
@@ -74,20 +90,16 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
         /// <param name="e">Event handler.</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var transportationSearchModel = new TransportationSearchModel();
-            var transportationDataSearchView = new TransportationDataSearchView();
 
-            try
+            if (DataTable.SelectedItem != null && DataTable.SelectedItem.GetType() == typeof(TransportationDatum))
             {
-                var transportationDatumToDelete = (TransportationDatum)DataTable.SelectedItem;
+                TransportationDatum transportationDatumToDelete = (TransportationDatum)DataTable.SelectedItem;
                 transportationSearchModel.DeleteRow(transportationDatumToDelete);
-                Close();
-                transportationDataSearchView.Show();
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Do not delete this empty row");
-            }// end try-catch
+                MessageBox.Show("No row to delete has been selected!");
+            }
         }// end method
     }// end class
 }// end namespace

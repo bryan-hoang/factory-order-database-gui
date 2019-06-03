@@ -9,7 +9,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
         public LinqToSqlConnection()
         {
             string connectionString = ConfigurationManager
-                .ConnectionStrings["CottonOilFactory.OrderGUI.Properties.Settings.CottonFactoryOrderInformationConnectionString"]
+                .ConnectionStrings["CottonOilFactory.OrderSystemGUI.Properties.Settings.CottonFactoryOrderInformationConnectionString1"]
                 .ConnectionString;
             DataClassesDataContext = new DataClassesDataContext(connectionString);
             TransportationDatumTable = DataClassesDataContext.TransportationDatums;

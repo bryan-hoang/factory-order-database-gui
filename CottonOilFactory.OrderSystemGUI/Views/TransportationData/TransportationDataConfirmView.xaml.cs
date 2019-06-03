@@ -57,7 +57,7 @@ namespace CottonOilFactory.OrderSystemGUI.Views.TransportationData
 
                 dataClassesDataContext.SubmitChanges();
 
-                MessageBox.Show("Data has been successfully inserted");
+                MessageBox.Show("The transportation data has been successfully inserted!");
             }
             catch (Exception exception)
             {
