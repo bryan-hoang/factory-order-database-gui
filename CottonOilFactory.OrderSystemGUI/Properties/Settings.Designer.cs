@@ -12,7 +12,7 @@ namespace CottonOilFactory.OrderSystemGUI.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -31,6 +31,28 @@ namespace CottonOilFactory.OrderSystemGUI.Properties {
         public string CottonFactoryOrderInformationConnectionString {
             get {
                 return ((string)(this["CottonFactoryOrderInformationConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AMESHPC\\AMESHK_SERVER;Initial Catalog=model;Persist Security Info=Tru" +
+            "e;User ID=sa;Password=Kahloon54--")]
+        public string CottonFactoryOrderInformationConnectionString1 {
+            get {
+                return ((string)(this["CottonFactoryOrderInformationConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=AMESHPC\\AMESHK_SERVER;Initial Catalog=model;User ID=sa;Password=Kahlo" +
+            "on54--")]
+        public string modelConnectionString {
+            get {
+                return ((string)(this["modelConnectionString"]));
             }
         }
     }

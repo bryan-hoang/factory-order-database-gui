@@ -15,9 +15,6 @@
         private string _freightCharges;
         private string _shipmentNumber;
         private string _dateOfArrival;
-        // This is the status portion of the U.I
-        private string _status;
-        private int _count;
 
         /// <summary>
         /// Gets or sets the name of seller of the cotton seeds.
@@ -110,13 +107,11 @@
             {
                 if (decimal.TryParse(value, result: out decimal kg) && kg > 0.0M)
                 {
-                    StatusEvent(true);
                     _weight = value;
                     OnPropertyChanged(nameof(Weight));
                 }// end else if
                 else
                 {
-                    StatusEvent(false);
                     _weight = null;
                 }
 
@@ -134,13 +129,11 @@
             {
                 if (int.TryParse(value, out int num) && num > 0)
                 {
-                    StatusEvent(true);
                     _numberOfBags = value;
                     OnPropertyChanged(nameof(NumberOfBags));
                 }// end else if
                 else
                 {
-                    StatusEvent(false);
                     _numberOfBags = null;
                 }
 
@@ -158,13 +151,11 @@
             {
                 if (int.TryParse(value, out int shipNum) && shipNum > 0)
                 {
-                    StatusEvent(true);
                     _shipmentNumber = value;
-                    OnPropertyChanged(nameof(ShipmentNumber));
+                    OnPropertyChanged(nameof(this.ShipmentNumber));
                 }// end else if
                 else
                 {
-                    StatusEvent(false);
                     _shipmentNumber = null;
                 }// end else
 
@@ -179,8 +170,22 @@
         {
             get
             {
-                var splitDate = _dateOfArrival?.Split();
-                return splitDate?[0];
+                if (this._dateOfArrival == null)
+                {
+                    return null;
+                } // end if
+                // year - month - date
+                string[] splitDate = this._dateOfArrival.Split();
+                string[] anotherSplitDate = splitDate[0].Split('/');
+                if (anotherSplitDate[0].Length < 2)
+                {
+                    anotherSplitDate[0] = "0" + anotherSplitDate[0];
+                }// end if
+                if (anotherSplitDate[1].Length < 2)
+                {
+                    anotherSplitDate[1] = "0" + anotherSplitDate[1];
+                }// end if
+                return anotherSplitDate[2] + "-" + anotherSplitDate[0] + "-" + anotherSplitDate[1];
             }
 
             set
@@ -203,13 +208,11 @@
                 if (decimal.TryParse(value, out decimal cost) && cost >= 0)
                 {
                     _price = value;
-                    StatusEvent(true);
                     OnPropertyChanged(nameof(Result));
                     OnPropertyChanged(nameof(ButtonStatus));
                 }// end else if
                 else
                 {
-                    StatusEvent(false);
                     _price = null;
                 }// end else
 
@@ -228,13 +231,11 @@
                 if (decimal.TryParse(value, out decimal cost) && cost >= 0)
                 {
                     _freightCharges = value;
-                    StatusEvent(true);
                     OnPropertyChanged(nameof(FreightCharges));
                     OnPropertyChanged(nameof(Result));
                 }// end else if
                 else
                 {
-                    StatusEvent(false);
                     _freightCharges = null;
                 }// end else
 
@@ -259,19 +260,6 @@
         }
 
         /// <summary>
-        /// Gets the text for the status bar in the U.I.
-        /// </summary>
-        public string Status
-        {
-            get
-            {
-                _status = _count == 0 ? string.Empty : "Invalid input";
-
-                return _status;
-            }
-        }
-
-        /// <summary>
         /// Gets a value indicating whether the confirm button is enabled.
         /// </summary>
         public bool ButtonStatus => !string.IsNullOrWhiteSpace(_seller)
@@ -282,25 +270,5 @@
                                     && !string.IsNullOrWhiteSpace(_shipmentNumber)
                                     && !string.IsNullOrWhiteSpace(_freightCharges)
                                     && !string.IsNullOrWhiteSpace(_dateOfArrival);
-
-        /// <summary>
-        /// Method to deal with status text.
-        /// </summary>
-        /// <param name="check">bool value to change count number. </param>
-        private void StatusEvent(bool check)
-        {
-            if (check)
-            {
-                _count = 0;
-                OnPropertyChanged(nameof(Status));
-            }// end if
-            else
-            {
-                _count = 1;
-                OnPropertyChanged(nameof(Status));
-            }// end else
-
-            OnPropertyChanged(nameof(ButtonStatus));
-        }// end property
     }// end class
 }// end namespace

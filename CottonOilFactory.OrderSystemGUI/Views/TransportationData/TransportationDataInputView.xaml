@@ -8,7 +8,9 @@
         Height="500"
         Width="800"
         WindowStartupLocation="CenterScreen"
-        Name="TransportationDataInput">
+        Name="TransportationDataInput"
+        ResizeMode="NoResize">
+    
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*" />
@@ -29,53 +31,53 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Content="Name of Seller"
+        <Label Content="Name of Seller:"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Name of Trucking Company"
+        <Label Content="Name of Trucking Company:"
                Grid.Column="0"
                Grid.Row="1"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Quality"
+        <Label Content="Quality:"
                Grid.Column="0"
                Grid.Row="2"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Weight (kg)"
+        <Label Content="Weight (kg):"
                Grid.Row="3"
                Grid.Column="0"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Number of Bags"
+        <Label Content="Number of Bags:"
                Grid.Column="0"
                Grid.Row="5"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Price (Rs)"
+        <Label Content="Price (Rs):"
                Grid.Column="0"
                Grid.Row="4"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Freight Charges"
+        <Label Content="Freight Charges (Rs):"
                Grid.Column="0"
                Grid.Row="6"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Shipment Number"
+        <Label Content="Shipment Number:"
                Grid.Column="0"
                Grid.Row="7"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Foreground="Blue" />
-        <Label Content="Date of Arrival"
+        <Label Content="Date of Arrival:"
                Grid.Column="0"
                Grid.Row="8"
                HorizontalAlignment="Center"
@@ -174,11 +176,7 @@
                 Grid.Row="11"
                 Grid.Column="0"
                 Click="GoToHomeWindow" />
-        <TextBlock Grid.Row="11"
-                   Grid.Column="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="{Binding Path=Status, Mode=OneWay}" />
+        
         <Button Content="Confirm Transportation Data"
                 Grid.Row="11"
                 Grid.Column="2"

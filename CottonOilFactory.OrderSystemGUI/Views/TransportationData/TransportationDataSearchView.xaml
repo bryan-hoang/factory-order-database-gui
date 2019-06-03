@@ -7,7 +7,8 @@
         Title="TransportationDataSearchView"
         Height="725"
         Width="935"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
 
     <Grid Margin="10">
 
@@ -28,11 +29,10 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Seller's Name"
+            <Label Content="Seller's Name:"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
-                   FontSize="16"
-                   Foreground="Blue" />
+                   FontSize="16" />
 
             <TextBox Grid.Column="1"
                      HorizontalAlignment="Left"
@@ -48,11 +48,10 @@
                 <ColumnDefinition Width="75*" />
             </Grid.ColumnDefinitions>
 
-            <Label Content="Truck Company Name"
+            <Label Content="Truck Company Name:"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
                    FontSize="16"
-                   Foreground="Blue"
                    Margin="0,10" />
 
             <TextBox Grid.Column="1"
@@ -71,11 +70,10 @@
                 <ColumnDefinition Width="26*" />
             </Grid.ColumnDefinitions>
 
-            <Label Content="Date of Arrival"
+            <Label Content="Date of Arrival:"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
                    FontSize="16"
-                   Foreground="Blue"
                    Margin="0,10" />
 
             <DatePicker Grid.Column="1"
@@ -91,8 +89,7 @@
                Grid.Row="3"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
-               FontSize="16"
-               Foreground="Blue" />
+               FontSize="16" />
 
         <DataGrid Grid.Row="4"
                   Name="DataTable"
@@ -129,11 +126,10 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Selecte year to review net costs"
+            <Label Content="Select a year to display its total cost data:"
                    Grid.Row="5"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Right"
-                   Foreground="Blue" />
+                   HorizontalAlignment="Right" />
 
             <TextBox Name="YearSelect"
                      Grid.Column="1"
@@ -143,34 +139,36 @@
                      Text="{Binding Path=NetCosts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
 
-        <Button Content="Display Data"
+        <Button Content="Display the year's data"
                 Grid.Row="6"
+                Width="150"
+                Height="30"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Click="SummationYearlyData"
-                IsEnabled="{Binding Path=ButtonStatus, Mode=OneWay}" />
+                Click="SummationYearlyData"/>
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="303*"></ColumnDefinition>
+                <ColumnDefinition Width="218*"></ColumnDefinition>
+                <ColumnDefinition Width="85*"/>
+                <ColumnDefinition Width="303*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Button Content="Go Back"
-                Grid.Row="7"
-                VerticalAlignment="Bottom"
+            <Button Content="Delete"
+                Grid.Column="3"    
+                VerticalAlignment="Center"
                 HorizontalAlignment="Left"
                 Width="100"
                 Height="30"
-                Click="GoBackHome" />
+                IsEnabled="{Binding Path=DeleteStatus, Mode=OneWay}"
+                Click="Button_Click" Margin="0,11,0,11.5" />
 
-        <TextBlock Grid.Row="8"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Text="{Binding Path=TextStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
-
-        <Button Content="Delete"
-                Grid.Row="9"
-                VerticalAlignment="Center"
+            <Button Content="Go Back"
+                VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
                 Width="100"
                 Height="30"
-                IsEnabled="{Binding Path=DeleteStatus, Mode=OneWay}"
-                Click="Button_Click" />
-
+                Click="GoBackHome" Margin="0,0,0,0.5" />
+        </Grid>
     </Grid>
 </Window>

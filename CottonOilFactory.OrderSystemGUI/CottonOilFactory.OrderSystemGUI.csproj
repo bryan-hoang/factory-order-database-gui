@@ -93,6 +93,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="modelDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>modelDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\TransportationData\TransportationSearchModel.cs" />
     <Compile Include="ViewModels\AbstractBackToMainWindowViewModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
@@ -185,6 +190,17 @@
     </None>
     <None Include="Database\DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
+    <None Include="modelDataSet.xsc">
+      <DependentUpon>modelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="modelDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>modelDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="modelDataSet.xss">
+      <DependentUpon>modelDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

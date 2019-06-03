@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CottonFactoryOrderInformation" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=BRYAN-SP4\MSSQLSERVERMIXED;Initial Catalog=CottonFactoryOrderInformation;Persist Security Info=True;User ID=sa" SettingsObjectName="CottonOilFactory.OrderSystemGUI.Properties.Settings" SettingsPropertyName="CottonFactoryOrderInformationConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="model" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=AMESHPC\AMESHK_SERVER;Initial Catalog=model;User ID=sa" SettingsObjectName="CottonOilFactory.OrderSystemGUI.Properties.Settings" SettingsPropertyName="modelConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.TransportationDatum" Member="TransportationDatums">
     <Type Name="TransportationDatum">
-      <Column Name="TransportationDatumID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="[Name of Seller]" Member="Name_of_Seller" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="[Truck Company]" Member="Truck_Company" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Quality" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />

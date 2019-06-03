@@ -28,10 +28,6 @@ namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
 
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    DeleteStatus = false;
-                }// end if
                 _truckCompanyName = value;
                 OnPropertyChanged(nameof(DataTable));
             }
@@ -50,10 +46,6 @@ namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
 
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    DeleteStatus = false;
-                }// end if
                 _sellerName = value;
                 OnPropertyChanged(nameof(SellerName));
                 OnPropertyChanged(nameof(DataTable));
@@ -67,16 +59,26 @@ namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
         {
             get
             {
-                var spiltDate = _dateOfArrival?.Split();
-                return spiltDate?[0];
+                if (this._dateOfArrival == null)
+                {
+                    return null;
+                } // end if
+                // year - month - date
+                string[] splitDate = this._dateOfArrival.Split();
+                string[] anotherSplitDate = splitDate[0].Split('/');
+                if (anotherSplitDate[0].Length < 2)
+                {
+                    anotherSplitDate[0] = "0" + anotherSplitDate[0];
+                }// end if
+                if (anotherSplitDate[1].Length < 2)
+                {
+                    anotherSplitDate[1] = "0" + anotherSplitDate[1];
+                }// end if
+                return anotherSplitDate[2] + "-" + anotherSplitDate[0] + "-" + anotherSplitDate[1];
             }
 
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    DeleteStatus = false;
-                }
 
                 _dateOfArrival = value;
                 OnPropertyChanged(nameof(DateofArrival));
@@ -85,37 +87,22 @@ namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
         }
 
         /// <summary>
-        /// Gets or Sets the year to display the net costs.
+        /// Gets or Sets the year to calculate the net costs.
         /// </summary>
         public string NetCosts
         {
             get => _netCosts;
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!int.TryParse(value, out int check))
                 {
-                    DeleteStatus = false;
-                }// end if
+                    _netCosts = null;
+                    OnPropertyChanged(nameof(NetCosts));
+                    return;
+                }
                 _netCosts = value;
                 OnPropertyChanged(nameof(NetCosts));
-                OnPropertyChanged(nameof(DeleteStatus));
-                OnPropertyChanged(nameof(ButtonStatus));
                 OnPropertyChanged(nameof(TextStatus));
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether the NetCost is an integer.
-        /// </summary>
-        public bool ButtonStatus
-        {
-            get
-            {
-                if (int.TryParse(_netCosts, out int a))
-                {
-                    return true;
-                }// end if
-                return false;
             }
         }
 
@@ -137,28 +124,6 @@ namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
                 return "Invalid Input";
             }
         }
-
-        /// <summary>
-        /// Sets a value indicating whether a row has been selected.
-        /// </summary>
-        public object TableStatus
-        {
-            set
-            {
-                if (value == null)
-                {
-                    OnPropertyChanged(nameof(DeleteStatus));
-                    return;
-                }// end if
-                DeleteStatus = true;
-                OnPropertyChanged(nameof(DeleteStatus));
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether the button should be enabled.
-        /// </summary>
-        public bool DeleteStatus { get; private set; }
 
         /// <summary>
         /// Gets the data from the database into a list being data binded to the data grid also manipluating searches.
@@ -193,6 +158,7 @@ namespace CottonOilFactory.OrderSystemGUI.Models.TransportationData
                 dataClassesDataContext.TransportationDatums.DeleteOnSubmit(transportationDatumToDelete);
                 dataClassesDataContext.SubmitChanges();
             }// end if
+            OnPropertyChanged("DataTable");
         }// end method
     }// end class
 }// end namespace
