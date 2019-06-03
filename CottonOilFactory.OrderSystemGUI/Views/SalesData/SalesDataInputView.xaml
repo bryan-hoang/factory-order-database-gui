@@ -1,0 +1,178 @@
+﻿<Window x:Class="CottonOilFactory.OrderSystemGUI.Views.SalesData.SalesDataInputView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converters="clr-namespace:CottonOilFactory.OrderSystemGUI.Converters"
+        xmlns:salesData="clr-namespace:CottonOilFactory.OrderSystemGUI.Models.SalesData"
+        mc:Ignorable="d"
+        x:Name="SalesDataInputWindow"
+        Title="Sales Data Input"
+        WindowStartupLocation="CenterScreen"
+        Height="450"
+        Width="800"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="9*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Content="Name of product:"
+               Grid.Row="0"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Name of buyer:"
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Weight per bag (kg):"
+               Grid.Row="2"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Price per bag (Rs):"
+               Grid.Row="3"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Number of bags:"
+               Grid.Row="4"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Total Cost (Rs):"
+               Grid.Row="5"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Payment method:"
+               Grid.Row="6"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+        <Label Content="Date of Sale:"
+               Grid.Row="7"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="Blue" />
+
+        <Label Content="{Binding SalesDataModel.ProductName, Mode=OneTime}"
+               Grid.Row="0"
+               Grid.Column="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" />
+        <TextBox Text="{Binding SalesDataModel.BuyerName, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="300" />
+        <Grid Grid.Row="2"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <RadioButton Content="40"
+                         Grid.Column="0"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Margin="0,0,20,0"
+                         IsChecked="{Binding Path=SalesDataModel.WeightPerBag, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static salesData:BagWeight.Forty}}" />
+            <RadioButton Content="57"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="20,0,0,0"
+                         IsChecked="{Binding Path=SalesDataModel.WeightPerBag, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static salesData:BagWeight.FiftySeven}}" />
+        </Grid>
+        <TextBox Text="{Binding SalesDataModel.PricePerBag, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="300" />
+        <TextBox Text="{Binding SalesDataModel.NumberOfBags, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Width="300" />
+        <Label Content="{Binding SalesDataModel.TotalCost, Mode=OneWay}"
+               Grid.Row="5"
+               Grid.Column="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" />
+        <Grid Grid.Row="6"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <RadioButton Content="Cash"
+                         Grid.Column="0"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Center"
+                         Margin="0,0,20,0"
+                         IsChecked="{Binding Path=SalesDataModel.PaymentMethod, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static salesData:MethodOfPayment.Cash}}" />
+            <RadioButton Content="Debit"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="20,0,0,0"
+                         IsChecked="{Binding Path=SalesDataModel.PaymentMethod, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static salesData:MethodOfPayment.Debit}}"/>
+        </Grid>
+        <DatePicker SelectedDate="{Binding SalesDataModel.DateOfSale, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+
+        <Image Source="/Images/Step-1.png"
+               Grid.Row="8"
+               Grid.Column="1"
+               Margin="5"/>
+
+        <Button Content="Go back"
+                Grid.Row="9"
+                Grid.Column="0"
+                Command="{Binding GoBackToMainWindowCommand}"
+                CommandParameter="{Binding ElementName=SalesDataInputWindow}"
+                Margin="5" />
+        <Button Content="Confirm Sales Data"
+                Grid.Row="9"
+                Grid.Column="2"
+                Command="{Binding ConfirmSalesDataCommand}"
+                Margin="5" />
+    </Grid>
+
+</Window>

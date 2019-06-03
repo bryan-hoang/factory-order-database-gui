@@ -1,0 +1,174 @@
+﻿<Window x:Class="CottonOilFactory.OrderSystemGUI.Views.TransportationData.TransportationDataSearchView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="TransportationDataSearchView"
+        Height="725"
+        Width="935"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Seller's Name:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="16" />
+
+            <TextBox Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="250"
+                     Text="{Binding Path = SellerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="91*"></ColumnDefinition>
+                <ColumnDefinition Width="16*"></ColumnDefinition>
+                <ColumnDefinition Width="75*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Truck Company Name:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="16"
+                   Margin="0,10" />
+
+            <TextBox Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="250"
+                     Text="{Binding Path = TruckCompanyName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Grid.ColumnSpan="2"
+                     Margin="0,17" />
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35*"></ColumnDefinition>
+                <ColumnDefinition Width="9*"></ColumnDefinition>
+                <ColumnDefinition Width="26*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Date of Arrival:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="16"
+                   Margin="0,10" />
+
+            <DatePicker Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Width="150"
+                        SelectedDate="{Binding Path=DateofArrival, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                        Grid.ColumnSpan="2"
+                        Margin="0,14" />
+        </Grid>
+
+        <Label Content="Date Table"
+               Grid.Row="3"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="16" />
+
+        <DataGrid Grid.Row="4"
+                  Name="DataTable"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding Path=TableStatus, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding Path=DataTable, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Seller Name"
+                                    Binding="{Binding Name_of_Seller, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Truck Company"
+                                    Binding="{Binding Truck_Company, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Quality"
+                                    Binding="{Binding Quality, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Weight"
+                                    Binding="{Binding Weight, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Price"
+                                    Binding="{Binding Price, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Number of Bags"
+                                    Binding="{Binding Number_of_Bags, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Freight Charges"
+                                    Binding="{Binding Freight_Charges, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Shipment Number"
+                                    Binding="{Binding Shipment_Number, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date of Arrival"
+                                    Binding="{Binding Date_of_Arrival, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Total Cost"
+                                    Binding="{Binding Total_Cost, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Select a year to display its total cost data:"
+                   Grid.Row="5"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right" />
+
+            <TextBox Name="YearSelect"
+                     Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="150"
+                     Text="{Binding Path=NetCosts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+
+        <Button Content="Display the year's data"
+                Grid.Row="6"
+                Width="150"
+                Height="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="SummationYearlyData"/>
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="303*"></ColumnDefinition>
+                <ColumnDefinition Width="218*"></ColumnDefinition>
+                <ColumnDefinition Width="85*"/>
+                <ColumnDefinition Width="303*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Delete"
+                Grid.Column="3"    
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Width="100"
+                Height="30"
+                IsEnabled="{Binding Path=DeleteStatus, Mode=OneWay}"
+                Click="Button_Click" Margin="0,11,0,11.5" />
+
+            <Button Content="Go Back"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Width="100"
+                Height="30"
+                Click="GoBackHome" Margin="0,0,0,0.5" />
+        </Grid>
+    </Grid>
+</Window>
