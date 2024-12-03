@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data.Linq;
 
@@ -9,7 +9,7 @@ namespace CottonOilFactory.OrderSystemGUI.Database
         public LinqToSqlConnection()
         {
             string connectionString = ConfigurationManager
-                .ConnectionStrings["CottonOilFactory.OrderSystemGUI.Properties.Settings.CottonFactoryOrderInformationConnectionString1"]
+                .ConnectionStrings["CottonOilFactory.OrderSystemGUI.Properties.Settings.testConnectionString"]
                 .ConnectionString;
             DataClassesDataContext = new DataClassesDataContext(connectionString);
             TransportationDatumTable = DataClassesDataContext.TransportationDatums;

@@ -15,17 +15,37 @@ maintain our commit history.
 
 ## Table of Contents
 
+<!--toc:start-->
+
 - [Install](#install)
 - [Usage](#usage)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
 
+<!--toc:end-->
+
 ## Install
 
-1. Clone the project
+Prerequisites:
+
+- [Visual Studio](https://visualstudio.microsoft.com/)
+- [SQL Server](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-from-the-installation-wizard-setup?view=sql-server-ver16)
+- [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+
+1. Clone the project.
 1. Open the project in [Visual Studio](https://visualstudio.microsoft.com/)
-1. Start the project
+1. Use the two `.sql` files under the `db/` folder to make two tables in your
+   data base server. i.e., SSMS connected to a SQL Server.
+1. Add the data connection of the database containing the two tables and
+   then add the two tables as a data source in the solution. Note the connection
+   string.
+1. Go to the `Database/` folder of the projects solution and open the
+   `LinqToSqlConnection.cs` file insert the correct connection string after the
+   `.Settings.` in the `connectionString` variable.
+1. Insert all the nuget packages present in the package.config file to the
+   project solution.
+1. Start the project.
 
 ## Usage
 
@@ -42,21 +62,6 @@ maintain our commit history.
 ![Sales Data Search](https://user-images.githubusercontent.com/44043757/81601408-d10fb100-9398-11ea-84ed-12e5d4b95e22.png)
 
 </details>
-
-## Database
-
-In order to use the data base:
-
-1. Use the two text files in the `main` branch to make two tables in your data
-   base server (MSSM would be the best option).
-1. Then add your data connection of the data base containing the two tables and
-   then add the two tables as a data source in the solution keep track on the
-   connection string.
-1. Go to the `database` folder of the projects solution and open the
-   `LinqToSqlConnection.cs` file insert the correct connection string after the
-   `.Settings.` in the `connectionString` variable.
-1. Insert all the nuget packages present in the package.config file to the
-   project solution.
 
 ## Maintainers
 

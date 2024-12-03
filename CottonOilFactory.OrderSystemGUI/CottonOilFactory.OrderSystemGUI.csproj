@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -93,21 +93,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="modelDataSet.Designer.cs">
+    <Compile Include="Models\TransportationData\TransportationSearchModel.cs" />
+    <Compile Include="testDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>modelDataSet.xsd</DependentUpon>
+      <DependentUpon>testDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Models\TransportationData\TransportationSearchModel.cs" />
     <Compile Include="ViewModels\AbstractBackToMainWindowViewModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
-    <Compile Include="Database\CottonFactoryOrderInformationDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Database\DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,17 +166,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Database\CottonFactoryOrderInformationDataSet.xsc">
-      <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Database\CottonFactoryOrderInformationDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CottonFactoryOrderInformationDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Database\CottonFactoryOrderInformationDataSet.xss">
-      <DependentUpon>CottonFactoryOrderInformationDataSet.xsd</DependentUpon>
-    </None>
     <None Include="CottonOilFactory.OrderSystemGUI.ruleset" />
     <None Include="Database\DataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -191,23 +175,23 @@
     <None Include="Database\DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
-    <None Include="modelDataSet.xsc">
-      <DependentUpon>modelDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="modelDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>modelDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="modelDataSet.xss">
-      <DependentUpon>modelDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AdditionalFiles Include="stylecop.json" />
+    <None Include="testDataSet.xsc">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testDataSet.xss">
+      <DependentUpon>testDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -262,7 +246,6 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Step-1.png" />
     <Resource Include="Images\Step-2.png" />
