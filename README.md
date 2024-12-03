@@ -33,6 +33,8 @@ Prerequisites:
 - [SQL Server](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-from-the-installation-wizard-setup?view=sql-server-ver16)
 - [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 
+Steps:
+
 1. Clone the project.
 1. Open the project in [Visual Studio](https://visualstudio.microsoft.com/)
 1. Use the two `.sql` files under the `db/` folder to make two tables in your
